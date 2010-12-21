@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="base" extends="struts-default">
+            
+        <action name="indexAction" class="com.base.core.action.TestAction">
+            <result name="success">/index.jsp</result>
+        </action>
+        
+        <action name="shouLuAction" class="com.base.core.action.shoulu.ShouLuResultAction">
+            <result name="success">/shouLu.jsp</result>
+        </action>
+        
+        <action name="googleShoulu" class="com.base.core.action.shoulu.GoogleShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="baiduShoulu" class="com.base.core.action.shoulu.BaiduShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="yahooShoulu" class="com.base.core.action.shoulu.YahooShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="sosoShoulu" class="com.base.core.action.shoulu.SosoShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="sogouShoulu" class="com.base.core.action.shoulu.SogouShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="youdaoShoulu" class="com.base.core.action.shoulu.YoudaoShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="bingShoulu" class="com.base.core.action.shoulu.BingShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+    </package>
+    
+</struts>

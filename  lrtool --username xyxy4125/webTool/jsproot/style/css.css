@@ -1,0 +1,110 @@
+@charset "gb2312";
+/* CSS Document */
+*{
+	padding:0px;
+	margin:0px;
+}
+html{
+	
+}
+body{
+background:url(/images/body_bg.png) repeat-x #FFF;font:12px Verdana,Arial,Tahoma;
+}
+	
+	
+
+img{
+	border:none;
+}
+a{
+	color:#333;
+	text-decoration:none;
+}
+a:hover{
+	color:#333;
+	text-decoration:underline;
+}
+ul{
+	list-style:none;
+}
+
+/*---------- w960 center cler ---------*/
+.w960{width:960px;overflow:hidden;}
+.center{margin:0px auto;}
+.clear{clear:both;}
+
+/*---------- top ---------*/
+.logo{position:absolute;background:url(/images/logo.jpg) no-repeat;width:336px; height:71px; text-indent:-9999px; font-size:0px;}
+.nav{float:right; margin-top:5px;}
+.nav a{margin-left:10px;}
+
+.menu{float:right; width:500px; clear:both; margin-top:25px;}
+.menu li{display:inline;float:left;width:100px;margin:0; FILTER: DropShadow(Color=#ffffff, OffX=1, OffY=1);text-align:right;}
+.menu li a{font-family:"ºÚÌå";}
+.menu li a{font-size:16px; color:#999;}
+.menu li a:hover{ color:#000;text-decoration:none;}
+.menu li.active a{ color:#000;}
+
+/*---------- content ---------*/
+.conent{ margin:30px 0px;}
+.left{float:left;}
+.right{float:right;}
+
+.w260{width:260px;overflow:hidden;}
+.w660{width:680px;overflow:hidden;}
+
+/*---------- footer  ---------*/
+
+.footer{border-top:#333 1px solid; margin-top:10px; color:#333; text-align:center;}
+.group{margin:5px auto;}
+.footer a{ color:#333;}
+
+.close{text-align:center;}
+/*---------- footer  ---------*/
+.totop{ border:1px #999 solid;}
+.totop dl.tbox dt{border-bottom:1px #999 solid; height:31px;background:url(/images/nav_bg.jpg) repeat-x left -30px ;line-height:31px; font-size:1.2em; color:#FFF; text-align:center;}
+.totop dl.tbox dt strong{background:url(/images/nav_bg.jpg) no-repeat left 1px; line-height:31px; font-size:1.0em;font-weight:300; color:#fff; float:left;
+padding-left:15px;}
+.totop dl.tbox dt p{float:right; margin:8px 10px 0px 0px; width:16px; height:16px;}
+.totop dl.tbox dt a{color:#666; float:left; width:19.9%;line-height:33px; text-align:center; font-size:1.1em; font-weight:600;}
+.totop dl.tbox dt a:hover{text-decoration:none; background:#333; color:#fff;}
+.totop dl.tbox dd{margin:15px;font-size:1.1em; line-height:23px;}
+.totop dl.tbox dd.tc{text-align:center;}
+
+
+ul.d1{margin:0px; }
+ul.d1 li{margin:6px 0px; height:20px; float:left; width:20%; text-align:center; font-size:1.0em;}
+ul.d1 li a{color:#666;}
+.lr{ border-bottom:1px #333 solid; padding-bottom:10px; margin:20px 0px; }
+.lr dt{float:left; width:25%; text-align:justify; text-align:center; padding-top:15px;}
+.lr dt img{float:left; margin-left:50px;}
+.lr dt p{line-height:35px; float:left; margin-left:10px; font-size:1.1em;font-weight:600;}
+.lr  dd{float:right; width:75%; }
+.ri{ margin-top:15px;color:#333;} .ri a{color:#333;}
+
+
+.inp_t{ height:20px;font-size:1.2em;}
+.sb_c{height:25px;font-size:1.0em; background: url(/images/nav_bg.jpg) #fff;border:1px solid #333; padding:1px; color:#FFF; font-weight:600;}
+.sel{height:20px;}
+
+.w50{width:49%; margin-top:10px;}
+
+
+
+
+
+div.title		{  float:left; line-height:24px; }
+div.title		img{ margin-top:7px;}
+div.title2		{ float:left; line-height:24px;} 
+div.title2		img{ margin-top:7px;}
+div.title3		{   float:left; line-height:24px; }
+div.td			{  float:left; line-height:24px; }
+div.td2			{ float:left; line-height:24px;} 
+.mainbar		{ width:95%; height:24px;  min-width:760px; margin:0 auto; background:#F6F6F6;}
+.mainbar2		{ width:95%; height:24px;   min-width:760px; margin:0 auto; background:#F6F6F6;}
+
+.x			{ width:95%;text-align:left;}
+.bg2		{ background-color:#eaeaea;}
+
+
+.key{text-align:left; margin:10px 0px; padding-top:5px; border-top:1px #333 dashed;}
