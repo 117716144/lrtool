@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ubao.core.model">
+
+    <class name="MemberTemplate" table="member_template">
+        <id name="id" column="member_template_id">
+            <generator class="sequence">
+                <param name="sequence">seq_member_template_id</param>
+            </generator>
+        </id>
+        <property name="fullname" column="full_name"/>
+        <property name="birthDate" column="birth_date"/>
+        <property name="gender" column="gender"/>
+        <property name="maritalStatus" column="marital_status"/>
+        <property name="height" column="height"/>
+        <property name="weight" column="weight"/>
+        <property name="homePhone" column="home_phone"/>
+        <property name="cellPhone" column="cell_phone"/>
+        <property name="idCardType" column="id_card_type"/>
+        <property name="idCardNumber" column="id_card_number"/>
+        <property name="address" column="address"/>
+        <property name="postCode" column="postcode"/>
+        <many-to-one name="customer" column="customer_id"/>
+        <property name="memberType" column="member_type"/>
+        <property name="email" column="email"/>
+    </class>
+</hibernate-mapping>

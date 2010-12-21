@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+    <allow>
+        <create creator="spring" javascript="DWRAction">
+            <param name="class" value="com.java.dwr.struts2.DWRAction"/>
+            <include method="execute"/>
+        </create>
+
+        <convert converter="bean" match="com.java.dwr.struts2.ActionDefinition">
+            <param name="include" value="namespace,action,method,executeResult"/>
+        </convert>
+        <convert converter="bean" match="com.java.dwr.struts2.AjaxResult"/>
+
+        <!-- 目录生成 -->
+        <!--
+         <convert converter="bean" match="com.bo.menu.action.MenuAction">
+            <param name="include" value="muneList" />
+         </convert>
+       -->
+        <!--Struts2 Action  转换器-->
+        <!--
+         <convert match="com.bo.user.action.OperatorAction" converter="bean">
+           <param name="include" value="dwrFlag,bouserlist,page"/>
+         </convert>
+         -->
+        <!-- 保单查询-->
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.HandleApplicationtrackAction">
+            <param name="include" value="applicationStatusList,applist,dwrFlag"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.statApplicatonOperRptAction">
+            <param name="include" value="dwrFlag,statapplist,page,optlist"/>
+        </convert>
+        <convert converter="bean" match="com.ubao.bo.webapp.action.operator.ChangeCustomerFlagAction">
+            <param name="include" value="dwrFlag"/>
+        </convert>
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.AvgDealWithRptAction">
+            <param name="include" value="dwrFlag,avgdwlist,page,optlist"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.PolicyQueryAction">
+            <param name="include" value="dwrFlag,filepath"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.ProductManagerAction">
+            <param name="include" value="dwrFlag,areaList,provideList,productList,prodlist,optlist,page,status"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.bo.webapp.action.selfhelpcard.SelfHelpCardAction">
+          <param name="include" value="dwrFlag,regionMap,carrierMap,planMap,po"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.SearchApplicationAction">
+          <param name="include" value="childStatusMap"/>
+        </convert>
+        <!-- 保单详细信息 -->
+
+        <!-- dict模块Action 转换器-->
+
+        <!-- 保费测算 start-->
+        
+        <convert converter="bean" match="com.ubao.fo.webapp.action.ajax.AccidentalPlanEvaluationAction">
+            <param name="include" value="resultMap"/>
+        </convert>
+
+        <!-- 保费测算 end-->
+
+        <convert converter="bean" match="com.ubao.fo.taikang.action.UnderWritingAction">
+            <param name="include" value="currentStatus"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.fo.taikang.action.PaymentConfirmTKAction">
+            <param name="include" value="currentStatus,submitFlag"/>
+        </convert>
+
+        <convert converter="bean" match="com.ubao.fo.webapp.action.netpay.PaymentAgreementConfirmAction">
+            <param name="include" value="currentStatus,submitFlag"/>
+        </convert>
+
+
+        <!--
+
+        -->
+
+        <!-- dict模块Action 转换器结束-->
+
+        <!-- model层的转换器 -->
+        <convert converter="bean" match="com.ubao.core.model.*"/>
+        <convert converter="bean" match="com.ubao.bo.webapp.vo.*"/>
+        <convert converter="bean" match="com.ubao.core.util.Page"/>
+        <convert converter="bean" match="com.ubao.util.Page"/>
+        <convert converter="bean" match="com.ubao.core.util.SelectListPair">
+            <param name="include" value="key,value"/>
+        </convert>
+        <convert converter="bean" match="com.ubao.core.model.StatApplicationRpt"/>
+        <convert converter="bean" match="com.ubao.core.model.AvgdealwithRpt"/>
+        <!-- 发送客户回邮-->
+        <convert converter="bean" match="com.ubao.bo.webapp.action.application.mail.SendMailForLeadAction">
+            <param name="include" value="leadIdList,sendFlag"/>
+        </convert>
+    </allow>
+
+    <!--following is FO's configuration-->
+    <allow>
+        <create creator="spring" javascript="EvaluationRate">
+            <param name="beanName" value="evaluationRateService"></param>
+            <include method="evaluationRate"/>
+        </create>
+        <convert converter="bean" match="com.ubao.fo.webapp.form.AssembledAccidentalProduct">
+            <param name="include"
+                   value="carrierId,selectedPlanId,ageMap,coverageYearsMap,medicalCoverageAmountMap,accidentalCoverageAmountMap,totalRate,errorMessage"/>
+        </convert>
+    </allow>
+
+    <allow>
+        <create creator="spring" javascript="shortcutApplicationService">
+            <param name="beanName" value="shortcutApplicationService"/>
+            <include method="changeShortcutApplication"/>
+        </create>
+        <convert converter="bean" match="com.ubao.fo.webapp.form.ShortcutApplicationCensusForm">
+            <param name="include" value="memberList,orderQuantity,birthdate,adjustedQuoteRate"/>
+        </convert>
+    </allow>
+
+</dwr>
