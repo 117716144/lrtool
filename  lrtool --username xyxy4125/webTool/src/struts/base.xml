@@ -42,6 +42,15 @@
             <result name="success"></result>
         </action>
         
+        <action name="showIpTool" class="com.base.core.action.tool.SearchIpAction" method="input">
+            <result name="success">/ipTool.jsp</result>
+        </action>
+        
+        <action name="searchIp" class="com.base.core.action.tool.SearchIpAction">
+            <result name="success"></result>
+        </action>
+        
+        
     </package>
     
 </struts>
