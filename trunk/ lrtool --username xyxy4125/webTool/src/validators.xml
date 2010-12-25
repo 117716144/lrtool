@@ -15,15 +15,6 @@
     <validator name="visitor" class="com.opensymphony.xwork2.validator.validators.VisitorFieldValidator"/>
     <validator name="conversion" class="com.opensymphony.xwork2.validator.validators.ConversionErrorFieldValidator"/>
     <validator name="stringlength" class="com.opensymphony.xwork2.validator.validators.StringLengthFieldValidator"/>
-    <!--
-    <validator name="regex" class="com.ubao.core.webapp.validator.RegexFieldValidator"/>
-    <validator name="chinese" class="com.ubao.core.webapp.validator.ChineseFieldValidator"/>
-    <validator name="english" class="com.ubao.core.webapp.validator.EnglishFieldValidator"/>
-    <validator name="zip" class="com.ubao.core.webapp.validator.ZipCodeFieldValidator"/>
-    <validator name="phone" class="com.ubao.core.webapp.validator.PhoneFieldValidator"/>
-    <validator name="password" class="com.ubao.core.webapp.validator.PasswordFieldValidator"/>
-    <validator name="IdCardNumber" class="com.ubao.core.webapp.validator.IdCardNumberValidator"/>
-      -->
 </validators>
 
 

@@ -1,10 +1,9 @@
 package com.base.core.action.tool;
 
-import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpServletRequest;
 
 import com.base.core.BaseAction;
+import com.base.core.util.ClientInfo;
 
 @SuppressWarnings("serial")
 public class SearchIpAction extends BaseAction {
@@ -75,14 +74,9 @@ public class SearchIpAction extends BaseAction {
 	} 
 	
 	public String getOsInfo(HttpServletRequest request){
-		String Agent = request.getHeader("User-Agent");
-		StringTokenizer st = new StringTokenizer(Agent,";");
-		st.nextToken();
-		//得到用户的浏览器名
-		String userbrowser = st.nextToken();
-		//得到用户的操作系统名
-		String useros = st.nextToken();
-		return useros+"  "+userbrowser;
+		String sysInfo = request.getHeader("User-Agent");
+		ClientInfo client = new ClientInfo(sysInfo);
+		return client.getOSName()+client.getOSVer()+"  "+client.getExplorerName()+client.getExplorerVer();
 	}
 
 }

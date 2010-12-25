@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -7,15 +7,16 @@
 <title><decorator:title/></title>
 <decorator:head/>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
- <meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="icon" type="image/png" href="/images/icons/favicon.png" />
+<meta http-equiv="expires" content="-1">
+<link href="/style/css.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
 </head>
-	<body>	before<br/>
-            <decorator:body/>
-            <br/>after
+	<body>
+	<s:include value="/includes/header.jsp"/>
+    <decorator:body/>
+    <s:include value="/includes/footer.jsp"/>
     </body>
 
 </html>
