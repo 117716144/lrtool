@@ -2,7 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>站长工具 - 日常生活 - 傻人工具 - lrtool.net - 致力SEO简单实用！</title>
+<title>搜索引擎收录查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单流程化！</title>
 <meta name ="keywords" content="便民工具,网站搜索,网址导航，搜一搜,个性化导航,全民搜索,起始页,上网主页,上网首页,收藏夹,网络收藏夹,网址收藏夹,书签,QQ书签,网络书签,上网导航,网址,网址导航,导航,快捷上网,网址之家,实用工具,搜索,社区" />
 <meta name="description" content="网站搜一搜，让全民上网更加方便更加快捷，最具个性化的导航搜索平台，让你工作生活无忧!" />
 </head>
@@ -29,7 +29,7 @@
    
     <div class="totop w50 left">
      <dl class="tbox">
-        <dt><strong>IP/服务器物理定位查询</strong><p><a href="showIpTool.action" target="_blank"><img src="//images/right.gif" width="16" height="16" /></a></p></dt>
+        <dt><strong>IP/服务器物理定位查询</strong><p><a href="showIpTool.action" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
         <dd><form method="post" target="_blank" action="showIpTool.action">IP / 域名：<input name="Ip" type="text" size="30" value="<%=request.getRemoteAddr()%>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>直接输入IP则可查询该IP的物理位置；
       </dd>
      </dl>
