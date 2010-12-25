@@ -14,9 +14,10 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BaseAction extends ActionSupport implements SessionAware{
 
 	private static final long serialVersionUID = 3120454583851872498L;
-	@SuppressWarnings("unused")
+	@SuppressWarnings("unchecked")
 	protected Map session;
 
+	@SuppressWarnings("unchecked")
 	public void setSession(Map session) {
 		this.session = session;
 	}
