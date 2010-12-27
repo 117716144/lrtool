@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>IP类信息查询 - 站长工具 - 傻人工具 - lrtool.net - 致力SEO简单流程化！</title>
-<script language="javascript" type="text/javascript" src="/js/shoulu.js"></script>
 </head>
 <body>
 <div class="w960 center clear">
