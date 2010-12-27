@@ -12,6 +12,7 @@
 <meta http-equiv="expires" content="-1">
 <link href="/style/css.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="/js/main.js"></script>
 </head>
 	<body>
 	<s:include value="/includes/header.jsp"/>

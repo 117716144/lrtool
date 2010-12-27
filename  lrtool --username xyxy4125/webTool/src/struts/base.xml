@@ -50,7 +50,9 @@
             <result name="success"></result>
         </action>
         
-        
+        <action name="showWhoisInfo" class="com.base.core.action.whois.LrWhoisSearchAction">
+            <result name="success">/whois.jsp</result>
+        </action>
     </package>
     
 </struts>

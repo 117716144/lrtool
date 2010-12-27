@@ -3,6 +3,7 @@ package com.base.core.util;
 import java.net.URLEncoder;
 import java.sql.Clob;
 
+
 public class StringUtil {
     public static boolean isEmpty(String str) {
         return (str == null) || (str.trim().length() == 0);
@@ -148,4 +149,14 @@ public class StringUtil {
         System.out.println(getAvailableURL("/applyPlanListAction.action?planType=accidental&carrierId=201&planId=2010004&"));
         System.out.println(getAvailableURL("/showUserApps.action"));
     }
+    
+    public static String right(String mainStr,int lngLen) {
+    	if (mainStr.length()-lngLen>=0 && mainStr.length()>=0 && mainStr.length()-lngLen<=mainStr.length()) {
+    	    return mainStr.substring(mainStr.length()-lngLen,mainStr.length());
+    	}else{
+    		return null;
+    	}
+    }
+    
+    
 }
