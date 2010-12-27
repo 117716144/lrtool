@@ -11,8 +11,8 @@
     <constant name="struts.locale" value="ZH_CN"/>
     <!--<constant name="struts.action.extension" value="action,shtml"/>-->
     <constant name="struts.i18n.encoding" value="UTF-8"/>
-    <constant name="struts.custom.i18n.resources" value="ubao"/>
-    <constant name="struts.ui.theme" value="ubao"/>
+    <constant name="struts.custom.i18n.resources" value="lrtool"/>
+    <constant name="struts.ui.theme" value="lrtool"/>
     <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.objectFactory.spring.autoWire" value="name"/>
     <constant name="struts.configuration.xml.reload" value="true"/>

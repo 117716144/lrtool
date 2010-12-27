@@ -6,7 +6,7 @@
 <struts>
     <package name="base" extends="struts-default">
             
-        <action name="indexAction" class="com.base.core.action.TestAction">
+        <action name="indexAction" class="com.base.core.action.IndexAction">
             <result name="success">/index.jsp</result>
         </action>
         

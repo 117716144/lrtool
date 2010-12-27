@@ -39,7 +39,7 @@
      <div class="totop w50 right">
      <dl class="tbox">
         <dt><strong>域名 WHOIS 信息查询</strong><p><a href="showWhoisInfo.action" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form method="post" target="_blank" action="showWhoisInfo.action">网站域名：www.<input name="domain" type="text" size="30" value="" class="inp_t">&nbsp;<input type="submit"value="开始查询" class="sb_c"></form>输入域名则可检测服务器的IP及其 WHOIS 信息。
+        <dd><form method="post" target="_blank" name="ipform" action="showWhoisInfo.action" onsubmit="return checkIP();">网站域名：www.<input name="domain" type="text" size="30" value="" class="inp_t">&nbsp;<input type="submit"value="开始查询" class="sb_c"></form>输入域名则可检测服务器的IP及其 WHOIS 信息。
       </dd>
      </dl>
     </div>

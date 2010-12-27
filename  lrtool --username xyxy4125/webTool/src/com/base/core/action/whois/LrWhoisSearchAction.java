@@ -14,6 +14,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.base.core.BaseAction;
+import com.base.core.util.StringUtil;
 
 @SuppressWarnings("serial")
 public class LrWhoisSearchAction extends BaseAction{
@@ -46,6 +47,10 @@ public class LrWhoisSearchAction extends BaseAction{
     HttpURLConnection httpConn = null;
     InputStream in = null;
     String cookie = "";
+    if(StringUtil.isEmpty(this.getDomain())){
+		addActionError("请先填写正确的域名或IP地址");
+		return SUCCESS;
+	}
     try
     {
         do {
