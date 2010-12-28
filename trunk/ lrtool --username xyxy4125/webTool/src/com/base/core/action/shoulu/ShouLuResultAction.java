@@ -77,4 +77,9 @@ public class ShouLuResultAction extends ShouLuBaseAction{
 		
 		return SUCCESS;
 	}
+	
+	//搜索引擎反向链接
+    public String link(){
+		return SUCCESS;
+	}
 }

@@ -18,7 +18,7 @@ public class YoudaoShouLuAction extends ShouLuBaseAction{
     }
 	
 	protected void getResult(String sbf) {
-		 Pattern pattern = Pattern.compile("(.*)共约(.*)条结果(.*)");
+		 Pattern pattern = Pattern.compile("(.*)共(.*)条结果(.*)");
          Matcher matcher =pattern.matcher(sbf.toString());
          if(matcher.find()){
          	shoulu_result =matcher.group(2).toString().replaceAll("\\,", "").replaceAll("\\，", "").trim();
