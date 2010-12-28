@@ -11,10 +11,18 @@
         </action>
         
         <action name="shouLuAction" class="com.base.core.action.shoulu.ShouLuResultAction">
-            <result name="success">/shouLu.jsp</result>
+            <result name="success">/seoTool/shouLu.jsp</result>
+        </action>
+        
+        <action name="siteLinkAction" class="com.base.core.action.shoulu.ShouLuResultAction" method="link">
+            <result name="success">/seoTool/siteLink.jsp</result>
         </action>
         
         <action name="googleShoulu" class="com.base.core.action.shoulu.GoogleShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+         <action name="googleLink" class="com.base.core.action.shoulu.GoogleShouLuAction" method="link">
             <result name="success"></result>
         </action>
         
@@ -22,7 +30,15 @@
             <result name="success"></result>
         </action>
         
+        <action name="baiduLink" class="com.base.core.action.shoulu.BaiduShouLuAction" method="link">
+            <result name="success"></result>
+        </action>
+        
         <action name="yahooShoulu" class="com.base.core.action.shoulu.YahooShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="yahooLink" class="com.base.core.action.shoulu.YahooShouLuAction" method="link">
             <result name="success"></result>
         </action>
         
@@ -30,7 +46,15 @@
             <result name="success"></result>
         </action>
         
+        <action name="sosoLink" class="com.base.core.action.shoulu.SosoShouLuAction" method="link">
+            <result name="success"></result>
+        </action>
+        
         <action name="sogouShoulu" class="com.base.core.action.shoulu.SogouShouLuAction">
+            <result name="success"></result>
+        </action>
+        
+        <action name="sogouLink" class="com.base.core.action.shoulu.SogouShouLuAction" method="link">
             <result name="success"></result>
         </action>
         
@@ -38,12 +62,20 @@
             <result name="success"></result>
         </action>
         
+        <action name="youdaoLink" class="com.base.core.action.shoulu.YoudaoShouLuAction" method="link">
+            <result name="success"></result>
+        </action>
+        
         <action name="bingShoulu" class="com.base.core.action.shoulu.BingShouLuAction">
             <result name="success"></result>
         </action>
         
+         <action name="bingLink" class="com.base.core.action.shoulu.BingShouLuAction" method="link">
+            <result name="success"></result>
+        </action>
+        
         <action name="showIpTool" class="com.base.core.action.tool.SearchIpAction" method="input">
-            <result name="success">/ipTool.jsp</result>
+            <result name="success">/seoTool/ipTool.jsp</result>
         </action>
         
         <action name="searchIp" class="com.base.core.action.tool.SearchIpAction">
@@ -51,8 +83,10 @@
         </action>
         
         <action name="showWhoisInfo" class="com.base.core.action.whois.LrWhoisSearchAction">
-            <result name="success">/whois.jsp</result>
+            <result name="success">/seoTool/whois.jsp</result>
         </action>
+        
+        
     </package>
     
 </struts>

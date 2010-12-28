@@ -47,20 +47,17 @@
     <div class="clear"></div><br />
     <div class="totop">
      <dl class="tbox">
-     <dt><strong>搜索引擎反向链接情况查询</strong><p><a href="LinkIn/" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-      <dd class="tc"><form method="post" target="_blank" action="LinkIn/Index.asp">网站地址：<input name="link_domain" type="text" size="65" value="http://" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c" /><br />
-<input name="googlecheck" type="checkbox" class="checkbox" value="checked" > Google
+     <dt><strong>搜索引擎反向链接情况查询</strong><p><a href="siteLinkAction.action" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
+      <dd class="tc"><form method="post" target="_blank" action="siteLinkAction.action">网站地址：http://<input name="shoulu_domain" type="text" size="65" value="" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c" /><br />
+<input name="googlecheck" type="checkbox" class="checkbox" value="checked" > 谷歌
 <input name="baiducheck" type="checkbox" class="checkbox" value="checked" > 百度
 <input name="yahoocheck" type="checkbox" class="checkbox" value="checked" > 雅虎
-<input name="msncheck" type="checkbox" class="checkbox" value="checked" > MSN
-<input name="sogoucheck" type="checkbox" class="checkbox" value="checked" > 搜狗
-<input name="zhongsoucheck" type="checkbox" class="checkbox" value="checked" > 中搜
 <input name="sosocheck" type="checkbox" class="checkbox" value="checked" > SOSO
-<input name="sinacheck" type="checkbox" class="checkbox" value="checked" > 新浪
-<input name="iaskcheck" type="checkbox" class="checkbox" value="checked" > 爱问
-<input name="alexacheck" type="checkbox" class="checkbox" value="checked" > ALEXA
-<input name="chkall" type="checkbox" class="checkbox" value=on onclick=checkall(this.form) class="check" />全选</form>可查询各搜索引擎收录的指定网站在其他站上的链接情况。
-      </dd>
+<input name="sogoucheck" type="checkbox" class="checkbox" value="checked" > 搜狗
+<input name="youdaocheck" type="checkbox" class="checkbox" value="checked" > 有道
+<input name="bingcheck" type="checkbox" class="checkbox" value="checked" > 必应
+<input name="chkall" type="checkbox" class="checkbox" value=on onclick=checkall(this.form)> 全选</form>可查询各大搜索引擎对指定网站的收录数量和对比情况。
+ </dd>
      </dl>
    </div>
      <div class="clear"></div>
