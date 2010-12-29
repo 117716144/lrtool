@@ -2,6 +2,9 @@ package com.base.core.util;
 
 import java.net.URLEncoder;
 import java.sql.Clob;
+import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class StringUtil {
@@ -143,11 +146,13 @@ public class StringUtil {
 
     
     public static void main(String[] args){
-        String applicationLoation="/applications/Picchealth/tianYouAccident/applications/";
-        System.out.println(replaceFirst(applicationLoation,"applications","riderinfo"));
-
-        System.out.println(getAvailableURL("/applyPlanListAction.action?planType=accidental&carrierId=201&planId=2010004&"));
-        System.out.println(getAvailableURL("/showUserApps.action"));
+    	 System.out.println(getFormatNumbers("123456", 0, ","));
+         System.out.println(getFormatNumbers("2545625.457", 4, ""));
+         System.out.println(getFormatNumbers("2545625.457878", 4, ""));
+         System.out.println(getFormatNumbers("0.457878", 4, ""));
+         System.out.println(getFormatNumbers("57878", 3, ","));
+         System.out.println(getFormatNumbers(".57878", 3, ","));
+         System.out.println("abc".indexOf("d"));
     }
     
     public static String right(String mainStr,int lngLen) {
@@ -156,6 +161,41 @@ public class StringUtil {
     	}else{
     		return null;
     	}
+    }
+    
+    //长串数字处理，如用千分位分隔，小数点保留几位
+    public static String getFormatNumbers(String value, int decimalPrecision,
+            String thousandsSeparator) {
+    	Pattern integerPattern = Pattern.compile("^-?[0-9]*$");
+    	Pattern thousandsSeparatePattern = Pattern.compile("(\\d{1,3})(?=(\\d{3})+(?:$|\\D))");
+        if (decimalPrecision > 0) {
+            if (value == null || value.equals("")) {
+                if (!Pattern.matches("^-?[0-9]*\\.{0,1}\\d{0,"+ decimalPrecision + "}$", value)) {
+                    value = "0";
+                }
+            }
+            String pattern = "0.";
+            for (int i = 0; i < decimalPrecision; i++) {
+                pattern += "0";
+            }
+            value = new DecimalFormat(pattern)
+                    .format(Double.parseDouble(value));
+            String integerPart = value.split("\\.")[0];
+            String decimalPart = value.split("\\.")[1];
+ 
+            Matcher matcher = thousandsSeparatePattern.matcher(integerPart);
+            integerPart = matcher.replaceAll("$1" + thousandsSeparator);
+            value = integerPart + "." + decimalPart;
+        } else {
+            if (value == null || value.equals("")) {
+                if (!integerPattern.matcher(value).find()) {
+                    value = "0";
+                }
+            }
+            Matcher matcher = thousandsSeparatePattern.matcher(value);
+            value = matcher.replaceAll("$1" + thousandsSeparator);
+        }
+        return value;
     }
     
     

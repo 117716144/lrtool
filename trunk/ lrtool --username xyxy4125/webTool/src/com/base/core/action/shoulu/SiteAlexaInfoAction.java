@@ -18,10 +18,187 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.base.core.BaseAction;
 import com.base.core.util.StringUtil;
 
-public class SiteAlexaInfoAction {
+@SuppressWarnings("serial")
+public class SiteAlexaInfoAction extends BaseAction{
 
+	private SiteAlexaInfo alexaInfo = new SiteAlexaInfo();
+	
+	private String domain;
+	
+	
+	public String getDomain() {
+		return domain;
+	}
+
+	public void setDomain(String domain) {
+		this.domain = domain;
+	}
+
+	public SiteAlexaInfo getAlexaInfo() {
+		return alexaInfo;
+	}
+	
+	public void setAlexaInfo(SiteAlexaInfo alexaInfo) {
+		this.alexaInfo = alexaInfo;
+	}
+
+	public String execute(){
+		try{
+			DocumentBuilderFactory domfac=DocumentBuilderFactory.newInstance(); 
+			DocumentBuilder dombuilder=domfac.newDocumentBuilder();
+			String urlStr ="http://data.alexa.com/data/?cli=10&dat=snba&ver=7.0&url="+domain;
+			String uri =new SiteAlexaInfoAction().getTargetStr(urlStr,"utf-8");
+			Document doc =dombuilder.parse(new ByteArrayInputStream(uri.getBytes()));
+			NodeList nodeList=doc.getElementsByTagName("SD"); 
+			System.out.println("dbstore节点链的长度:"+nodeList.getLength());  
+			for(int len=0;len<nodeList.getLength();len++){
+			Node fatherNode=nodeList.item(len);  
+			//把父节点的属性拿出来  
+			NamedNodeMap attributes=fatherNode.getAttributes();  
+			for(int i=0;i<attributes.getLength();i++){  
+			Node attribute=attributes.item(i);  
+			if("FLAGS".equalsIgnoreCase(attribute.getNodeName())){}
+			if("HOST".equalsIgnoreCase(attribute.getNodeName())){}
+			if("TITLE".equalsIgnoreCase(attribute.getNodeName())){}
+			}  
+			NodeList childNodes = fatherNode.getChildNodes();  
+			System.out.println(childNodes.getLength());  
+			for(int j=0;j<childNodes.getLength();j++){  
+			Node childNode=childNodes.item(j);  
+			//如果这个节点属于Element ,再进行取值  
+			if(childNode instanceof Element){  
+			if("TITLE".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap titleAttrs =childNode.getAttributes();
+				for(int i=0;i<titleAttrs.getLength();i++){  
+					Node attribute=titleAttrs.item(i);  
+					System.out.println(childNode.getNodeName()+"的属性名为:"+attribute.getNodeName()+" 相对应的属性值为:"+attribute.getNodeValue());  
+					if("TEXT".equalsIgnoreCase(attribute.getNodeName())){}
+				}  
+			}
+			if("ADDR".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap addrAttrs =childNode.getAttributes();
+				for(int i=0;i<addrAttrs.getLength();i++){  
+					Node attribute=addrAttrs.item(i);  
+					if("CITY".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setCITY(attribute.getNodeValue());}
+					if("COUNTRY".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setCOUNTRY(attribute.getNodeValue());}
+					if("STATE".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setSTATE(attribute.getNodeValue());}
+					if("STREET".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setSTREET(attribute.getNodeValue());}
+					if("ZIP".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setZIP(attribute.getNodeValue());}
+				}  
+			}
+			if("OWNER".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap ownerAttrs =childNode.getAttributes();
+				for(int i=0;i<ownerAttrs.getLength();i++){  
+					Node attribute=ownerAttrs.item(i);  
+					if("NAME".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxOwner(attribute.getNodeValue());}
+				}  
+			}
+			if("EMAIL".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap emailAttrs =childNode.getAttributes();
+				for(int i=0;i<emailAttrs.getLength();i++){  
+					Node attribute=emailAttrs.item(i);  
+					if("ADDR".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxEmail(attribute.getNodeValue());}
+				}  
+			}
+			if("LANG".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap langAttrs =childNode.getAttributes();
+				for(int i=0;i<langAttrs.getLength();i++){  
+					Node attribute=langAttrs.item(i);  
+					if("CODE".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxCode(attribute.getNodeValue());}
+					if("LEX".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxLex(attribute.getNodeValue());}
+				}  
+			}
+			if("LINKSIN".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap linkAttrs =childNode.getAttributes();
+				for(int i=0;i<linkAttrs.getLength();i++){  
+					Node attribute=linkAttrs.item(i);  
+					if("NUM".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxLinksin(attribute.getNodeValue());}
+				}  
+			}
+			if("SPEED".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap speedAttrs =childNode.getAttributes();
+				for(int i=0;i<speedAttrs.getLength();i++){  
+					Node attribute=speedAttrs.item(i);  
+					if("PCT".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxPct(attribute.getNodeValue());}
+					if("TEXT".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxSpeed(attribute.getNodeValue());}
+				}  
+			}
+			if("CHILD".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap childAttrs =childNode.getAttributes();
+				for(int i=0;i<childAttrs.getLength();i++){  
+					Node attribute=childAttrs.item(i);  
+					if("SRATING".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxChild(attribute.getNodeValue());}
+				}  
+			}
+			if("POPULARITY".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap popularAttrs =childNode.getAttributes();
+				for(int i=0;i<popularAttrs.getLength();i++){  
+					Node attribute=popularAttrs.item(i);  
+					if("TEXT".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxPopularity(StringUtil.getFormatNumbers(attribute.getNodeValue(), 0, ","));}
+					if("URL".equalsIgnoreCase(attribute.getNodeName())){}
+				}  
+			}
+			if("REACH".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap reachAttrs =childNode.getAttributes();
+				for(int i=0;i<reachAttrs.getLength();i++){  
+					Node attribute=reachAttrs.item(i);  
+					if("RANK".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setxReach(attribute.getNodeValue());}
+				}  
+			}
+			if("RANK".equalsIgnoreCase(childNode.getNodeName())){
+				NamedNodeMap rankAttrs =childNode.getAttributes();
+				for(int i=0;i<rankAttrs.getLength();i++){  
+					Node attribute=rankAttrs.item(i);  
+					if("DELTA".equalsIgnoreCase(attribute.getNodeName())){
+						if(attribute.getNodeName().indexOf("-")==-1){
+							alexaInfo.setDimg("<img src=\"/skin/up_arrow.gif\" align=absmiddle width=18 height=16 />");
+						}else
+							alexaInfo.setDimg("<img src=\"skin/down_arrow.gif\" align=absmiddle width=18 height=16 />");
+						alexaInfo.setxRank(StringUtil.getFormatNumbers(attribute.getNodeValue().replaceAll("\\-", "").replaceAll("\\+", ""),0,","));
+					}
+				}  
+			}
+			}  
+			} 
+			}
+			
+			NodeList domzList=doc.getElementsByTagName("DMOZ");
+			NodeList childNodes = domzList.item(0).getChildNodes();
+			for(int j=0;j<childNodes.getLength();j++){  
+				Node childNode=childNodes.item(j);  
+				//如果这个节点属于Element ,再进行取值  
+				if(childNode instanceof Element){  
+				if("SITE".equalsIgnoreCase(childNode.getNodeName())){
+					NamedNodeMap titleAttrs =childNode.getAttributes();
+					for(int i=0;i<titleAttrs.getLength();i++){  
+						Node attribute=titleAttrs.item(i);  
+						if("BASE".equalsIgnoreCase(attribute.getNodeName())){}
+						if("DESC".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setSiteDesc(attribute.getNodeValue());}
+						if("TITLE".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setSiteTitle(attribute.getNodeValue());}
+					}
+					if("CATS".equalsIgnoreCase(childNode.getChildNodes().item(0).getNodeName())){
+						if("CAT".equalsIgnoreCase(childNode.getChildNodes().item(0).getChildNodes().item(0).getNodeName())){
+							titleAttrs =childNode.getChildNodes().item(0).getChildNodes().item(0).getAttributes();
+							for(int i=0;i<titleAttrs.getLength();i++){  
+								Node attribute=titleAttrs.item(i);  
+								if("CID".equalsIgnoreCase(attribute.getNodeName())){}
+								if("ID".equalsIgnoreCase(attribute.getNodeName())){}
+								if("TITLE".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setCat(attribute.getNodeValue());}
+							}
+						}
+					}
+				}
+				}
+			}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		return SUCCESS;
+	}
+	
 	public static void main(String[] args){
 		try{
 		DocumentBuilderFactory domfac=DocumentBuilderFactory.newInstance(); 
@@ -235,4 +412,6 @@ public class SiteAlexaInfoAction {
 		return null;
 	}
 }
+
+
 
