@@ -5,9 +5,12 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,7 +33,7 @@ public class SiteAlexaInfoAction extends BaseAction{
 	
 	
 	public String getDomain() {
-		return domain;
+		return domain.replace("http://www.", "");
 	}
 
 	public void setDomain(String domain) {
@@ -49,11 +52,10 @@ public class SiteAlexaInfoAction extends BaseAction{
 		try{
 			DocumentBuilderFactory domfac=DocumentBuilderFactory.newInstance(); 
 			DocumentBuilder dombuilder=domfac.newDocumentBuilder();
-			String urlStr ="http://data.alexa.com/data/?cli=10&dat=snba&ver=7.0&url="+domain;
+			String urlStr ="http://data.alexa.com/data/?cli=10&dat=snba&ver=7.0&url="+this.getDomain();
 			String uri =new SiteAlexaInfoAction().getTargetStr(urlStr,"utf-8");
 			Document doc =dombuilder.parse(new ByteArrayInputStream(uri.getBytes()));
 			NodeList nodeList=doc.getElementsByTagName("SD"); 
-			System.out.println("dbstore节点链的长度:"+nodeList.getLength());  
 			for(int len=0;len<nodeList.getLength();len++){
 			Node fatherNode=nodeList.item(len);  
 			//把父节点的属性拿出来  
@@ -65,7 +67,6 @@ public class SiteAlexaInfoAction extends BaseAction{
 			if("TITLE".equalsIgnoreCase(attribute.getNodeName())){}
 			}  
 			NodeList childNodes = fatherNode.getChildNodes();  
-			System.out.println(childNodes.getLength());  
 			for(int j=0;j<childNodes.getLength();j++){  
 			Node childNode=childNodes.item(j);  
 			//如果这个节点属于Element ,再进行取值  
@@ -199,7 +200,92 @@ public class SiteAlexaInfoAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	//异步加载Alexa information
+	public String ajax(){
+		try{
+			//http://cn.alexa.com/siteinfo/ubao.com
+			String urlStr ="http://www.alexa.com/siteinfo/"+this.getDomain();
+			String result =new SiteAlexaInfoAction().getTargetStr(urlStr,"utf-8");
+			Pattern pattern = Pattern.compile("(.*)<img src=\"/images/icons/globe-sm.jpg\" alt=\"Global\" style=\"margin-bottom:-2px;\"/>(.*)</div><div class=\"label\">Alexa Traffic Rank(.*)");
+	        Matcher matcher =pattern.matcher(result.toString());
+	        if(matcher.find()){
+	        	String ranks =matcher.group(2).toString().trim();
+	        	System.out.println(ranks);
+	        }
+	        
+	        pattern =Pattern.compile("(.*)<img class=\"dynamic-icon\" src=\"/images/flags/cn.png\"(.*)</div><div class=\"label\">Traffic Rank in(.*)");
+	        matcher =pattern.matcher(result.toString());
+	        if(matcher.find()){
+	        	String ranks =matcher.group(2).toString().trim();
+	        	if(ranks.indexOf("alt=\"China Flag\"/>")!=-1){
+	        	System.out.println(ranks.replace("alt=\"China Flag\"/>", ""));
+	        	}
+	        }
+	        
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String trafficRank(){
+		try{
+		String resultStr="";
+		String strUrl ="http://cn.alexa.com/siteinfo/"+this.getDomain();
+		String result =new SiteAlexaInfoAction().getTargetStr(strUrl,"utf-8");
+	
+	    Pattern pattern =Pattern.compile("(.*)<p>"+this.getDomain()+"的 Alexa 网站流量排名：</p>(.*)<p>"+this.getDomain()+"的页面访问量占全球页面访问量的百分比：</p>(.*)");
+	    Matcher matcher =pattern.matcher(result.toString());
+	    if(matcher.find()){
+    	String ranks =matcher.group(2).toString().trim();
+    	if(ranks.indexOf("</div><div id=\"pageviews\" c=\"1\" y=\"p\"  class=\"tw-table\">")!=-1){
+    		ranks =ranks.replace("</div><div id=\"pageviews\" c=\"1\" y=\"p\"  class=\"tw-table\">", "");
+    	}
+    	System.out.println(ranks);
+    	//"<table><tr class=\"even\"><th>昨日</th><td>53,887</td></tr><tr><th>最近七天平均</th><td>64,982</td></tr><tr class=\"even\"><th>最近一月平均</th><td>65,630</td></tr><tr ><th>最近三月平均</th><td>54,116</td></tr><tr class=\"even\"><th>最近三月改变量</th><td>-8,127 <img src='/images/arrows/up_arrow.gif'/>  </td></tr></table>";    
+	    String url =ranks.replaceAll("\\<.*?>", "");
+        System.out.println(url);
+        if(url.indexOf("昨日")!=-1 && url.indexOf("最近七天平均")!=-1 && url.indexOf("最近一月平均")!=-1 && url.indexOf("最近三月平均")!=-1 && url.indexOf("最近三月改变量")!=-1){
+        	int p1 =url.indexOf("昨日");
+        	int p2 =url.indexOf("最近七天平均");
+        	int p3 =url.indexOf("最近一月平均");
+        	int p4 =url.indexOf("最近三月平均");
+        	int p5 =url.indexOf("最近三月改变量");
+//        	System.out.println(url.substring(p1+2,p2)+"--"+url.substring(p2+6,p3)+"--"+url.substring(p3+6,p4)
+//        			+"--"+url.substring(p4+6,p5)+"--"+url.substring(p5+7));
+        	resultStr =url.substring(p1+2,p2)+"_split_"+url.substring(p2+6,p3)+"_split_"+url.substring(p3+6,p4)
+        			+"_split_"+url.substring(p4+6,p5)+"_split_"+url.substring(p5+7);
+        }
+        }
+	    
+	    pattern =Pattern.compile("(.*)<img src=\"/images/icons/globe-sm.jpg\" alt=\"Global\" style=\"margin-bottom:-2px;\"/>(.*)</a></div><div class=\"label\">网站流量排名(.*)");
+	    matcher =pattern.matcher(result.toString());
+	    if(matcher.find()){
+    	 String ranks =matcher.group(2).toString().trim();
+    	 resultStr +="_split_"+ranks;
+	    }
+	    pattern =Pattern.compile("(.*)<div class=\"data\"><img class=\"dynamic-icon\" src=\"/images/flags/cn.png\" alt=\"China Flag\"/>(.*)</div><div class=\"label\"><!--<a href='/topsites/countries/CN' title=\"China\">-->CN<!--</a>-->网站流量排名(.*)");
+	    matcher =pattern.matcher(result.toString());
+	    if(matcher.find()){
+    	 String ranks =matcher.group(2).toString().trim();
+    	 resultStr +="_split_"+ranks;
+	    }
+	    PrintWriter out =this.getResponse().getWriter();
+	    out.write(resultStr);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	    return null;
+	}
+	
 	public static void main(String[] args){
+		Long start =System.currentTimeMillis();
+		new SiteAlexaInfoAction().trafficRank();
+		//new SiteAlexaInfoAction().ajax();
+		Long end =System.currentTimeMillis();
+		System.out.println("总共用时："+(end-start));
+	}
+	public static void testXml(String[] args){
 		try{
 		DocumentBuilderFactory domfac=DocumentBuilderFactory.newInstance(); 
 		DocumentBuilder dombuilder=domfac.newDocumentBuilder();
