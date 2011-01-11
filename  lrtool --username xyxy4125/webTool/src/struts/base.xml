@@ -90,6 +90,11 @@
             <result name="success">/seoTool/alexaInfo.jsp</result>
         </action>
         
+        <action name="ajaxAlexa" class="com.base.core.action.shoulu.SiteAlexaInfoAction" method="trafficRank">
+            <result name="success"></result>
+        </action>
+        
+        
     </package>
     
 </struts>

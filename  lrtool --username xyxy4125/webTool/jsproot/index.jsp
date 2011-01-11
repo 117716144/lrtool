@@ -63,9 +63,9 @@
      <div class="clear"></div>
     <div class="totop w50 left">
      <dl class="tbox">
-        <dt><strong>ALEXA 详细排名查询</strong><p><a href="alexa/"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form action="alexa/" method="get" target="_blank">
-网站地址：<input name="url"  type="text" size="30" value="http://www." class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询网站的世界排名、流量、访问量、联系方式等综合信息。
+        <dt><strong>ALEXA 详细排名查询</strong><p><a href="siteAlexa.action"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
+        <dd><form action="siteAlexa.action" method="get" target="_blank">
+网站地址：<input name="domain"  type="text" size="30" value="http://www." class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询网站的世界排名、流量、访问量、联系方式等综合信息。
       </dd>
      </dl>
     </div>
