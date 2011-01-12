@@ -19,7 +19,7 @@ public class GoogleShouLuAction extends ShouLuBaseAction{
 	//取相关数字
 	protected void getResult(String sbf){
 		//(.*)获得约 (.*)条结果(.*)
-        Pattern pattern = Pattern.compile("(.*)获得约 (.*)条结果(.*)");
+        Pattern pattern = Pattern.compile("(.*)找到约 (.*)条结果(.*)");
         Matcher matcher =pattern.matcher(sbf.toString());
         if(matcher.find()){
         	shoulu_result =matcher.group(2).toString().replaceAll("\\,", "").replaceAll("\\，", "").trim();

@@ -164,11 +164,11 @@
      <dt>网站日平均排名走势图 [点击时间段查看相应时段曲线]</dt>
       <dd class="tc">
       <div class="mainbar">
-  <div class="title" style="width:150px"><a style="CURSOR: hand" onClick="document.all.rank1.style.display='';document.all.rank2.style.display='none';document.all.rank3.style.display='none';document.all.rank4.style.display='none';document.all.rank5.style.display='none';">六个月数据</a></div>
-  <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.all.rank1.style.display='none';document.all.rank2.style.display='';document.all.rank3.style.display='none';document.all.rank4.style.display='none';document.all.rank5.style.display='none';">三个月数据</a></div>
-  <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.all.rank1.style.display='none';document.all.rank2.style.display='none';document.all.rank3.style.display='';document.all.rank4.style.display='none';document.all.rank5.style.display='none';">一个月数据</a></div>
-  <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.all.rank1.style.display='none';document.all.rank2.style.display='none';document.all.rank3.style.display='none';document.all.rank4.style.display='';document.all.rank5.style.display='none';">半个月数据</a></div>
-  <div class="title2" style="width:150px"><a style="CURSOR: hand" onClick="document.all.rank1.style.display='none';document.all.rank2.style.display='none';document.all.rank3.style.display='none';document.all.rank4.style.display='none';document.all.rank5.style.display='';">一星期数据</a></div>
+  <div class="title" style="width:150px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='';document.getElementById('rank2').style.display='none';document.getElementById('rank3').style.display='none';document.getElementById('rank4').style.display='none';document.getElementById('rank5').style.display='none';">六个月数据</a></div>
+  <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='none';document.getElementById('rank2').style.display='';document.getElementById('rank3').style.display='none';document.getElementById('rank4').style.display='none';document.getElementById('rank5').style.display='none';">三个月数据</a></div>
+  <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='none';document.getElementById('rank2').style.display='none';document.getElementById('rank3').style.display='';document.getElementById('rank4').style.display='none';document.getElementById('rank5').style.display='none';">一个月数据</a></div>
+  <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='none';document.getElementById('rank2').style.display='none';document.getElementById('rank3').style.display='none';document.getElementById('rank4').style.display='';document.getElementById('rank5').style.display='none';">半个月数据</a></div>
+  <div class="title2" style="width:150px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='none';document.getElementById('rank2').style.display='none';document.getElementById('rank3').style.display='none';document.getElementById('rank4').style.display='none';document.getElementById('rank5').style.display='';">一星期数据</a></div>
 </div>
 <div class="mainbar2" style="padding:10 0 10 0;height:300px">
   <div id=rank1><img src="http://traffic.alexa.com/graph?w=750&h=280&r=6m&y=t&u=<s:property value='domain'/>"></div>
@@ -188,11 +188,11 @@
      <dt>日平均访问人数走势图 [点击时间段查看相应时段曲线]</dt>
       <dd class="tc">
       <div class="mainbar">
-  <div class="title" style="width:150px"><a style="cursor: hand" onClick="document.all.reachs1.style.display='';document.all.reachs2.style.display='none';document.all.reachs3.style.display='none';document.all.reachs4.style.display='none';document.all.reachs5.style.display='none';">六个月数据</a></div>
-  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.all.reachs1.style.display='none';document.all.reachs2.style.display='';document.all.reachs3.style.display='none';document.all.reachs4.style.display='none';document.all.reachs5.style.display='none';">三个月数据</a></div>
-  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.all.reachs1.style.display='none';document.all.reachs2.style.display='none';document.all.reachs3.style.display='';document.all.reachs4.style.display='none';document.all.reachs5.style.display='none';">一个月数据</a></div>
-  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.all.reachs1.style.display='none';document.all.reachs2.style.display='none';document.all.reachs3.style.display='none';document.all.reachs4.style.display='';document.all.reachs5.style.display='none';">半个月数据</a></div>
-  <div class="title2" style="width:150px"><a style="cursor: hand" onClick="document.all.reachs1.style.display='none';document.all.reachs2.style.display='none';document.all.reachs3.style.display='none';document.all.reachs4.style.display='none';document.all.reachs5.style.display='';">一星期数据</a></div>
+  <div class="title" style="width:150px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='';document.getElementById('reachs2').style.display='none';document.getElementById('reachs3').style.display='none';document.getElementById('reachs4').style.display='none';document.getElementById('reachs5').style.display='none';">六个月数据</a></div>
+  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='none';document.getElementById('reachs2').style.display='';document.getElementById('reachs3').style.display='none';document.getElementById('reachs4').style.display='none';document.getElementById('reachs5').style.display='none';">三个月数据</a></div>
+  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='none';document.getElementById('reachs2').style.display='none';document.getElementById('reachs3').style.display='';document.getElementById('reachs4').style.display='none';document.getElementById('reachs5').style.display='none';">一个月数据</a></div>
+  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='none';document.getElementById('reachs2').style.display='none';document.getElementById('reachs3').style.display='none';document.getElementById('reachs4').style.display='';document.getElementById('reachs5').style.display='none';">半个月数据</a></div>
+  <div class="title2" style="width:150px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='none';document.getElementById('reachs2').style.display='none';document.getElementById('reachs3').style.display='none';document.getElementById('reachs4').style.display='none';document.getElementById('reachs5').style.display='';">一星期数据</a></div>
 </div>
 <div class="mainbar2" style="padding:10 0 10 0;height:300px">
   <div id=reachs1><img src="http://traffic.alexa.com/graph?w=750&h=280&r=6m&y=r&u=<s:property value='domain'/>"></div>
@@ -212,11 +212,11 @@
      <dt>日页面浏览量走势图 [点击时间段查看相应时段曲线]</dt>
       <dd class="tc">
       <div class="mainbar">
-  <div class="title" style="width:150px"><a style="cursor: hand" onClick="document.all.pageviews1.style.display='';document.all.pageviews2.style.display='none';document.all.pageviews3.style.display='none';document.all.pageviews4.style.display='none';document.all.pageviews5.style.display='none';">六个月数据</a></div>
-  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.all.pageviews1.style.display='none';document.all.pageviews2.style.display='';document.all.pageviews3.style.display='none';document.all.pageviews4.style.display='none';document.all.pageviews5.style.display='none';">三个月数据</a></div>
-  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.all.pageviews1.style.display='none';document.all.pageviews2.style.display='none';document.all.pageviews3.style.display='';document.all.pageviews4.style.display='none';document.all.pageviews5.style.display='none';">一个月数据</a></div>
-  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.all.pageviews1.style.display='none';document.all.pageviews2.style.display='none';document.all.pageviews3.style.display='none';document.all.pageviews4.style.display='';document.all.pageviews5.style.display='none';">半个月数据</a></div>
-  <div class="title2" style="width:150px"><a style="cursor: hand" onClick="document.all.pageviews1.style.display='none';document.all.pageviews2.style.display='none';document.all.pageviews3.style.display='none';document.all.pageviews4.style.display='none';document.all.pageviews5.style.display='';">一星期数据</a></div>
+  <div class="title" style="width:150px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='';document.getElementById('pageviews2').style.display='none';document.getElementById('pageviews3').style.display='none';document.getElementById('pageviews4').style.display='none';document.getElementById('pageviews5').style.display='none';">六个月数据</a></div>
+  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='none';document.getElementById('pageviews2').style.display='';document.getElementById('pageviews3').style.display='none';document.getElementById('pageviews4').style.display='none';document.getElementById('pageviews5').style.display='none';">三个月数据</a></div>
+  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='none';document.getElementById('pageviews2').style.display='none';document.getElementById('pageviews3').style.display='';document.getElementById('pageviews4').style.display='none';document.getElementById('pageviews5').style.display='none';">一个月数据</a></div>
+  <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='none';document.getElementById('pageviews2').style.display='none';document.getElementById('pageviews3').style.display='none';document.getElementById('pageviews4').style.display='';document.getElementById('pageviews5').style.display='none';">半个月数据</a></div>
+  <div class="title2" style="width:150px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='none';document.getElementById('pageviews2').style.display='none';document.getElementById('pageviews3').style.display='none';document.getElementById('pageviews4').style.display='none';document.getElementById('pageviews5').style.display='';">一星期数据</a></div>
 </div>
 <div class="mainbar2" style="padding:10 0 10 0;height:300px">
   <div id=pageviews1><img src="http://traffic.alexa.com/graph?w=750&h=280&r=6m&y=p&u=<s:property value='domain'/>"></div>
@@ -231,6 +231,7 @@
    
 </div>
 </div>
-<script>getOtherInfo();</script>
+<script>getOtherInfo();getGoogle();getBaidu();getYahoo();getSoso();getSogou();
+getGoogleL();getBaiduL();getYahooL();getSosoL();getSogouL();</script>
 </body>
 </html>
