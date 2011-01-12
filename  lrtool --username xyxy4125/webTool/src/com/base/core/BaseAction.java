@@ -1,5 +1,7 @@
 package com.base.core;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,5 +32,16 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	public HttpServletResponse getResponse(){
 		HttpServletResponse response =(HttpServletResponse)ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
 	    return response;
+	}
+	
+	public PrintWriter getOut(){
+	 try {
+	  this.getResponse().setCharacterEncoding("utf-8");
+      this.getResponse().setContentType("text/json;charset=utf-8");
+		return this.getResponse().getWriter();
+	 } catch (IOException e) {
+		e.printStackTrace();
+	 }
+	 return null;
 	}
 }

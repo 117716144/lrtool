@@ -75,7 +75,6 @@ public class SiteAlexaInfoAction extends BaseAction{
 				NamedNodeMap titleAttrs =childNode.getAttributes();
 				for(int i=0;i<titleAttrs.getLength();i++){  
 					Node attribute=titleAttrs.item(i);  
-					System.out.println(childNode.getNodeName()+"的属性名为:"+attribute.getNodeName()+" 相对应的属性值为:"+attribute.getNodeValue());  
 					if("TEXT".equalsIgnoreCase(attribute.getNodeName())){}
 				}  
 			}
@@ -155,9 +154,9 @@ public class SiteAlexaInfoAction extends BaseAction{
 					Node attribute=rankAttrs.item(i);  
 					if("DELTA".equalsIgnoreCase(attribute.getNodeName())){
 						if(attribute.getNodeName().indexOf("-")==-1){
-							alexaInfo.setDimg("<img src=\"/skin/up_arrow.gif\" align=absmiddle width=18 height=16 />");
+							alexaInfo.setDimg("<img src=\"/images/up_arrow.gif\" align=absmiddle width=18 height=16 />");
 						}else
-							alexaInfo.setDimg("<img src=\"skin/down_arrow.gif\" align=absmiddle width=18 height=16 />");
+							alexaInfo.setDimg("<img src=\"/images/down_arrow.gif\" align=absmiddle width=18 height=16 />");
 						alexaInfo.setxRank(StringUtil.getFormatNumbers(attribute.getNodeValue().replaceAll("\\-", "").replaceAll("\\+", ""),0,","));
 					}
 				}  
@@ -181,7 +180,7 @@ public class SiteAlexaInfoAction extends BaseAction{
 						if("TITLE".equalsIgnoreCase(attribute.getNodeName())){alexaInfo.setSiteTitle(attribute.getNodeValue());}
 					}
 					if("CATS".equalsIgnoreCase(childNode.getChildNodes().item(0).getNodeName())){
-						if("CAT".equalsIgnoreCase(childNode.getChildNodes().item(0).getChildNodes().item(0).getNodeName())){
+						if(childNode.getChildNodes()!=null && childNode.getChildNodes().item(0)!=null && childNode.getChildNodes().item(0).getChildNodes().item(0)!=null && "CAT".equalsIgnoreCase(childNode.getChildNodes().item(0).getChildNodes().item(0).getNodeName())){
 							titleAttrs =childNode.getChildNodes().item(0).getChildNodes().item(0).getAttributes();
 							for(int i=0;i<titleAttrs.getLength();i++){  
 								Node attribute=titleAttrs.item(i);  
@@ -270,6 +269,8 @@ public class SiteAlexaInfoAction extends BaseAction{
     	 String ranks =matcher.group(2).toString().trim();
     	 resultStr +="_split_"+ranks;
 	    }
+	    this.getResponse().setCharacterEncoding("utf-8");
+	    this.getResponse().setContentType("text/json;charset=utf-8");
 	    PrintWriter out =this.getResponse().getWriter();
 	    out.write(resultStr);
 		}catch(Exception e){
