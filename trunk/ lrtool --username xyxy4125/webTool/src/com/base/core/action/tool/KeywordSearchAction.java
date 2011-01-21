@@ -7,67 +7,46 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.base.core.BaseAction;
 import com.base.core.util.StringUtil;
 
 @SuppressWarnings("serial")
-public class PageRankAction extends BaseAction{
+public class KeywordSearchAction extends BaseAction{
 
-	private String prdomain;
+	private String keyword;
 	
-	public String getPrdomain() {
-		return prdomain;
+	public String getKeyword() {
+		return keyword;
 	}
 
-	public void setPrdomain(String prdomain) {
-		this.prdomain = prdomain;
-	}
-	
-	private int googlePR;
-	
-	private int sogouPR;
-
-	public int getGooglePR() {
-		return googlePR;
-	}
-
-	public void setGooglePR(int googlePR) {
-		this.googlePR = googlePR;
-	}
-
-	public int getSogouPR() {
-		return sogouPR;
-	}
-
-	public void setSogouPR(int sogouPR) {
-		this.sogouPR = sogouPR;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 	public String execute(){
-		GooglePageRank gr = new GooglePageRank();
-		googlePR =gr.getPageRank(this.getPrdomain());
-		String url ="http://www.sogou.com/web?query=link%3A"+this.getPrdomain();
+		String url = "http://www.baidu.com/s?rn=100&q1="+this.getKeyword();
 		String resultStr =getTargetStr(url,"gb2312");
-		Pattern pattern = Pattern.compile("(.*)搜狗评级:(.*)&nbsp;-&nbsp;(.*)");
-		Matcher matcher = pattern.matcher(resultStr.toString());
-		if (matcher.find()) {
-			String result = matcher.group(2).toString().replaceAll("\\,", "")
-					.replaceAll("\\，", "").trim();
-			if(result.indexOf("/100")!=-1){
-				result = result.substring(0,result.indexOf("/100"));
-			}
-			sogouPR =(Integer.parseInt(result)/10);
+		int position =StringUtil.ignoreIndexOf(resultStr, "www.ubao.com", 0, true);
+		if(position!=-1){
+		resultStr =resultStr.substring(position-280,position);
+		if(resultStr.indexOf("<table cellpadding=\"0\" cellspacing=\"0\" class=\"result\" id=\"")!=-1){
+			int start =resultStr.indexOf("<table cellpadding=\"0\" cellspacing=\"0\" class=\"result\" id=\"");
+			int end =resultStr.indexOf("\"><tr>");
+			int length ="<table cellpadding=\"0\" cellspacing=\"0\" class=\"result\" id=\"".length();
+			resultStr =resultStr.substring(start+length,end);
+			System.out.println(resultStr);
 		}
-	    return SUCCESS;
+		}else{
+			System.out.println("not find it");
+		}
+		return null;
 	}
 	
 	public static void main(String[] args){
-		PageRankAction pr = new PageRankAction();
-		pr.setPrdomain("http://www.hao123.com");
-		pr.execute();
+		KeywordSearchAction ks = new KeywordSearchAction();
+		ks.setKeyword("在线保险");
+		ks.execute();
 	}
 	
 	protected String getTargetStr(String urlStr,String charset) {
