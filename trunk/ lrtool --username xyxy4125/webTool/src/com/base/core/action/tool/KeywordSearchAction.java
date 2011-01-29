@@ -16,6 +16,26 @@ public class KeywordSearchAction extends BaseAction{
 
 	private String keyword;
 	
+	private String siteurl;
+	
+	private String keyPosition;
+	
+	public String getKeyPosition() {
+		return keyPosition;
+	}
+
+	public void setKeyPosition(String keyPosition) {
+		this.keyPosition = keyPosition;
+	}
+
+	public String getSiteurl() {
+		return siteurl;
+	}
+
+	public void setSiteurl(String siteurl) {
+		this.siteurl = siteurl;
+	}
+
 	public String getKeyword() {
 		return keyword;
 	}
@@ -27,24 +47,24 @@ public class KeywordSearchAction extends BaseAction{
 	public String execute(){
 		String url = "http://www.baidu.com/s?rn=100&q1="+this.getKeyword();
 		String resultStr =getTargetStr(url,"gb2312");
-		int position =StringUtil.ignoreIndexOf(resultStr, "www.ubao.com", 0, true);
+		int position =StringUtil.ignoreIndexOf(resultStr, siteurl, 0, true);
 		if(position!=-1){
-		resultStr =resultStr.substring(position-280,position);
+		resultStr =resultStr.substring(position-330,position);
 		if(resultStr.indexOf("<table cellpadding=\"0\" cellspacing=\"0\" class=\"result\" id=\"")!=-1){
 			int start =resultStr.indexOf("<table cellpadding=\"0\" cellspacing=\"0\" class=\"result\" id=\"");
 			int end =resultStr.indexOf("\"><tr>");
 			int length ="<table cellpadding=\"0\" cellspacing=\"0\" class=\"result\" id=\"".length();
-			resultStr =resultStr.substring(start+length,end);
-			System.out.println(resultStr);
+			keyPosition =resultStr.substring(start+length,end);
 		}
 		}else{
 			System.out.println("not find it");
 		}
-		return null;
+		return SUCCESS;
 	}
 	
 	public static void main(String[] args){
 		KeywordSearchAction ks = new KeywordSearchAction();
+		ks.setSiteurl("www.ubao.com");
 		ks.setKeyword("在线保险");
 		ks.execute();
 	}

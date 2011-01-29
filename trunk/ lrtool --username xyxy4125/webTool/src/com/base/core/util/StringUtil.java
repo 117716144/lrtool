@@ -153,6 +153,17 @@ public class StringUtil {
          System.out.println(getFormatNumbers("57878", 3, ","));
          System.out.println(getFormatNumbers(".57878", 3, ","));
          System.out.println("abc".indexOf("d"));
+         
+         String t="aaaaaaaaaa<table></table>aaa<table></table>";  
+         String s="</TABLE";  
+           
+         System.out.println("length="+t.length());  
+           
+         System.out.println(t.indexOf(s,0));  
+         System.out.println(ignoreIndexOf(t, s,0,true));  
+                   
+         System.out.println(t.lastIndexOf(s));  
+         System.out.println(ignoreLastIndexOf(t, s)); 
     }
     
     public static String right(String mainStr,int lngLen) {
@@ -197,6 +208,56 @@ public class StringUtil {
         }
         return value;
     }
+    
+    /**
+     * 在subject中最先出现search的位置，不区分大小写
+     * @param subject 被查询的字符串
+     * @param search  要查询的字符串
+     * @param soffset
+     * @return
+     */
+    public static int ignoreIndexOf(String subject,String search,int soffset,boolean isIngoreCase){  
+    	//当被查找字符串或查找子字符串为空时，抛出空指针异常。  
+    	if (subject == null || search == null) {  
+    	    throw new NullPointerException("输入的参数为空");  
+    	}  
+    	if(soffset>=subject.length() && search.equals("")){  
+    	    return subject.length();  
+    	}  
+    	for (int i = soffset; i < subject.length(); i++) {  
+    	    if(subject.regionMatches(isIngoreCase, i, search, 0, search.length())){  
+    	        return i;  
+    	    }  
+    	}  
+    	return -1;  
+    }  
+    	  
+    /***
+     * 在subject中最后出现search的位置
+     * @param subject
+     * @param search
+     * @return
+     */
+	public static int ignoreLastIndexOf(String subject,String search) {  
+	    return ignoreLastIndexOf(subject, search, subject.length(),true);  
+	}  
+	  
+	public static int ignoreLastIndexOf(String subject,String search,int soffset,boolean isIngoreCase) {  
+	   //当被查找字符串或查找子字符串为空时，抛出空指针异常。  
+	   if (subject == null || search == null) {  
+	    throw new NullPointerException("输入的参数为空");  
+	   }  
+	   if(soffset<=0 && search.equals("")){  
+	    return 0;  
+	   }  
+	   for (int i = soffset; 0 < i; i--) {  
+	    if(subject.regionMatches(isIngoreCase, i, search, 0, search.length())){  
+	        return i;  
+	    }  
+	   }  
+	  
+	   return -1;  
+	}  
     
     
 }
