@@ -49,17 +49,26 @@ public class PageRankAction extends BaseAction{
 	public String execute(){
 		GooglePageRank gr = new GooglePageRank();
 		googlePR =gr.getPageRank(this.getPrdomain());
-		String url ="http://www.sogou.com/web?query=link%3A"+this.getPrdomain();
+//		String url ="http://www.sogou.com/web?query=link%3A"+this.getPrdomain();
+//		String resultStr =getTargetStr(url,"gb2312");
+//		Pattern pattern = Pattern.compile("(.*)搜狗评级:(.*)&nbsp;-&nbsp;(.*)");
+//		Matcher matcher = pattern.matcher(resultStr.toString());
+//		if (matcher.find()) {
+//			String result = matcher.group(2).toString().replaceAll("\\,", "")
+//					.replaceAll("\\，", "").trim();
+//			if(result.indexOf("/100")!=-1){
+//				result = result.substring(0,result.indexOf("/100"));
+//			}
+//			sogouPR =(Integer.parseInt(result)/10);
+//		}
+		String url ="http://rank.ie.sogou.com/sogourank.php?ur="+this.getPrdomain();
 		String resultStr =getTargetStr(url,"gb2312");
-		Pattern pattern = Pattern.compile("(.*)搜狗评级:(.*)&nbsp;-&nbsp;(.*)");
-		Matcher matcher = pattern.matcher(resultStr.toString());
-		if (matcher.find()) {
-			String result = matcher.group(2).toString().replaceAll("\\,", "")
-					.replaceAll("\\，", "").trim();
-			if(result.indexOf("/100")!=-1){
-				result = result.substring(0,result.indexOf("/100"));
+		if(!StringUtil.isEmpty(resultStr)){
+			if(resultStr.indexOf("sogourank=")!=1){
+				int pos = resultStr.indexOf("sogourank=");
+				resultStr =resultStr.substring(pos+10);
+				sogouPR = Integer.parseInt(resultStr);
 			}
-			sogouPR =(Integer.parseInt(result)/10);
 		}
 	    return SUCCESS;
 	}
