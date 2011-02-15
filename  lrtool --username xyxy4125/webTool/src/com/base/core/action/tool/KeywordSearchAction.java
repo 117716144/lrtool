@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.base.core.BaseAction;
 import com.base.core.util.StringUtil;
@@ -20,6 +22,26 @@ public class KeywordSearchAction extends BaseAction{
 	
 	private String keyPosition;
 	
+	private String skey;
+	
+	private String surl;
+	
+	public String getSkey() {
+		return skey;
+	}
+
+	public void setSkey(String skey) {
+		this.skey = skey;
+	}
+
+	public String getSurl() {
+		return surl;
+	}
+
+	public void setSurl(String surl) {
+		this.surl = surl;
+	}
+
 	public String getKeyPosition() {
 		return keyPosition;
 	}
@@ -62,11 +84,78 @@ public class KeywordSearchAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	/**
+	 * 某个词在页面上的词频
+	 * @return
+	 */
+	public String getCount(){
+		String pageEncoding =this.pageEncoding();
+		String resultStr =getTargetStr(surl,StringUtil.isEmpty(pageEncoding)?"utf-8":pageEncoding);
+		resultStr =resultStr.replaceAll("\\<.*?>", "");
+		int count =StringUtil.calcKeysFrequency(resultStr, skey);
+		System.out.println(count);
+		return SUCCESS;
+	}
+	
+	public String pageEncoding(){
+		String resultStr =getTargetStr(surl,"gb2312");
+//		Pattern pattern = Pattern.compile("(.*)<title>(.*)</title>(.*)");
+//		Matcher matcher = pattern.matcher(resultStr.toString());
+//		if (matcher.find()) {
+//			String title = matcher.group(2).toString();
+//			System.out.println(title);
+//		}
+//		pattern = Pattern.compile("(.*)<meta\\s+name=\"keywords\"\\s+content=\"(.*)\"/>(.*)");
+//		matcher =pattern.matcher(resultStr.toString());
+//		if(matcher.find()){
+//			String keys = matcher.group(2).toString().replaceAll("\\s+", "");
+//			if(keys.indexOf("\"/>")!=-1){
+//			 int pos =keys.indexOf("\"/>");
+//			 System.out.println(keys.substring(0,pos));
+//			}
+//		}
+//		pattern = Pattern.compile("(.*)<meta\\s+name=\"description\"\\s+content=\"(.*)\"/>(.*)");
+//		matcher =pattern.matcher(resultStr.toString());
+//		if(matcher.find()){
+//			String keys = matcher.group(2).toString().replaceAll("\\s+", "");
+//			if(keys.indexOf("\"/>")!=-1){
+//			 int pos =keys.indexOf("\"/>");
+//			 System.out.println(keys.substring(0,pos));
+//			}
+//		}
+		if(resultStr.indexOf("http-equiv=\"Content-Type\"")!=-1){
+		Pattern pattern = Pattern.compile("(.*)<meta\\s+http-equiv=\"Content-Type\"\\s+content=\"(.*)\"/>(.*)");
+		Matcher matcher =pattern.matcher(resultStr.toString());
+		if(matcher.find()){
+			String keys = matcher.group(2).toString().replaceAll("\\s+", "");
+			if(keys.indexOf("\"/>")!=-1){
+			 int pos =keys.indexOf("\"/>");
+			 keys =keys.substring(0,pos);
+			 if(keys.indexOf("charset=")!=-1){
+				 pos = keys.indexOf("charset=");
+				 System.out.println(keys.substring(pos+8));
+				 return keys.substring(pos+8);
+			 }
+			}
+		}
+		}else{
+			System.out.println("未找到页面编码");
+		}
+		
+		return null;
+		
+	}
+	
 	public static void main(String[] args){
 		KeywordSearchAction ks = new KeywordSearchAction();
-		ks.setSiteurl("www.ubao.com");
-		ks.setKeyword("在线保险");
-		ks.execute();
+//		ks.setSiteurl("www.ubao.com");
+//		ks.setKeyword("在线保险");
+//		ks.execute();
+		ks.setSurl("http://www.7su.com");
+		ks.setSkey("申根国家驻留");
+		ks.getCount();
+		ks.pageEncoding();
+		
 	}
 	
 	protected String getTargetStr(String urlStr,String charset) {
