@@ -13,7 +13,7 @@
    <div class="totop">
      <dl class="tbox">
      <dt><strong>搜索引擎收录情况查询</strong><p><a href="Shoulu/" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-      <dd class="tc"><form method="post" target="_blank" action="shouLuAction.action">请输入要查询的网址: <font face="Arial">http://</font> <input name="shoulu_domain" type="text" size="65" value="" class="inp_t">&nbsp;<input type="submit" value="开始查询"  class="sb_c"><br />
+      <dd class="tc"><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="shouLuAction.action">请输入要查询的网址: <font face="Arial">http://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="65" value="" class="inp_t">&nbsp;<input type="submit" value="开始查询"  class="sb_c"><br />
 <input name="googlecheck" type="checkbox" class="checkbox" value="checked" > 谷歌
 <input name="baiducheck" type="checkbox" class="checkbox" value="checked" > 百度
 <input name="yahoocheck" type="checkbox" class="checkbox" value="checked" > 雅虎
@@ -30,7 +30,7 @@
     <div class="totop w50 left">
      <dl class="tbox">
         <dt><strong>IP/服务器物理定位查询</strong><p><a href="showIpTool.action" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form method="post" target="_blank" action="showIpTool.action">IP / 域名：<input name="Ip" type="text" size="30" value="<%=request.getRemoteAddr()%>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>直接输入IP则可查询该IP的物理位置；
+        <dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('ipinpt').value);" action="showIpTool.action">IP / 域名：<input name="myIp" id="ipinpt" type="text" size="30" value="<%=request.getRemoteAddr()%>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>直接输入IP则可查询该IP的物理位置；
       </dd>
      </dl>
     </div>
