@@ -2,9 +2,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <div class="w960 center clear">
 <div class="header">
-<h1><a class="logo" title="傻人工具 - lrtool.net" href="javascript:void(0)" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);return(false);">傻人工具 - lrtool.net</a></h1>
-<p class="nav"> <a  title="网站搜一搜 - 设为首页" href="javascript:void(0)" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);return(false);">设为首页</a>  
-<a  title="傻人工具 - lrtool.net - 加入收藏" href="javascript:window.external.AddFavorite('http://www.lrtool.net',‘傻人工具')">加入收藏</a>  
+<h1><a class="logo" title="懒人工具 - lrtool.net" href="http://www.lrtool.net">懒人工具 - lrtool.net -实用的工具</a></h1>
+<p class="nav"> <a  title="网站搜一搜 - 设为首页" href="javascript:void(0)" onClick="setHomepage();">设为首页</a>  
+<a  title="懒人工具 - lrtool.net - 加入收藏" href="javascript:AddFavorite('http://www.lrtool.net','懒人工具')">加入收藏</a>  
 <a  title="帮助中心" href="/about/help.html">使用帮助</a>  
 </p>
 <div class="menu">

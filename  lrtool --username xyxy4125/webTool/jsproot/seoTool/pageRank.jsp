@@ -2,7 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>谷歌/搜狗PR值查询 - 站长工具 - 傻人工具 - lrtool.net - 致力SEO简单流程化！</title>
+<title>谷歌/搜狗PR值查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单有效！</title>
 </head>
 <body>
 <div class="totop">
