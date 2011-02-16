@@ -108,3 +108,13 @@ div.td2			{ float:left; line-height:24px;}
 
 
 .key{text-align:left; margin:10px 0px; padding-top:5px; border-top:1px #333 dashed;}
+
+/**page rank **/
+.percent { height:13px; width:95px; overflow:hidden; border:1px solid #7AAFE4; color:#07519A;  background:url(/images/sr_bg2.gif) no-repeat 1px 1px; font:bold 9px/13px Verdana; }
+.percent span{ display:block; height:7px; _display:inline; width:65px; margin:3px; margin-right:8px; float:left;}
+.percent span em { text-indent:-9999px; float:left; height:7px; background:url(/images/sr_bg.gif) #fff repeat-x;}
+span.google, span.sogou{ background-image:url(/images/icon_google.gif); background-repeat:no-repeat; background-position: left center; height:22px; line-height:22px; display:block; padding-left:22px}
+span.google img{ margin-top:3px;padding-left:-100px;}
+span.sogou { background-image:url(/images/icon_sogou.gif); font-size:12px}
+span.sogou .percent { position:relative; top:4px; float:left; margin-right:2px;}
+/*** rand end ****/
