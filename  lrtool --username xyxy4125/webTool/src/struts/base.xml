@@ -105,6 +105,11 @@
         <action name="keywordPosition" class="com.base.core.action.tool.KeywordSearchAction">
             <result name="success">/seoTool/keyPosition.jsp</result>
         </action>
+        
+        <action name="keywordCount" class="com.base.core.action.tool.KeywordSearchAction" method="getCount">
+            <result name="success">/seoTool/keywordCount.jsp</result>
+        </action>
+        
     </package>
     
 </struts>
