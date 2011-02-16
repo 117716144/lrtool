@@ -22,5 +22,6 @@
     <!-- 
     <import resource="mailContext.xml"/>
      -->
+    <import resource="spring-schedule.xml"/>
     
 </beans>
