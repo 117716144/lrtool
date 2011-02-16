@@ -257,7 +257,94 @@ public class StringUtil {
 	   }  
 	  
 	   return -1;  
-	}  
-    
-    
+	}
+	
+	/**
+	 * 求next数组
+	 * 
+	 * @param key
+	 *            : 模式串
+	 * @return
+	 */
+	public static int[] next(String key) {
+		try {
+			int i = 1, j = 0;
+			char[] keys = key.toCharArray();
+			int[] next = new int[keys.length];
+			while (i < keys.length) {
+				if (j == 0 || keys[i - 1] == keys[j - 1]) {
+					++j;
+					next[i] = j;
+					++i;
+				} else {
+					j = next[j - 1];
+				}
+			}
+			return next;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 求next数组(前一个next方法的改进版)
+	 * 
+	 * @param key
+	 *            : 模式串
+	 * @return
+	 */
+	public static int[] next2(String key) {
+		try {
+			int i = 1, j = 0;
+			char[] keys = key.toCharArray();
+			int[] next = new int[keys.length];
+			while (i < keys.length) {
+				if (j == 0 || keys[i - 1] == keys[j - 1]) {
+					++j;
+					if (keys[i] != keys[j - 1]) {
+						next[i] = j;
+					} else {
+						next[i] = next[j];
+					}
+					++i;
+				} else {
+					j = next[j - 1];
+				}
+			}
+			return next;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 统计在主串中出现模式串的次数
+	 * 
+	 * @param input
+	 *            :主串
+	 * @param key
+	 *            :模式串
+	 * @return
+	 */
+	public static int calcKeysFrequency(String input, String key) {
+		int i = 0, j = 0, times = 0;
+		int[] next = next2(key);
+		char[] inputs = input.toCharArray();
+		char[] keys = key.toCharArray();
+		while (i < inputs.length) {
+			if (j == 0 || inputs[i] == keys[j - 1]) {
+				++i;
+				if ((++j) > keys.length) {
+					times++;
+					j = 0;
+				}
+			} else {
+				j = next[j - 1];
+			}
+		}
+		return times;
+	}
+
 }
