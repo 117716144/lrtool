@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>搜索引擎收录查询 - 站长工具 - 傻人工具 - lrtool.net - 致力SEO简单流程化！</title>
+<title>搜索引擎收录查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单有效！</title>
 <meta name ="keywords" content="便民工具,网站搜索,网址导航，搜一搜,个性化导航,全民搜索,起始页,上网主页,上网首页,收藏夹,网络收藏夹,网址收藏夹,书签,QQ书签,网络书签,上网导航,网址,网址导航,导航,快捷上网,网址之家,实用工具,搜索,社区" />
 <meta name="description" content="网站搜一搜，让全民上网更加方便更加快捷，最具个性化的导航搜索平台，让你工作生活无忧!" />
 <script language="javascript" type="text/javascript" src="/js/shoulu.js"></script>

@@ -26,6 +26,22 @@ public class KeywordSearchAction extends BaseAction{
 	
 	private String surl;
 	
+	private Long stotal; //总字节数
+	
+	private Long keytotal; //关键字字节数
+	
+	private String percent; //占百分比
+	
+	private int frequency; //出现次数
+	
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
+
 	public String getSkey() {
 		return skey;
 	}
@@ -65,6 +81,31 @@ public class KeywordSearchAction extends BaseAction{
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+	
+	public Long getStotal() {
+		return stotal;
+	}
+
+	public void setStotal(Long stotal) {
+		this.stotal = stotal;
+	}
+
+	public Long getKeytotal() {
+		return keytotal;
+	}
+
+	public void setKeytotal(Long keytotal) {
+		this.keytotal = keytotal;
+	}
+
+	public String getPercent() {
+		return percent;
+	}
+
+	public void setPercent(String percent) {
+		this.percent = percent;
+	}
+
 
 	public String execute(){
 		String url = "http://www.baidu.com/s?rn=100&q1="+this.getKeyword();
@@ -91,9 +132,16 @@ public class KeywordSearchAction extends BaseAction{
 	public String getCount(){
 		String pageEncoding =this.pageEncoding();
 		String resultStr =getTargetStr(surl,StringUtil.isEmpty(pageEncoding)?"utf-8":pageEncoding);
+		if(!StringUtil.isEmpty(resultStr) && !StringUtil.isEmpty(skey)){
 		resultStr =resultStr.replaceAll("\\<.*?>", "");
-		int count =StringUtil.calcKeysFrequency(resultStr, skey);
-		System.out.println(count);
+		resultStr =resultStr.replaceAll("\\s+", "");
+		frequency =StringUtil.calcKeysFrequency(resultStr, skey);
+		stotal =Long.parseLong(String.valueOf(StringUtil.getStringByteCount(resultStr)));
+		keytotal =Long.parseLong(String.valueOf(StringUtil.getStringByteCount(skey)));
+		percent =StringUtil.percent(keytotal*frequency, stotal);
+		System.out.println(frequency+"--"+stotal+"--"+keytotal+"--"+percent);
+		System.out.println(StringUtil.getStringByteCount("ddd旅游保险"));
+		}
 		return SUCCESS;
 	}
 	
@@ -151,8 +199,8 @@ public class KeywordSearchAction extends BaseAction{
 //		ks.setSiteurl("www.ubao.com");
 //		ks.setKeyword("在线保险");
 //		ks.execute();
-		ks.setSurl("http://www.7su.com");
-		ks.setSkey("申根国家驻留");
+		ks.setSurl("http://www.ubao.com");
+		ks.setSkey("旅游保险");
 		ks.getCount();
 		ks.pageEncoding();
 		

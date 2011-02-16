@@ -73,24 +73,8 @@
     
      <div class="totop w50 right">
      <dl class="tbox">
-        <dt><strong>GG PR & SOGOU RANK 查询</strong><p><a href="Rank/" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form method="post" target="_blank" name="get_rank" onsubmit="return(ranks());">网站地址：<input name="domain" type="text" size="20" value="www." class="inp_t">&nbsp;<select name="rank_site"><option value="1">Google</option><option value="2">Sogou</option></select> <input type="submit" value="开始查询" class="sb_c"></form>可查询网页在GG或搜狗上的页面等级（影响搜索引擎排名）信息。
-<script language="javascript">
-<!--
-function ranks()
-{
-var pr_domain = get_rank.domain.value
-
-//pr查询
-if(get_rank.rank_site.value=="1")
-get_rank.action ='Rank/Index.asp';
-//sr查询
-if(get_rank.rank_site.value=="2")
-get_rank.action ='Sogou_Rank/Index.asp';
-}
-//-->
-</script>
-      </dd>
+        <dt><strong>GG PR & SOGOU RANK 查询</strong><p><a href="pageRank.action" target="_blank"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
+        <dd><form method="post" target="_blank" name="get_rank" action="pageRank.action">网站地址：<input name="prdomain" type="text" size="20" value="http://www." class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询网页在GG和搜狗上的页面等级（影响搜索引擎排名）信息。</dd>
      </dl>
     </div>
     
@@ -98,8 +82,8 @@ get_rank.action ='Sogou_Rank/Index.asp';
     
     <div class="totop w50 left">
      <dl class="tbox">
-        <dt><strong>关键词排名查询</strong><p><a href="KeyWords/"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form action="KeyWords/" method="get" target="_blank">网站域名：<input name="domain" type="text" size="12"  class="inp_t">&nbsp;关键词：<input name="word" type="text" value="" size="6"  class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询指定站点在GG中搜索指定关键词时的排名位置。
+        <dt><strong>关键词排名查询</strong><p><a href="keywordPosition.action"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
+        <dd><form action="keywordPosition.action" method="post" target="_blank">网站域名：<input name="siteurl" type="text" size="12"  class="inp_t">&nbsp;关键词：<input name="keyword" type="text" value="" size="6"  class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询指定站点在baidu中搜索指定关键词时的排名位置。
       </dd>
      </dl>
     </div>
@@ -107,8 +91,8 @@ get_rank.action ='Sogou_Rank/Index.asp';
     
      <div class="totop w50 right">
      <dl class="tbox">
-        <dt><strong>页面关键词密度查询</strong><p><a href="Seo/"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form method="post" target="_blank" action="Seo/Key_Density.asp">网站页面：<input name="domain" type="text" size="14" value="www." class="inp_t">&nbsp;关键词：<input name="KeyWords" type="text" size="7" value="" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询指定页面中某一关键词的出现频率和密度。
+        <dt><strong>页面关键词密度查询</strong><p><a href="wordFrequency.action"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
+        <dd><form method="post" target="_blank" action="wordFrequency.action">网站页面：<input name="surl" type="text" size="14" value="http://www." class="inp_t">&nbsp;关键词：<input name="skey" type="text" size="7" value="" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可查询指定页面中某一关键词的出现频率和密度。
       </dd>
      </dl>
     </div>
@@ -116,84 +100,12 @@ get_rank.action ='Sogou_Rank/Index.asp';
     
     <div class="totop w50 left">
      <dl class="tbox">
-        <dt><strong>搜索引擎模拟抓取页面</strong><p><a href="seo/robot.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form action="seo/robot.asp" method="get"  target="_blank"><input name="domain" type="text"size="20" value="www." class="inp_t">&nbsp;网页编码：<select name="code" id="RCharactorSet">
-	                                        <option selected="selected" value="GB2312">GB2312</option>
-	                                        <option value="UTF-8">UTF-8</option>
-	                                        <option value="GBK">GBK</option>
-                                        </select>&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>该查询模拟搜索引擎的机器人或爬虫访问你页面所抓取到的信息。<br />此模拟功能对于针对搜索引擎专门优化过的页面可能无效。
+        <dt><strong>身份证生成工具</strong><p><a href="generateIdCard.action"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
+        <dd><form action="generateIdCard.action" method="get"  target="_blank">
+        <input type="submit" value="生成" class="sb_c"></form>
       </dd>
      </dl>
     </div>
-    
-    
-     <div class="totop w50 right">
-     <dl class="tbox">
-        <dt><strong>网页 META 信息检测</strong><p><a href="seo/metacheck.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><form action="seo/metacheck.asp" method="get"  target="_blank"><input name="domain" type="text" size="32" value="www." class="inp_t">&nbsp;<select name="code" id="MCharactorSet">
-	                                            <option selected="selected" value="GB2312">GB2312</option>
-	                                            <option value="UTF-8">UTF-8</option>
-	                                            <option value="GBK">GBK</option>
-                                            </select>&nbsp;<input type="submit" value="开始查询" class="sb_c"></form>可判断页面标题、关键词、描述等是否有利于搜索引擎收录。<br />此查询功能对于针对搜索引擎专门优化过的页面可能无效。
-      </dd>
-     </dl>
-    </div>
-    <div class="clear"></div>
-    
-    <div class="totop w50 left">
-     <dl class="tbox">
-        <dt><strong>HTML/JS代码 互转工具</strong><p><a href="/trans/Html_Js.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd> 可以把 HTML代码 JS代码 互相转化输出。<br />由于页面空间有限，请 [<a href="/trans/Html_Js.asp" style="border-bottom:dashed 1px;" rel="external">点此链接至详细转换页面</a>]。
-      </dd>
-     </dl>
-    </div>
-    
-    
-     <div class="totop w50 right">
-     <dl class="tbox">
-        <dt><strong>ESCAPE 加密/解密工具</strong><p><a href="/trans/Escape.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd>可以把代码以 ESCAPE 加密/解密输出。<br />由于页面空间有限，请 [<a href="/trans/Escape.asp" style="border-bottom:dashed 1px;" rel="external">点此链接至详细转换页面</a>]。 
-      </dd>
-     </dl>
-    </div>
-    <div class="clear"></div>
-    
-    <div class="totop w50 left">
-     <dl class="tbox">
-        <dt><strong>GB2312/BIG5 互转工具</strong><p><a href="/trans/Gb_Big.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd> 可以在 GB2312（简体中文）/BIG5（繁体中文）之间自由转换。<br />由于页面空间有限，请 [<a href="/trans/Gb_Big.asp" style="border-bottom:dashed 1px;" rel="external">点此链接至详细转换页面</a>]。
-      </dd>
-     </dl>
-    </div>
-    
-    
-     <div class="totop w50 right">
-     <dl class="tbox">
-        <dt><strong>网页代码 JS/VB 加密工具</strong><p><a href="/trans/Encode.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd>使用 JS/VBS 方式实现的网页代码和字符串的加密和解密。<br />由于页面空间有限，请 [<a href="/trans/Encode.asp" style="border-bottom:dashed 1px;" rel="external">点此链接至详细转换页面</a>]。 
-      </dd>
-     </dl>
-    </div>
-    
-    <div class="clear"></div>
-    
-    <div class="totop w50 left">
-     <dl class="tbox">
-        <dt><strong>字符到ASCII码 转换工具</strong><p><a href="/trans/Ascii.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd> <Script language="" Src="//trans/Ascii.asp"></Script>输入键盘上任一字符转换该键ACSII码，大小写字母ASCII码不同。<br />为了不造成混淆，每次只能查询一个字符的ASCII码。
-      </dd>
-     </dl>
-    </div>
-    
-    
-     <div class="totop w50 right">
-     <dl class="tbox">
-        <dt><strong>字符串32/16位MD5 加密工具</strong><p><a href="/trans/Md5.asp"><img src="/images/right.gif" width="16" height="16" /></a></p></dt>
-        <dd><Script language="" Src="/trans/Md5.asp"></Script>
-      </dd>
-     </dl>
-    </div>
-    
     
     <div class="clear"></div>
 </div>

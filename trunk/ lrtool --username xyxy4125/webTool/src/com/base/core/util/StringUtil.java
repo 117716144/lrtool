@@ -3,6 +3,7 @@ package com.base.core.util;
 import java.net.URLEncoder;
 import java.sql.Clob;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -95,15 +96,6 @@ public class StringUtil {
         }
     }
 
-    public static String getDuBangSerialNumber(String appId){
-        StringBuffer sb=new StringBuffer("");
-        for(int i=0;i<10-appId.length();i++){
-            sb.append("0");
-        }
-        sb.append(appId);
-        return sb.toString();
-    }
-
     public static String getDoubleStr(Double value){
         if(value ==null || "null".equals(value)){
             value = 0.0;    
@@ -174,7 +166,13 @@ public class StringUtil {
     	}
     }
     
-    //长串数字处理，如用千分位分隔，小数点保留几位
+    /**
+     * 长串数字处理，如用千分位分隔，小数点保留几位
+     * @param value
+     * @param decimalPrecision
+     * @param thousandsSeparator
+     * @return
+     */
     public static String getFormatNumbers(String value, int decimalPrecision,
             String thousandsSeparator) {
     	Pattern integerPattern = Pattern.compile("^-?[0-9]*$");
@@ -261,9 +259,7 @@ public class StringUtil {
 	
 	/**
 	 * 求next数组
-	 * 
 	 * @param key
-	 *            : 模式串
 	 * @return
 	 */
 	public static int[] next(String key) {
@@ -289,9 +285,7 @@ public class StringUtil {
 
 	/**
 	 * 求next数组(前一个next方法的改进版)
-	 * 
 	 * @param key
-	 *            : 模式串
 	 * @return
 	 */
 	public static int[] next2(String key) {
@@ -321,7 +315,6 @@ public class StringUtil {
 
 	/**
 	 * 统计在主串中出现模式串的次数
-	 * 
 	 * @param input
 	 *            :主串
 	 * @param key
@@ -346,5 +339,40 @@ public class StringUtil {
 		}
 		return times;
 	}
+	
+	/**
+	 * 计算百分比
+	 * @param p1
+	 * @param total
+	 * @return
+	 */
+	public static String percent( double  p1,  double  total)  {
+        String str;
+        double  p3  =  p1  /  total;
+        NumberFormat nf  =  NumberFormat.getPercentInstance();
+        nf.setMinimumFractionDigits( 2 );
+        str = nf.format(p3);
+        return  str;
+    } 
+	
+	/**
+	 * 计算字符串字节长度
+	 * @param s
+	 * @return
+	 */
+	public static int getStringByteCount(String s)
+    {
+         int  length  =   0 ;
+         for ( int  i  =   0 ; i  <  s.length(); i ++ )
+        {
+             int  ascii  =  Character.codePointAt(s, i);
+             if (ascii  >=   0   &&  ascii  <= 255 )
+                length ++ ;
+             else
+                length  +=   2 ;
+               
+        }
+         return  length;
+    } 
 
 }
