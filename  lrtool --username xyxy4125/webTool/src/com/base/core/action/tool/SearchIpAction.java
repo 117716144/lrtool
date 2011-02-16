@@ -54,7 +54,7 @@ public class SearchIpAction extends BaseAction {
 	}
 	
 	public String input(){
-		myIp =getIpAddr(this.getRequest());
+//		myIp =getIpAddr(this.getRequest());
 		myPosition =IPSeeker.getInstance().getAddress(myIp);
 		return SUCCESS;
 	}

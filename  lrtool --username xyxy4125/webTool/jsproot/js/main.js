@@ -162,3 +162,21 @@ function setHomepage()
     prefs.setCharPref('browser.startup.homepage','http://www.lrtool.com');
  }
 }
+
+function trimStr(str){
+	return str.replace(/^\s+|\s+$/g,"");
+}
+
+function checkUrl(input){
+	if(trimStr(input)==""){
+		alert("请先输入需要查询的内容");
+		return false;
+	}
+	if(/^(([\w-]+\.)+((com)|(net)|(org)|(gov\.cn)|(info)|(cc)|(com\.cn)|(net\.cn)|(org\.cn)|(name)|(biz)|(tv)|(cn)))|(((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d)(\.((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d)){3})/.test(input)){
+		return true;
+	}else{
+		alert("不是正确的域名或网址");
+		return false;
+	}
+	return false;
+}
