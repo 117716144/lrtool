@@ -6,7 +6,7 @@ function getGoogle(){
 var domain =jQuery("#shoulu_domain").val();
    jQuery.ajax({
      type: "post",
-     url: "googleShoulu.action",
+     url: "/googleShoulu.action",
      data: "shoulu_domain="+domain,
      async: true,
      success: function(msg){
@@ -24,7 +24,7 @@ function getBaidu(){
 var domain =jQuery("#shoulu_domain").val();
     jQuery.ajax({
      type: "post",
-     url: "baiduShoulu.action",
+     url: "/baiduShoulu.action",
      data: "shoulu_domain="+domain,
      async: true,
      success: function(msg){
@@ -42,7 +42,7 @@ function getYahoo(){
 	var domain =jQuery("#shoulu_domain").val();
 	    jQuery.ajax({
 	     type: "post",
-	     url: "yahooShoulu.action",
+	     url: "/yahooShoulu.action",
 	     data: "shoulu_domain="+domain,
 	     async: true,
 	     success: function(msg){
@@ -60,7 +60,7 @@ function getSoso(){
 	var domain =jQuery("#shoulu_domain").val();
 	    jQuery.ajax({
 	     type: "post",
-	     url: "sosoShoulu.action",
+	     url: "/sosoShoulu.action",
 	     data: "shoulu_domain="+domain,
 	     async: true,
 	     success: function(msg){
@@ -78,7 +78,7 @@ function getSogou(){
 	var domain =jQuery("#shoulu_domain").val();
 	    jQuery.ajax({
 	     type: "post",
-	     url: "sogouShoulu.action",
+	     url: "/sogouShoulu.action",
 	     data: "shoulu_domain="+domain,
 	     async: true,
 	     success: function(msg){
@@ -96,7 +96,7 @@ function getYoudao(){
 	var domain =jQuery("#shoulu_domain").val();
 	    jQuery.ajax({
 	     type: "post",
-	     url: "youdaoShoulu.action",
+	     url: "/youdaoShoulu.action",
 	     data: "shoulu_domain="+domain,
 	     async: true,
 	     success: function(msg){
@@ -114,7 +114,7 @@ function getBing(){
 	var domain =jQuery("#shoulu_domain").val();
 	    jQuery.ajax({
 	     type: "post",
-	     url: "bingShoulu.action",
+	     url: "/bingShoulu.action",
 	     data: "shoulu_domain="+domain,
 	     async: true,
 	     success: function(msg){
