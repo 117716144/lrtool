@@ -54,7 +54,7 @@ public class SiteAlexaInfoAction extends BaseAction{
 			DocumentBuilder dombuilder=domfac.newDocumentBuilder();
 			String urlStr ="http://data.alexa.com/data/?cli=10&dat=snba&ver=7.0&url="+this.getDomain();
 			String uri =new SiteAlexaInfoAction().getTargetStr(urlStr,"utf-8");
-			Document doc =dombuilder.parse(new ByteArrayInputStream(uri.getBytes()));
+			Document doc =dombuilder.parse(new ByteArrayInputStream(uri.getBytes("utf-8")));
 			NodeList nodeList=doc.getElementsByTagName("SD"); 
 			for(int len=0;len<nodeList.getLength();len++){
 			Node fatherNode=nodeList.item(len);  
