@@ -5,33 +5,29 @@
 <title>关键字收录查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单有效！</title>
 </head>
 <body>
-<div class="w960 center clear">
-<div class="conent">
-<div class="totop">
-     <dl class="tbox">
-     <dt>Baidu关键字收录情况</dt>
-      <dd class="tc">
-      请输入你要查询的地址：
+<div class="main">
+	<div class="col">
+		<dl class="clist">
+			<dt><strong>Baidu关键字收录情况</strong></dt>
+			<dd>
+				请输入你要查询的地址：
 	   <form action="" method="get">
 				            网站域名：<input name="siteurl" type="text" size="40" value="<s:property value='siteurl'/>"  class="inp_t"/> 关键词：<input name="keyword" type="text" value="<s:property value='keyword'/>" size="20" class="inp_t" />
 				            收索引擎：<select >
 	             <option selected="selected" value="0">Baidu</option>
                       </select>
-	<input  class="sb_c" type="submit" value="点击查询" />
+	<input  class="sec" type="submit" value="点击查询" />
 			             </form>
-                         
-                         百度关键字排名查询查询结果： 
- <div class="line"></div>
- <div id="key">
+			             百度关键字排名查询查询结果：<br/>
+			             <div id="key">
  <s:if test="keyPosition!=null && keyPosition!=''">
  搜索 <font color=red>"<s:property value='keyword'/>"</font> 第<strong> <font color=red>"<s:property value='keyPosition'/>"</font> </strong>个出现 "<s:property value='siteurl'/>"
  </s:if><s:else>关键字 "<s:property value='keyword'/>" 在网站 "<s:property value='siteurl'/>" 的 Baidu 收录结果前 100 名中有 0 条记录</s:else>
  </div>
- </div>
-<div style="clear:both"></div>
-</div> 
-		工具简介：Baidu关键字收录情况,百度关键字排名查询！ 
-<div class="clear"></div>		   
+			</dd>
+		</dl>
+	</div>
 </div>
+<div>工具简介：Baidu关键字收录情况,百度关键字排名查询！ </div>	   
 </body>
 </html>

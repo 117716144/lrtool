@@ -5,13 +5,12 @@
 <title>搜索引擎收录查询  - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单有效！</title>
 </head>
 <body>
-<div class="w960 center clear">
-<div class="conent">
-<div class="totop">
-     <dl class="tbox">
-     <dt>欢迎您使用本站的 关键词密度 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</dt>
-      <dd class="tc">
-      <form method="post" action="wordFrequency.action">查询页面：<input name="surl" type="text" size="40" value="<s:property value='surl'/>" class="inp_t">&nbsp;&nbsp;关键词：<input name="skey" type="text" size="20" value="<s:property value='skey'/>" class="inp_t">&nbsp;<input type="submit" value="点击查询" class="sb_c"><br /><br />
+<div class="main">
+	<div class="col">
+		<dl class="clist">
+			<dt><strong>欢迎您使用本站的 关键词密度 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
+			<dd class="tc">
+      <form method="post" action="wordFrequency.action">查询页面：<input name="surl" type="text" size="40" value="<s:property value='surl'/>" class="inp">&nbsp;&nbsp;关键词：<input name="skey" type="text" size="20" value="<s:property value='skey'/>" class="inp_t">&nbsp;<input type="submit" value="点击查询" class="sec"><br /><br />
 <font color="#ff0000">注：字符长度按字节算，每个中文、半角符号占两字节，每个英文、全角符号占一字节。</font><br /><br />
 </form>
 <div id="key_density_index_colum_one_right_top">
@@ -23,10 +22,9 @@
 </div>
 </div>
       </dd>
-     </dl>
-   </div>
+		</dl>
+	</div>
+</div>
 
-</div>
-</div>
 </body>
 </html>
