@@ -12,12 +12,15 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
+<link href="/style/default.css" rel="stylesheet" type="text/css" />
 <link href="/style/css.css" rel="stylesheet" type="text/css" />
 </head>
 	<body>
-	<s:include value="/includes/header.jsp"/>
-    <decorator:body/>
-    <s:include value="/includes/footer.jsp"/>
-    </body>
+	<div class="container"> 
+		<s:include value="/includes/header.jsp"/>
+	    <decorator:body/>
+	    <s:include value="/includes/footer.jsp"/>
+	    </body>
+    </div>
 
 </html>

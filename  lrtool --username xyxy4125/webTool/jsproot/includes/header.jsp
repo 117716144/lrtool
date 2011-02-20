@@ -1,23 +1,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<div class="w960 center clear">
 <div class="header">
-<h1><a class="logo" title="懒人工具 - lrtool.net" href="http://www.lrtool.net">懒人工具 - lrtool.net -实用的工具</a></h1>
-<p class="nav"> <a  title="网站搜一搜 - 设为首页" href="javascript:void(0)" onClick="setHomepage();">设为首页</a>  
-<a  title="懒人工具 - lrtool.net - 加入收藏" href="javascript:AddFavorite('http://www.lrtool.net','懒人工具')">加入收藏</a>  
-<a  title="帮助中心" href="/about/help.html">使用帮助</a>  
-</p>
-<div class="menu">
-			<ul>
-				<li><a href="http://www.lrtool.net/">网站首页</a></li>
-				<li><a href="#">便民查询</a></li>
-				<li class="active"><a href="http://www.lrtool.net/tool">站长工具</a></li>
-				<li><a href="#">名站导航</a></li>
-				<li><a href="#">好站推荐</a></li>
-				
-			</ul>		
-		</div>
-        <div class="clear"></div>  
+    <div class="lr-top">
+    	<span class="ipadr">IP查询 - 您的IP：111.142.105.50 来自：贵州省贵阳市 联通</span>
+    	<span class="tip">偷懒也是一种进步，懒人工具带您进步！</span>
     </div>
-    <!--  header -->
+    <div class="lr-logo clear">
+    	<div class="rlogo"><img src="images/logo.jpg"/></div>
+    	<div class="radv">
+    		<img src="images/adv.jpg" alt="邀请加盟"/>
+    	</div>
+    </div>
+    <div class="lr-menu">
+    	<ul>                                                            
+            <li class="on"><a href="#">站长工具</a></li>
+            <li><a href="Shoulu/">网站信息查询</a></li>
+            <li><a href="keywordPosition.action">SEO信息查询</a></li>
+            <li><a href="howWhoisInfo.action">域名/IP类查询</a></li>
+            <li><a href="wordFrequency.action">关键词查询</a></li>
+            <li><a href="generateIdCard.action">其他工具</a></li>
+            <li><a href="showIpTool.action">IP/服务器</a></li>        	  
+      	</ul>
+      	<P><a href="#">懒人工具正式上线，持续更新中...</a></P>
+        <!--<p><a href="#">站长精灵</a><a href="#">下载投递文章</a><a href="#">SEO论坛</a><a href="#">联系我们</a></p>-->
+    </div>
 </div>

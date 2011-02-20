@@ -10,30 +10,25 @@
 <script language="javascript" type="text/javascript" src="/js/alexaInfo.js"></script>
 </head>
 <body>
-<div class="w960 center clear">
-<div class="conent">
-<div class="totop">
-     <dl class="tbox">
-     <dt>欢迎您使用本站的 全球alexa排名 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</dt>
-      <dd class="tc">
-      <form action="siteAlexa.action" method="post" style="padding:0;margin:0;">
+<div class="main">
+	<div class="col">
+		<dl class="clist">
+			<dt><strong>欢迎您使用本站的 全球alexa排名 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
+			<dd>
+				<form action="siteAlexa.action" method="post" style="padding:0;margin:0;">
     Alexa排名查询的网址：http://www.
-    <input name="domain" type="text" class="inp_t" id="domain" value="<s:property value='domain'/>" size="55">
-    <input type="submit" value="点击查询"  class="sb_c"> 
-    &nbsp;
-  </form><br />
-  友情提示：Alexa网站排名是根据对用户安装 Alexa工具条 嵌入到 IE 等浏览器，监控其访问的网站数据进行统计，因此排名并不具有绝对的可靠性。
-      </dd>
-     </dl>
-   </div>
-
-<br />
-
-<div class="totop">
-     <dl class="tbox">
-     <dt>网站 <s:property value="domain"/>的Alexa排名综合信息</dt>
-      <dd class="tc">
-      <div style="float:left;width:230;text-align:center;">
+    <input name="domain" type="text" class="inp" id="domain" value="<s:property value='domain'/>" size="55">
+    <input type="submit" value="点击查询"  class="sec"> 
+  </form>
+			</dd>
+		</dl>
+		<p>友情提示：Alexa网站排名是根据对用户安装 Alexa工具条 嵌入到 IE 等浏览器，监控其访问的网站数据进行统计，因此排名并不具有绝对的可靠性。</p>
+	</div>
+	<div class="col">
+		<dl claa="clist">
+			<dt><strong>网站 <s:property value="domain"/>的Alexa排名综合信息</strong></dt>
+			<dd class="clear">
+			<div style="float:left;width:230;text-align:center;">
     <!--GOOGLE ADS--><br>
    <a href="http://www.<s:property value="domain"/>" target="_blank"><img src="/images/temp.jpg" border="0"/></a><br>
 	<div style="margin-top:8px;">
@@ -92,16 +87,14 @@
         </TR>
       </table>
   </div>
-  
-  <div class="clear"></div>
-      </dd>
-     </dl>
-   </div>
+			</dd>
+		</dl>
+	</div>
+	
 
-<br />
-<div class="totop">
-     <dl class="tbox">
-     <dt>站点 <s:property value='alexaInfo.SiteTitle'/> 的 Alexa 排名查询结果</dt>
+<div class="col">
+     <dl class="clist">
+     <dt><strong>站点 <s:property value='alexaInfo.SiteTitle'/> 的 Alexa 排名查询结果</strong></dt>
       <dd class="tc">
       <div class="body1">
   <div class="x bg2">&nbsp;&nbsp;流量排名数据信息：Traffic Rank for <s:property value='domain'/></div>
@@ -122,13 +115,10 @@
       </dd>
      </dl>
    </div>
-
-<br />
-
-<div class="totop">
-     <dl class="tbox">
-     <dt>站点 <s:property value='alexaInfo.SiteTitle'/>  的搜索引擎收录、反向链接情况</dt>
-      <dd class="tc">
+<div class="col">
+     <dl class="clist">
+     <dt><strong>站点 <s:property value='alexaInfo.SiteTitle'/>  的搜索引擎收录、反向链接情况</strong></dt>
+      <dd>
       <div class="mainbar">
     <div class="title" style="width:130px">搜索引擎</div>
     <div class="title" style="width:120px">百度</div>
@@ -157,12 +147,10 @@
      </dl>
    </div>
 
-<br />
-
-<div class="totop">
-     <dl class="tbox">
-     <dt>网站日平均排名走势图 [点击时间段查看相应时段曲线]</dt>
-      <dd class="tc">
+<div class="col">
+     <dl class="clist">
+     <dt><strong>网站日平均排名走势图 [点击时间段查看相应时段曲线]</strong></dt>
+      <dd>
       <div class="mainbar">
   <div class="title" style="width:150px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='';document.getElementById('rank2').style.display='none';document.getElementById('rank3').style.display='none';document.getElementById('rank4').style.display='none';document.getElementById('rank5').style.display='none';">六个月数据</a></div>
   <div class="title" style="width:152px"><a style="CURSOR: hand" onClick="document.getElementById('rank1').style.display='none';document.getElementById('rank2').style.display='';document.getElementById('rank3').style.display='none';document.getElementById('rank4').style.display='none';document.getElementById('rank5').style.display='none';">三个月数据</a></div>
@@ -181,12 +169,11 @@
      </dl>
    </div>
 
-<br />
 
-<div class="totop">
-     <dl class="tbox">
-     <dt>日平均访问人数走势图 [点击时间段查看相应时段曲线]</dt>
-      <dd class="tc">
+<div class="col">
+     <dl class="clist">
+     <dt><strong>日平均访问人数走势图 [点击时间段查看相应时段曲线]</strong></dt>
+      <dd>
       <div class="mainbar">
   <div class="title" style="width:150px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='';document.getElementById('reachs2').style.display='none';document.getElementById('reachs3').style.display='none';document.getElementById('reachs4').style.display='none';document.getElementById('reachs5').style.display='none';">六个月数据</a></div>
   <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('reachs1').style.display='none';document.getElementById('reachs2').style.display='';document.getElementById('reachs3').style.display='none';document.getElementById('reachs4').style.display='none';document.getElementById('reachs5').style.display='none';">三个月数据</a></div>
@@ -207,10 +194,10 @@
    
 <br />
 
-<div class="totop">
-     <dl class="tbox">
-     <dt>日页面浏览量走势图 [点击时间段查看相应时段曲线]</dt>
-      <dd class="tc">
+<div class="col">
+     <dl class="clist">
+     <dt><strong>日页面浏览量走势图 [点击时间段查看相应时段曲线]</strong></dt>
+      <dd>
       <div class="mainbar">
   <div class="title" style="width:150px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='';document.getElementById('pageviews2').style.display='none';document.getElementById('pageviews3').style.display='none';document.getElementById('pageviews4').style.display='none';document.getElementById('pageviews5').style.display='none';">六个月数据</a></div>
   <div class="title" style="width:152px"><a style="cursor: hand" onClick="document.getElementById('pageviews1').style.display='none';document.getElementById('pageviews2').style.display='';document.getElementById('pageviews3').style.display='none';document.getElementById('pageviews4').style.display='none';document.getElementById('pageviews5').style.display='none';">三个月数据</a></div>
@@ -230,7 +217,7 @@
    </div>   
    
 </div>
-</div>
+
 <script>getOtherInfo();getGoogle();getBaidu();getYahoo();getSoso();getSogou();
 getGoogleL();getBaiduL();getYahooL();getSosoL();getSogouL();</script>
 </body>
