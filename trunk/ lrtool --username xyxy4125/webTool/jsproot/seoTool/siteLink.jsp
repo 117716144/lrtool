@@ -13,7 +13,7 @@
 	<div class="col">
 		<dl class="clist">
 			<dt><strong>欢迎您使用本站的搜索引擎反向链接 工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
-      <dd><form method="post" target="_top" action="siteLinkAction.action">请输入要查询的网址: <font face="Arial">http://</font> <input type="text" name="shoulu_domain" size="60" id="shoulu_domain" value="<s:property value='shoulu_domain'/>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"><br />
+      <dd><form method="post" target="_top" action="link.html">请输入要查询的网址: <font face="Arial">http://</font> <input type="text" name="shoulu_domain" size="60" id="shoulu_domain" value="<s:property value='shoulu_domain'/>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"><br />
 <input name="googlecheck" type="checkbox" class="checkbox" value="checked" <s:if test="googlecheck=='checked'">checked</s:if>/>谷歌
 <input name="baiducheck" type="checkbox" class="checkbox" value="checked" <s:if test="baiducheck=='checked'">checked</s:if>/>百度
 <input name="yahoocheck" type="checkbox" class="checkbox" value="checked" <s:if test="yahoocheck=='checked'">checked</s:if>> 雅虎

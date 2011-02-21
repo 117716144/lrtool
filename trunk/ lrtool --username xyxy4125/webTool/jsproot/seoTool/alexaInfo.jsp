@@ -15,7 +15,7 @@
 		<dl class="clist">
 			<dt><strong>欢迎您使用本站的 全球alexa排名 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
 			<dd>
-				<form action="siteAlexa.action" method="post" style="padding:0;margin:0;">
+				<form action="alexa.html" method="post" style="padding:0;margin:0;">
     Alexa排名查询的网址：http://www.
     <input name="domain" type="text" class="inp" id="domain" value="<s:property value='domain'/>" size="55">
     <input type="submit" value="点击查询"  class="sec"> 
