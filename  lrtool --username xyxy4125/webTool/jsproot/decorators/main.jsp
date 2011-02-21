@@ -13,9 +13,8 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="icon" type="image/png" href="/images/icons/favicon.png" />
 </head>
-	<body>	before<br/>
-            <decorator:body/>
-            <br/>after
+	<body>
+<decorator:body/>
     </body>
 
 </html>

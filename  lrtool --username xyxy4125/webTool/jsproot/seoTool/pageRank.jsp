@@ -10,7 +10,7 @@
 		<dl class="clist">
 			<dt><strong>欢迎您使用本站的 PAGE RANK 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
 			<dd>
-				<form method="post" action="pageRank.action">
+				<form method="post" action="pagerank.html">
 网站地址：<input name="prdomain" type="text" size="50" onMouseOver="this.focus()" onBlur="if (value ==''){value='http://www.'}" onFocus="this.select()" value="<s:property value='prdomain'/>" class="inp">&nbsp;<input type="submit" value="点击查询" class="sec"></form>	
 				<font color="#ff0000">注："www.abc.com" 和 "abc.com" 的 Page Rank 数值不同</font>
 		<div id="rank_index_colum_one_right_top">

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>搜索引擎收录查询 - 站长工具 - 傻人工具 - lrtool.net - 致力SEO简单流程化！</title>
+<title>搜索引擎收录查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单流程化！</title>
 <meta name ="keywords" content="便民工具,网站搜索,网址导航，搜一搜,个性化导航,全民搜索,起始页,上网主页,上网首页,收藏夹,网络收藏夹,网址收藏夹,书签,QQ书签,网络书签,上网导航,网址,网址导航,导航,快捷上网,网址之家,实用工具,搜索,社区" />
 <meta name="description" content="网站搜一搜，让全民上网更加方便更加快捷，最具个性化的导航搜索平台，让你工作生活无忧!" />
 <script language="javascript" type="text/javascript" src="/js/shoulu.js"></script>
@@ -13,15 +13,15 @@
 	<div class="col">
 		<dl class="clist">
 		   <dt><strong>欢迎您使用本站的 搜索引擎收录 查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
-		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="shouLuAction.action"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
-				<input name="googlecheck" type="checkbox" class="checkbox" value="checked" > 谷歌
-				<input name="baiducheck" type="checkbox" class="checkbox" value="checked" > 百度
-				<input name="yahoocheck" type="checkbox" class="checkbox" value="checked" > 雅虎
-				<input name="sosocheck" type="checkbox" class="checkbox" value="checked" > SOSO
-				<input name="sogoucheck" type="checkbox" class="checkbox" value="checked" > 搜狗
-				<input name="youdaocheck" type="checkbox" class="checkbox" value="checked" > 有道
-				<input name="bingcheck" type="checkbox" class="checkbox" value="checked" > 必应
-				<input name="chkall" type="checkbox" class="checkbox" value=on onclick=checkall(this.form)> 全选</form>可查询各大搜索引擎对指定网站的收录数量和对比情况。
+		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="collect.html"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="shoulu_domain" type="text" size="65" value="<s:property value='shoulu_domain'/>" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
+				<input name="googlecheck" type="checkbox" class="checkbox" value="checked" <s:if test="googlecheck=='checked'">checked</s:if>/>谷歌
+<input name="baiducheck" type="checkbox" class="checkbox" value="checked" <s:if test="baiducheck=='checked'">checked</s:if>/>百度
+<input name="yahoocheck" type="checkbox" class="checkbox" value="checked" <s:if test="yahoocheck=='checked'">checked</s:if>> 雅虎
+<input name="sosocheck" type="checkbox" class="checkbox" value="checked" <s:if test="sosocheck=='checked'">checked</s:if>/>SOSO
+<input name="sogoucheck" type="checkbox" class="checkbox" value="checked" <s:if test="sogoucheck=='checked'">checked</s:if>/>搜狗
+<input name="youdaocheck" type="checkbox" class="checkbox" value="checked" <s:if test="youdaocheck=='checked'">checked</s:if>/>有道
+<input name="bingcheck" type="checkbox" class="checkbox" value="checked" <s:if test="bingcheck=='checked'">checked</s:if>/>必应
+<input name="chkall" type="checkbox" class="checkbox" value=on onclick=checkall(this.form)>全选</form>可查询各大搜索引擎对指定网站的收录数量和对比情况。
 				 </dd>
 		</dl>
 		
@@ -35,7 +35,7 @@
      <dt><strong>网站 <s:property value="shoulu_domain"/> 搜索引擎收录查询结果</strong></dt>
       <dd class="clear">
       	<ul>
-           <li></li>           
+           <li>&nbsp;</li>           
             <li>查询站点</li>
             <li>收录数量</li>
             <li>查看详细</li>

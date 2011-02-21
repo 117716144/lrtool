@@ -11,7 +11,7 @@
 			<dt><strong>Baidu关键字收录情况</strong></dt>
 			<dd>
 				请输入你要查询的地址：
-	   <form action="" method="get">
+	   <form action="position.html" method="post">
 				            网站域名：<input name="siteurl" type="text" size="40" value="<s:property value='siteurl'/>"  class="inp_t"/> 关键词：<input name="keyword" type="text" value="<s:property value='keyword'/>" size="20" class="inp_t" />
 				            收索引擎：<select >
 	             <option selected="selected" value="0">Baidu</option>

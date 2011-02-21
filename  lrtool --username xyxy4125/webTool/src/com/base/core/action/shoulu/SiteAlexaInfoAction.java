@@ -243,8 +243,8 @@ public class SiteAlexaInfoAction extends BaseAction{
     	System.out.println(ranks);
     	//"<table><tr class=\"even\"><th>昨日</th><td>53,887</td></tr><tr><th>最近七天平均</th><td>64,982</td></tr><tr class=\"even\"><th>最近一月平均</th><td>65,630</td></tr><tr ><th>最近三月平均</th><td>54,116</td></tr><tr class=\"even\"><th>最近三月改变量</th><td>-8,127 <img src='/images/arrows/up_arrow.gif'/>  </td></tr></table>";    
 	    String url =ranks.replaceAll("\\<.*?>", "");
-        System.out.println(url);
-        if(url.indexOf("昨日")!=-1 && url.indexOf("最近七天平均")!=-1 && url.indexOf("最近一月平均")!=-1 && url.indexOf("最近三月平均")!=-1 && url.indexOf("最近三月改变量")!=-1){
+//        System.out.println(url);
+//        if(url.indexOf("昨日")!=-1 && url.indexOf("最近七天平均")!=-1 && url.indexOf("最近一月平均")!=-1 && url.indexOf("最近三月平均")!=-1 && url.indexOf("最近三月改变量")!=-1){
         	int p1 =url.indexOf("昨日");
         	int p2 =url.indexOf("最近七天平均");
         	int p3 =url.indexOf("最近一月平均");
@@ -252,22 +252,31 @@ public class SiteAlexaInfoAction extends BaseAction{
         	int p5 =url.indexOf("最近三月改变量");
 //        	System.out.println(url.substring(p1+2,p2)+"--"+url.substring(p2+6,p3)+"--"+url.substring(p3+6,p4)
 //        			+"--"+url.substring(p4+6,p5)+"--"+url.substring(p5+7));
-        	resultStr =url.substring(p1+2,p2)+"_split_"+url.substring(p2+6,p3)+"_split_"+url.substring(p3+6,p4)
-        			+"_split_"+url.substring(p4+6,p5)+"_split_"+url.substring(p5+7);
+        	String r1=(p1==-1)?"-":url.substring(p1+2,p2);
+        	String r2 =(p2==-1)?"-":url.substring(p2+6,p3);
+        	String r3 =(p3==-1)?"-":url.substring(p3+6,p4);
+        	String r4 =(p4==-1)?"-":url.substring(p4+6,p5);
+        	String r5 =(p5==-1)?"-":url.substring(p5+7);
+        	resultStr =r1+"_split_"+r2+"_split_"+r3
+        			+"_split_"+r4+"_split_"+r5;
         }
-        }
+//        }
 	    
 	    pattern =Pattern.compile("(.*)<img src=\"/images/icons/globe-sm.jpg\" alt=\"Global\" style=\"margin-bottom:-2px;\"/>(.*)</a></div><div class=\"label\">网站流量排名(.*)");
 	    matcher =pattern.matcher(result.toString());
 	    if(matcher.find()){
     	 String ranks =matcher.group(2).toString().trim();
     	 resultStr +="_split_"+ranks;
+	    }else{
+	    	resultStr +="_split_";
 	    }
 	    pattern =Pattern.compile("(.*)<div class=\"data\"><img class=\"dynamic-icon\" src=\"/images/flags/cn.png\" alt=\"China Flag\"/>(.*)</div><div class=\"label\"><!--<a href='/topsites/countries/CN' title=\"China\">-->CN<!--</a>-->网站流量排名(.*)");
 	    matcher =pattern.matcher(result.toString());
 	    if(matcher.find()){
     	 String ranks =matcher.group(2).toString().trim();
     	 resultStr +="_split_"+ranks;
+	    }else{
+	    	resultStr +="_split_";
 	    }
 	    this.getResponse().setCharacterEncoding("utf-8");
 	    this.getResponse().setContentType("text/json;charset=utf-8");

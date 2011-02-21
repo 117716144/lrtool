@@ -98,10 +98,6 @@
             <result name="success">/seoTool/pageRank.jsp</result>
         </action>
         
-        <action name="pageRank" class="com.base.core.action.tool.PageRankAction">
-            <result name="success">/seoTool/pageRank.jsp</result>
-        </action>
-        
         <action name="keywordPosition" class="com.base.core.action.tool.KeywordSearchAction">
             <result name="success">/seoTool/keyPosition.jsp</result>
         </action>
