@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
 <title>搜索引擎收录查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单流程化！</title>
@@ -9,47 +8,71 @@
 </head>
 
 <body>
-    <div class="main">
-    	<div class="side">
-	    	<div class="lr-tel">
-	    		<h1>开始懒人之旅</h1>
-	    		<dl>
-			   		<dt>排名查询</dt>
-			      	<dd><form action="keywordPosition.action" method="post" target="_blank">网站域名：<input name="siteurl" type="text" size="30"  class="inp"><br />关键词：<br /><input name="keyword" type="text" value="" size="6"  class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定站点在baidu中搜索指定关键词时的排名位置。
-					 </dd>
-				</dl>
-	    	</div>
-	    	<div class="lr-new">
-	    		<h2>懒人公告</h2>
-	    		<ul>
-	    			<li><a href="#">懒人上线</a></li>
-	    			<li><a href="#">懒人上线</a></li>
-	    			<li><a href="#">懒人上线</a></li>
-	    			<li><a href="#">懒人上线</a></li>
-	    			<li><a href="#">懒人上线</a></li>
-	    			<li><a href="#">懒人上线</a></li>
-	    		</ul>
-	    	</div>
-    	</div>
-    	<div class="panel">
-	    	<div class="banner">
-	    		<img src="images/banner.jpg" />
-	    	</div>
-	    	<div class="bd">
-	    		<h2><img src="images/one.jpg" alt="懒人工具"/></h2>
-	    		<p><img src="images/toola.jpg"/ alt="懒人工具说明"></p>
-	    		<p class="wr">懒人站长工具提供各类站长常用查询工具, 包括 Alexa排名查询, META信息检测, 网站收录查询, 反向链接查询, IP定位查询, whois查询, MD5加密, 字符到ASCII码…</p>
-	    	</div>
-	    	<div class="bd bl">
-	    		<h2><img src="images/two.jpg" alt="流量统计"/></h2>
-	    		<p><img src="images/toola.jpg"/ alt="流量统计介绍"></p>
-	    		<p class="wr">懒人流量统计是一款免费的网站访问流量分析系统，为站长提供高效、可靠、专业、精确的第三方网站访问免费统计。通过懒人流量统计，站长可以随时知道自己网站的被访...</p>
-	    	</div>
-    	</div>
-    	<div class="friend">
-    		<h3>友情链接</h3>
-    		<a href="#">优保网</a>
-    	</div>
+<div class="main">
+	<div class="col">
+		<dl>
+		   <dt><strong>搜索引擎收录情况查询</strong><a href="Shoulu/" target="_blank"><img src="/images/right.gif"  /></a></dt>
+		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="shouLuAction.action"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
+				<input name="googlecheck" type="checkbox" class="checkbox" value="checked" > 谷歌
+				<input name="baiducheck" type="checkbox" class="checkbox" value="checked" > 百度
+				<input name="yahoocheck" type="checkbox" class="checkbox" value="checked" > 雅虎
+				<input name="sosocheck" type="checkbox" class="checkbox" value="checked" > SOSO
+				<input name="sogoucheck" type="checkbox" class="checkbox" value="checked" > 搜狗
+				<input name="youdaocheck" type="checkbox" class="checkbox" value="checked" > 有道
+				<input name="bingcheck" type="checkbox" class="checkbox" value="checked" > 必应
+				<input name="chkall" type="checkbox" class="checkbox" value=on onclick=checkall(this.form)> 全选</form>可查询各大搜索引擎对指定网站的收录数量和对比情况。
+				 </dd>
+		</dl>
+	</div>
+	<div class="col">
+    	<dl>
+        <dt><strong>关键词排名查询</strong><p><a href="keywordPosition.action"><img src="/images/right.gif" /></a></p></dt>
+        <dd><form action="keywordPosition.action" method="post" target="_blank">网站域名：<input name="siteurl" type="text" size="30"  class="inp">&nbsp;关键词：<input name="keyword" type="text" value="" size="6"  class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定站点在baidu中搜索指定关键词时的排名位置。
+      </dd>
     </div>
+   	<div class="col cmid">
+   		<dl>
+        <dt><strong>IP/服务器物理定位查询</strong><p><a href="showIpTool.action" target="_blank"><img src="/images/right.gif" /></a></p></dt>
+        <dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('ipinpt').value);" action="showIpTool.action">IP / 域名：<input name="myIp" id="ipinpt" type="text" size="30" value="<%=request.getRemoteAddr()%>" class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>直接输入IP则可查询该IP的物理位置；
+      </dd>
+   	</div>
+    <div class="col crig">
+    	<dl>
+        <dt><strong>域名 WHOIS 信息查询</strong><p><a href="showWhoisInfo.action" target="_blank"><img src="/images/right.gif" /></a></p></dt>
+        <dd><form method="post" target="_blank" name="ipform" action="showWhoisInfo.action" onsubmit="return checkIP();">网站域名：www.<input name="domain" type="text" size="30" value="" class="inp">&nbsp;<input type="submit"value="开始查询" class="sec"></form>输入域名则可检测服务器的IP及其 WHOIS 信息。
+      </dd>
+    </div>
+    <div class="col cmid">
+    	<dl>
+        <dt><strong>ALEXA 详细排名查询</strong><p><a href="siteAlexa.action"><img src="/images/right.gif" /></a></p></dt>
+        <dd><form action="siteAlexa.action" method="get" target="_blank">
+网站地址：<input name="domain"  type="text" size="30" value="http://www." class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询网站的世界排名、流量、访问量、联系方式等综合信息。
+      </dd>
+     </dl>
+    </div>
+    
+    <div class="col crig">
+    	<dl>
+        <dt><strong>GG PR & SOGOU RANK 查询</strong><p><a href="pageRank.action" target="_blank"><img src="/images/right.gif" /></a></p></dt>
+        <dd><form method="post" target="_blank" name="get_rank" action="pageRank.action">网站地址：<input name="prdomain" type="text" size="20" value="http://www." class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询网页在GG和搜狗上的页面等级（影响搜索引擎排名）信息。</dd>
+     </dl>
+    </div>
+    <div class="col cmid">
+    	<dl>
+        <dt><strong>页面关键词密度查询</strong><p><a href="wordFrequency.action"><img src="/images/right.gif" /></a></p></dt>
+        <dd><form method="post" target="_blank" action="wordFrequency.action">网站页面：<input name="surl" type="text" size="14" value="http://www." class="inp">&nbsp;关键词：<input name="skey" type="text" size="7" value="" class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定页面中某一关键词的出现频率和密度。
+      </dd>
+     </dl>
+    </div>
+    <div class="col crig">
+    	<dl>
+        <dt><strong>身份证生成工具</strong><p><a href="generateIdCard.action"><img src="/images/right.gif"/></a></p></dt>
+        <dd><form action="generateIdCard.action" method="get"  target="_blank">
+        	请点击生成按钮将身份证号直接生成！<br/>
+        <input type="submit" value="生成" class="sec"></form>
+      </dd>
+     </dl>
+    </div>
+</div>
 </body>
 </html>
