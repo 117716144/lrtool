@@ -16,15 +16,15 @@ import com.base.core.util.StringUtil;
 @SuppressWarnings("serial")
 public class KeywordSearchAction extends BaseAction{
 
-	private String keyword;
+	private String keyword="";
 	
-	private String siteurl;
+	private String siteurl="";
 	
-	private String keyPosition;
+	private String keyPosition="";
 	
-	private String skey;
+	private String skey="";
 	
-	private String surl;
+	private String surl="";
 	
 	private Long stotal; //总字节数
 	
@@ -67,7 +67,7 @@ public class KeywordSearchAction extends BaseAction{
 	}
 
 	public String getSiteurl() {
-		return siteurl;
+		return siteurl.replace("http://", "");
 	}
 
 	public void setSiteurl(String siteurl) {
@@ -108,6 +108,9 @@ public class KeywordSearchAction extends BaseAction{
 
 
 	public String execute(){
+		if(StringUtil.isEmpty(this.getSiteurl()) || StringUtil.isEmpty(this.getKeyword())){
+			return SUCCESS;
+		}
 		String url = "http://www.baidu.com/s?rn=100&q1="+this.getKeyword();
 		String resultStr =getTargetStr(url,"gb2312");
 		int position =StringUtil.ignoreIndexOf(resultStr, siteurl, 0, true);
@@ -130,6 +133,9 @@ public class KeywordSearchAction extends BaseAction{
 	 * @return
 	 */
 	public String getCount(){
+		if(StringUtil.isEmpty(this.getSkey()) || StringUtil.isEmpty(this.getSurl())){
+			return SUCCESS;
+		}
 		String pageEncoding =this.pageEncoding();
 		String resultStr =getTargetStr(surl,StringUtil.isEmpty(pageEncoding)?"utf-8":pageEncoding);
 		if(!StringUtil.isEmpty(resultStr) && !StringUtil.isEmpty(skey)){
