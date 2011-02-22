@@ -14,6 +14,26 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport implements SessionAware{
+	
+    private String ipAddr;
+	
+	private String ipLocation;
+	
+	public String getIpAddr() {
+		return ipAddr;
+	}
+
+	public void setIpAddr(String ipAddr) {
+		this.ipAddr = ipAddr;
+	}
+
+	public String getIpLocation() {
+		return ipLocation;
+	}
+	
+	public void setIpLocation(String ipLocation) {
+		this.ipLocation = ipLocation;
+	}
 
 	private static final long serialVersionUID = 3120454583851872498L;
 	@SuppressWarnings("unchecked")
