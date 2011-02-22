@@ -18,12 +18,14 @@
                       </select>
 	<input  class="sec" type="submit" value="点击查询" />
 			             </form>
+<s:if test="siteurl!='' && keyword!=''">
 			             百度关键字排名查询查询结果：<br/>
 			             <div id="key">
  <s:if test="keyPosition!=null && keyPosition!=''">
  搜索 <font color=red>"<s:property value='keyword'/>"</font> 第<strong> <font color=red>"<s:property value='keyPosition'/>"</font> </strong>个出现 "<s:property value='siteurl'/>"
  </s:if><s:else>关键字 "<s:property value='keyword'/>" 在网站 "<s:property value='siteurl'/>" 的 Baidu 收录结果前 100 名中有 0 条记录</s:else>
  </div>
+ </s:if>
 			</dd>
 		</dl>
 	</div>
