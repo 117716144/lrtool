@@ -26,7 +26,11 @@ public class SogouShouLuAction extends ShouLuBaseAction{
 			if (shoulu_result.indexOf("<!-") != -1) {
 				shoulu_result = shoulu_result.substring(0, shoulu_result
 						.indexOf("<!-"));
-			}
-		}
+			}else{
+	        	shoulu_result ="-";
+	        }
+		}else{
+        	shoulu_result ="-";
+        }
 	}
 }

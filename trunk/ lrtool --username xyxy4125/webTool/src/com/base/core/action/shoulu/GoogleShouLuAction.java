@@ -23,6 +23,8 @@ public class GoogleShouLuAction extends ShouLuBaseAction{
         Matcher matcher =pattern.matcher(sbf.toString());
         if(matcher.find()){
         	shoulu_result =matcher.group(2).toString().replaceAll("\\,", "").replaceAll("\\，", "").trim();
+        }else{
+        	shoulu_result ="-";
         }
 	}
 
