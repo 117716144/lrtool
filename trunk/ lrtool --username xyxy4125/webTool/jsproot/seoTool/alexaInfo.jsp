@@ -24,6 +24,7 @@
 		</dl>
 		<p>友情提示：Alexa网站排名是根据对用户安装 Alexa工具条 嵌入到 IE 等浏览器，监控其访问的网站数据进行统计，因此排名并不具有绝对的可靠性。</p>
 	</div>
+	<s:if test="domain!=''">
 	<div class="col">
 		<dl claa="clist">
 			<dt><strong>网站 <s:property value="domain"/>的Alexa排名综合信息</strong></dt>
@@ -214,11 +215,10 @@
 </div>
       </dd>
      </dl>
-   </div>   
-   
+   </div>  
+  <script>getOtherInfo();getGoogle();getBaidu();getYahoo();getSoso();getSogou();
+getGoogleL();getBaiduL();getYahooL();getSosoL();getSogouL();</script> 
+</s:if>   
 </div>
-
-<script>getOtherInfo();getGoogle();getBaidu();getYahoo();getSoso();getSogou();
-getGoogleL();getBaiduL();getYahooL();getSosoL();getSogouL();</script>
 </body>
 </html>

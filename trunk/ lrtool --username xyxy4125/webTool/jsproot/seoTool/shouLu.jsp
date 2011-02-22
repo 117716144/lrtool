@@ -26,6 +26,7 @@
 		</dl>
 		
 	</div>
+	<s:if test="shoulu_domain!=''">
 	<s:if test="googlecheck==null && baiducheck==null && yahoocheck==null && msncheck==null && sogoucheck==null && zhongsoucheck==null && sosocheck==null && sinacheck==null && tomcheck==null">
 <p>选择查询内容项错误，请至少选择其中一项进行查询！</p>
 </s:if>
@@ -95,8 +96,9 @@
      </dl>
 	</div>
 </s:else>
+</s:if>
 </div>
- 
+ <s:if test="shoulu_domain!=''">
  <script type="text/javascript">
  <s:if test="googlecheck=='checked'">getGoogle();</s:if>
  <s:if test="baiducheck=='checked'">getBaidu();</s:if>
@@ -106,6 +108,6 @@
  <s:if test="youdaocheck=='checked'">getYoudao();</s:if>
  <s:if test="bingcheck=='checked'">getBing();</s:if>
  </script>
- 
+ </s:if>
 </body>
 </html>

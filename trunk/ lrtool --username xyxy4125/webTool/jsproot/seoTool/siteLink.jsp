@@ -26,18 +26,19 @@
 </dd>
 		</dl>
 	</div>
+	<s:if test="shoulu_domain!=''">
 	<s:if test="googlecheck==null && baiducheck==null && yahoocheck==null && msncheck==null && sogoucheck==null && zhongsoucheck==null && sosocheck==null && sinacheck==null && tomcheck==null">
 选择查询内容项错误，请至少选择其中一项进行查询！
 </s:if>
 <s:else>
 	<div class="col">
 		<dl class="clist">
-     <dt><strong>网站 <s:property value="shoulu_domain"/> 搜索引擎收录查询结果</strong></dt>
+     <dt><strong>网站 <s:property value="shoulu_domain"/> 搜索引擎反向链接情况查询</strong></dt>
       <dd class="clear">
       	<ul>
-           <li></li>           
+           <li>&nbsp;</li>           
             <li>查询站点</li>
-            <li>收录数量</li>
+            <li>链接数量</li>
             <li>查看详细</li>
         </ul>
 		<s:if test ="googlecheck=='checked'">
@@ -95,89 +96,10 @@
      </dl>
 	</div>
 </s:else>
+</s:if>
 </div>
 
-
-<s:else>
-<div class="totop ri">
-     <dl class="tbox">
-     <dt>网站 <s:property value="shoulu_domain"/> 搜索引擎反向链接查询结果</dt>
-      <dd class="tc"><ul class="d1">
-            <li> </li>
-            <li>  </li>
-            <li>查询站点</li>
-            <li>收录数量</li>
-            <li>查看详细</li>
-            
-        </ul>
-		<br />
-		<s:if test ="googlecheck=='checked'">
-        <ul class="d1" id="google" >
-            <li>谷歌</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="google_count">数据加载中...</li>
-            <li id="google_site">数据加载中...</li>
-            </ul><br /></s:if>
-        <s:if test="baiducheck=='checked'">
-			<ul class="d1" id="baidu" >
-            <li>百度</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="baidu_count">数据加载中...</li>
-            <li id="baidu_site">数据加载中...</li>
-            </ul><br /></s:if>
-		<s:if test="yahoocheck=='checked'">
-			<ul class="d1" id="yahoo" >
-            <li>雅虎中国</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="yahoo_count">数据加载中...</li>
-            <li id="yahoo_site">数据加载中...</li>
-            </ul><br />
-			</s:if>
-         <s:if test="sosocheck=='checked'">
-            <ul class="d1" id="soso" >
-            <li>搜搜</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="soso_count">数据加载中...</li>
-            <li id="soso_site">数据加载中...</li>
-            </ul><br /></s:if>
-         <s:if test="sogoucheck=='checked'">
-              <ul class="d1" id="sogou" >
-            <li>搜狗</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="sogou_count">数据加载中...</li>
-            <li id="sogou_site">数据加载中...</li>
-            </ul><br /></s:if>
-          <s:if test="youdaocheck=='checked'">  
-             <ul class="d1" id="youdao" >
-            <li>有道</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="youdao_count">数据加载中...</li>
-            <li id="youdao_site">数据加载中...</li>
-            </ul><br /></s:if>
-            
-          <s:if test="bingcheck=='checked'">        
-             <ul class="d1" id="bing" >
-            <li>必应</li>
-            <li>  </li>
-            <li><s:property value="shoulu_domain"/></li>
-            <li id="bing_count">数据加载中...</li>
-            <li id="bing_site">数据加载中...</li>
-            </ul><br /></s:if>
-        <div class="clear"></div>
-      </dd>
-     </dl>   </div>
-</s:else>
-
-
-</div>
-</div>
- 
+ <s:if test="shoulu_domain!=''">
  <script type="text/javascript">
  <s:if test="googlecheck=='checked'">getGoogle();</s:if>
  <s:if test="baiducheck=='checked'">getBaidu();</s:if>
@@ -187,6 +109,6 @@
  <s:if test="youdaocheck=='checked'">getYoudao();</s:if>
  <s:if test="bingcheck=='checked'">getBing();</s:if>
  </script>
- 
+ </s:if>
 </body>
 </html>
