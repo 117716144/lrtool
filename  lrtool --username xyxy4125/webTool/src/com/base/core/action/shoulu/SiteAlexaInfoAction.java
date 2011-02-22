@@ -29,7 +29,7 @@ public class SiteAlexaInfoAction extends BaseAction{
 
 	private SiteAlexaInfo alexaInfo = new SiteAlexaInfo();
 	
-	private String domain;
+	private String domain="";
 	
 	
 	public String getDomain() {
@@ -49,6 +49,9 @@ public class SiteAlexaInfoAction extends BaseAction{
 	}
 
 	public String execute(){
+		if(StringUtil.isEmpty(this.getDomain())){
+			return SUCCESS;
+		}
 		try{
 			DocumentBuilderFactory domfac=DocumentBuilderFactory.newInstance(); 
 			DocumentBuilder dombuilder=domfac.newDocumentBuilder();

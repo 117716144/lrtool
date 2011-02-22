@@ -8,11 +8,11 @@ import com.base.core.util.ClientInfo;
 @SuppressWarnings("serial")
 public class SearchIpAction extends BaseAction {
 	
-	private String target;
+	private String target="";
 	
-	private String result;
+	private String result="";
 	
-	private String myIp;
+	private String myIp="";
 	
 	public String getMyIp() {
 		return myIp;
@@ -54,7 +54,7 @@ public class SearchIpAction extends BaseAction {
 	}
 	
 	public String input(){
-//		myIp =getIpAddr(this.getRequest());
+		myIp =getIpAddr(this.getRequest());
 		myPosition =IPSeeker.getInstance().getAddress(myIp);
 		return SUCCESS;
 	}
