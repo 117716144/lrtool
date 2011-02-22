@@ -25,6 +25,8 @@ public class BaiduShouLuAction extends ShouLuBaseAction{
         Matcher matcher =pattern.matcher(sbf.toString());
         if(matcher.find()){
         	shoulu_result =matcher.group(2).toString().replaceAll("\\,", "").replaceAll("\\，", "").trim();
+        }else{
+        	shoulu_result ="-";
         }
 //        pattern = Pattern.compile("(.*)用时(.*)秒(.*)");
 //        matcher =pattern.matcher(sbf.toString());

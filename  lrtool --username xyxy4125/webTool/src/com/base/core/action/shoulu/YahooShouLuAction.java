@@ -23,6 +23,8 @@ public class YahooShouLuAction extends ShouLuBaseAction{
         if(matcher.find()){
         	shoulu_result =matcher.group(2).toString().replaceAll("\\,", "").replaceAll("\\，", "").trim();
         	shoulu_result =shoulu_result.replaceAll("\\<strong>", "").replaceAll("\\</strong>", "");
+        }else{
+        	shoulu_result ="-";
         }
 	}
 
