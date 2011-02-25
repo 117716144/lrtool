@@ -42,6 +42,7 @@
         <property name="mappingResources">
             <list>
                 <value>com/base/core/model/Agent.hbm.xml</value>
+                <value>com/base/core/model/News.hbm.xml</value>
             </list>
         </property>
 
