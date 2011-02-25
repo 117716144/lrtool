@@ -17,8 +17,15 @@
     <constant name="struts.objectFactory.spring.autoWire" value="name"/>
     <constant name="struts.configuration.xml.reload" value="true"/>
 
+    
+    <constant name="struts.multipart.saveDir" value="tmp"/>
+    <constant name="struts.multipart.maxSize" value="104857600"/>  <!-- 10M -->
+    
+    
     <include file="struts-default.xml"></include> 
     <include file="struts/base.xml"/>
+    <include file="struts/backoffice.xml"/>
+    
 
     
 </struts>

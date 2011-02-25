@@ -12,4 +12,6 @@
      
     <bean name="testManager" class="com.base.core.manager.TestManager"/>
     
+    <bean name="newsManager" class="com.base.core.manager.NewsManager"/>
+    
 </beans>
