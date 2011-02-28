@@ -26,6 +26,7 @@ public class GenerateIdCardAction extends BaseAction{
 	}
 
 	public String execute(){
+		this.getIpInfo();
 		IdCardGenerator gen = new IdCardGenerator();
 		for(int i=0;i<reqCount;i++){
 		  cardInfo +=gen.generate()+"<br/>";

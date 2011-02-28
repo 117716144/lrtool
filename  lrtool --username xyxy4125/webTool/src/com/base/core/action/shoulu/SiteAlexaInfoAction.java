@@ -49,6 +49,7 @@ public class SiteAlexaInfoAction extends BaseAction{
 	}
 
 	public String execute(){
+		this.getIpInfo();
 		if(StringUtil.isEmpty(this.getDomain())){
 			return SUCCESS;
 		}

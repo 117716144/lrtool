@@ -108,6 +108,7 @@ public class KeywordSearchAction extends BaseAction{
 
 
 	public String execute(){
+		this.getIpInfo();
 		if(StringUtil.isEmpty(this.getSiteurl()) || StringUtil.isEmpty(this.getKeyword())){
 			return SUCCESS;
 		}
@@ -133,6 +134,7 @@ public class KeywordSearchAction extends BaseAction{
 	 * @return
 	 */
 	public String getCount(){
+		this.getIpInfo();
 		if(StringUtil.isEmpty(this.getSkey()) || StringUtil.isEmpty(this.getSurl())){
 			return SUCCESS;
 		}
@@ -145,8 +147,6 @@ public class KeywordSearchAction extends BaseAction{
 		stotal =Long.parseLong(String.valueOf(StringUtil.getStringByteCount(resultStr)));
 		keytotal =Long.parseLong(String.valueOf(StringUtil.getStringByteCount(skey)));
 		percent =StringUtil.percent(keytotal*frequency, stotal);
-		System.out.println(frequency+"--"+stotal+"--"+keytotal+"--"+percent);
-		System.out.println(StringUtil.getStringByteCount("ddd旅游保险"));
 		}
 		return SUCCESS;
 	}
