@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
@@ -3542,6 +3544,18 @@ public class IdCardGenerator {
 		generater.append(this.calcTrailingNumber(generater.toString().toCharArray()));
 		return generater.toString();
 	}
+	
+	public String generate(String areaCode,String birthday) throws ParseException{
+		StringBuilder generater = new StringBuilder();
+		generater.append(IdCardGenerator.areaCode.get(areaCode));
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat f1 = new SimpleDateFormat("yyyyMMdd");
+		birthday = f1.format(f.parse(birthday));
+		generater.append(birthday);
+		generater.append(this.randomCode());
+		generater.append(this.calcTrailingNumber(generater.toString().toCharArray()));
+		return generater.toString();
+	}
 
 	public int randomAreaCode() {
 		int index = (int) (Math.random() * IdCardGenerator.areaCode.size());
@@ -3657,7 +3671,7 @@ public class IdCardGenerator {
 		writer.close();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		IdCardGenerator g = new IdCardGenerator();
 		for (int i = 0; i < 10; i++) {
 			System.out.print(g.generate());
@@ -3667,6 +3681,11 @@ public class IdCardGenerator {
 			System.out.print(g.generate());
 			System.out.print("\t");
 			System.out.println(g.generate());
+			System.out.println("---------------");
+			System.out.print("\t");
+			System.out.println(g.generate("北京市","1985-07-15"));
 		}
+		
+		
 	}
 }
