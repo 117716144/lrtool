@@ -42,6 +42,7 @@ public class LrWhoisSearchAction extends BaseAction{
 	}
 
 	public String execute(){
+	this.getIpInfo();
 	Long start =System.currentTimeMillis();
     URL url = null;
     HttpURLConnection httpConn = null;
