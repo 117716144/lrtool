@@ -75,7 +75,6 @@ public class ManageNewsAction extends BaseAction{
 	public String showDetail(){
 		try{
 		news =newsManager.loadNews(nid);
-		System.out.println(news.getContent());
 		return SUCCESS;
 		}catch(Exception e){
 			e.printStackTrace();
