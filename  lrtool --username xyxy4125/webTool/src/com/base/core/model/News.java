@@ -1,5 +1,7 @@
 package com.base.core.model;
 
+import java.util.Date;
+
 @SuppressWarnings("serial")
 public class News extends Entity {
 
@@ -7,6 +9,36 @@ public class News extends Entity {
 	private String title;
 	private String content;
 	private String keyword;
+	private Date createdDate;
+	private String isTop;
+	private String itsCategory;
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public String getIsTop() {
+		return isTop;
+	}
+	public void setIsTop(String isTop) {
+		this.isTop = isTop;
+	}
+	public String getItsCategory() {
+		return itsCategory;
+	}
+	public void setItsCategory(String itsCategory) {
+		this.itsCategory = itsCategory;
+	}
+	public int getSortNum() {
+		return sortNum;
+	}
+	public void setSortNum(int sortNum) {
+		this.sortNum = sortNum;
+	}
+	private int sortNum;
+	
+	
 	public Long getId() {
 		return id;
 	}
