@@ -13,6 +13,13 @@
         <property name="title" column="title"/>
         <property name="content" column="content"/>
         <property name="keyword" column="keyword"/>
+        <property name="createdDate" column="created_date"/>
+        <property name="isTop" column="is_top"/>
+        <property name="itsCategory" column="its_category"/>
+        <property name="sortNum" column="sort_num"/>
+        
+        
+        
         
     </class>
     

@@ -24,6 +24,17 @@
             <result name="input">/bo/news.jsp</result>
         </action>
         
+        <action name="listNews" class="com.base.core.action.bo.ManageNewsAction" method="listNews">
+            <result name="success">/bo/newsList.jsp</result>
+        </action>
+        
+        <action name="showDetail" class="com.base.core.action.bo.ManageNewsAction" method="showDetail">
+            <result name="success">/bo/newsDetail.jsp</result>
+        </action>
+        
+        
+        
+        
     </package>
     
 </struts>

@@ -51,6 +51,11 @@ public class HibernateDao extends HibernateDaoSupport {
         getHibernateTemplate().saveOrUpdate(entity);
 
     }
+    
+    @SuppressWarnings("unchecked")
+	public <UbaoType> UbaoType load(Class<UbaoType> entityClass, Serializable id) {
+        return (UbaoType) getHibernateTemplate().load(entityClass, id);
+    }
 
     public Long saveByObj(Object entity) {
         return (Long) getHibernateTemplate().save(entity);
