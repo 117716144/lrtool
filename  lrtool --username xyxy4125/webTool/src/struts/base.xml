@@ -109,6 +109,10 @@
         <action name="generateIdCard" class="com.base.core.action.idcard.GenerateIdCardAction">
             <result name="success">/card/idCard.jsp</result>
         </action>
+        
+        <action name="relatedKey" class="com.base.core.action.keywords.SearchRelatedWordsAction">
+            <result name="success">/keyword/relatedKey.jsp</result>
+        </action>
     </package>
     
 </struts>

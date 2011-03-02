@@ -73,6 +73,13 @@
       </dd>
      </dl>
     </div>
+    <div class="col cmid">
+    	<dl>
+		   <dt><strong>搜索引擎相关关键词查询</strong><p><a href="relatedKey.action" target="_blank"><img src="/images/right.gif" /></a></p></dt>
+		      	<dd><form method="post" target="_blank" action="relatedKey.action"><input name="keyword" id="key" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
+                </dd>
+		</dl>
+    </div>
 </div>
 </body>
 </html>
