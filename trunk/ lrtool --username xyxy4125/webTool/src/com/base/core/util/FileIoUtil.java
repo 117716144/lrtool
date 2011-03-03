@@ -10,9 +10,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.io.Reader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FileIoUtil {
-
+    
+	private final static Map area = new HashMap();
+	
 	/**
      * 以字节为单位读取文件，常用于读二进制文件，如图片、声音、影像等文件。
      */
@@ -224,13 +235,69 @@ public class FileIoUtil {
         }
     }
     
-    public static void main(String[] args){
-    	String str =FileIoUtil.readFileByChars(FileIoUtil.class.getClassLoader().getResource("").getPath()+"areaCode.txt")
-    			.replaceAll("\\s*|\t|\r|\n", "").trim();
-    	String[] strs =str.split(",");
+    public void insertToDb(int code,String areaName,int parentCode) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		Connection con = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/lrtool?useUnicode=true&characterEncoding=UTF-8","root", "");
+		String sql = "insert into lr_areas(area_code,area_name,parent_area_code) values("+code+",'"+areaName+"',"+parentCode+")";
+		PreparedStatement prst = con.prepareStatement(sql);
+		if(prst.execute()){
+			System.out.println("import data success!!!!!");
+		}
+		prst.close();
+		con.close();
+	}
+    
+    public void insertToDb2() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		Connection con = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/lrtool?useUnicode=true&characterEncoding=UTF-8","root", "");
+		Statement stmt = con.createStatement();
+		ResultSet rst = stmt.executeQuery("select * from lr_areas where area_code>100 and area_code <10000");
+		while (rst.next()) {
+			area.put(rst.getInt("area_code"), rst.getInt("id"));
+		}
+	}
+    
+    
+    public void insertToDb3(int code,String areaName) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+    	String codes = String.valueOf(code);
+    	int parentCode =Integer.parseInt(area.get(Integer.parseInt(codes.substring(0,4))).toString());
+    	//System.out.println(parentCode);
+    	insertToDb(code,areaName,parentCode);
+    }
+    
+    
+    
+    
+
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+		String str = FileIoUtil.readFileByChars(
+				FileIoUtil.class.getClassLoader().getResource("").getPath()
+						+ "areaCode.txt").replaceAll("\\s*|\t|\r|\n", "")
+				.trim();
+		Pattern digit = Pattern.compile("[0-9]+");
+//		new FileIoUtil().insertToDb2();   //有了数据后
+		String[] strs = str.split(",");
+		System.out.println(strs.length);
     	for(String s:strs){
     		String[] ac =s.split(":");
-    		System.out.println("地区代码："+ac[0]+"---"+"地区名称："+ac[1]);
+    		//System.out.println("地区代码："+ac[0]+"---"+"地区名称："+ac[1]);
+//    		Matcher mat = digit.matcher(ac[0]);
+//    		if(mat.find()){
+//    			int code =Integer.parseInt(mat.group());
+//    			if(code<100){
+//    			//System.out.println(code+"----"+ac[1]);
+//    				new FileIoUtil().insertToDb(code,ac[1].replaceAll("\\'", ""),0);
+//    			}
+    			
+//    			if(code>100 && code<10000){
+//    				new FileIoUtil().insertToDb3(code, ac[1].replaceAll("\\'", ""));
+//    			}
+    			
+//    			if(code>10000 && code<1000000){
+//    				new FileIoUtil().insertToDb3(code, ac[1].replaceAll("\\'", ""));
+//    			}
+//    		}
     	}
+		
     }
 }
