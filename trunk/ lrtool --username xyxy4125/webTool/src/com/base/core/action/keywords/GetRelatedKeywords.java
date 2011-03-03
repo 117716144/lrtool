@@ -145,7 +145,7 @@ public class GetRelatedKeywords {
   // Set selector paging (required for targeting idea serivce).
   Paging paging = new Paging();
   paging.setStartIndex(0);
-  paging.setNumberResults(50);
+  paging.setNumberResults(20);
   selector.setPaging(paging);
 
   // Create related to keyword search parameter.
