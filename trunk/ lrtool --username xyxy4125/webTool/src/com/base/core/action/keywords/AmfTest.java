@@ -89,10 +89,11 @@ public class AmfTest {
             Pattern pat = Pattern.compile("(.*)key:\"(.*)\"}},\"flashContent\"\\);");
             Matcher t = pat.matcher(str);
             if(t.find()){
+            	keys =t.group(2);
             	System.out.println(t.group(2));
             }
             System.out.println(str);
-            new AmfTest().testOnlineTimeAward();
+            new AmfTest().testOnlineTimeAward(skey,keys,"");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -100,41 +101,9 @@ public class AmfTest {
 		}
 	}
 	
-	public static String decBaiduStr(String input ,String key){
-	        input   = Escape.escapeStr(input);
-	        String int_key = "";
-	        for(int I=0;I<key.length();I++)
-	        {
-	                int_key += key.charAt(I);
-	        }
-
-	        String app = input.substring(input.length() - 13,input.length());
-	        String app1 = app;
-//
-//	        app     = app ^ 99999999;
-
-	        String str = input.substring(0,input.length() - 13);
-	        input   = str;
-
-	        int_key = int_key + app1;
-	        String ret = "";
-
-	        for(int I=0;I<input.length();I+=2)
-	        {
-	                String sig = input.substring(I,2);
-	                int hexsig = Integer.parseInt(sig,16);  //转换成16进制
-
-	                int i = (I/2) % int_key.length();
-	                String xor_key = int_key.substring(i,1);
-	                //sig = hexsig ^ xor_key;
-
-	                ret += sig ;
-	        }
-	        return Escape.unescapeStr(ret);
-	}
 	
 	@SuppressWarnings("unchecked")
-	public void testOnlineTimeAward() throws ClassNotFoundException, IOException {
+	public void testOnlineTimeAward(String sword,String key0,String key1) throws ClassNotFoundException, IOException {
 		SerializationContext serializationContext = new SerializationContext();
 		URL url = new URL("http://index.baidu.com/gateway.php");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -153,8 +122,11 @@ public class AmfTest {
 		ActionContext actionContext = new ActionContext();
 		ActionMessage requestMessage = new ActionMessage(3);
 
+//		MessageBody messageBody = new MessageBody("DataAccessor.getIndexes", "/1",
+//				new Object[]{sword,"0","",key0,key1});
+		
 		MessageBody messageBody = new MessageBody("DataAccessor.getIndexes", "/1",
-				new Object[]{"新少林寺","0","","5da72478369260dea6","06316f3eed1bdb92a55c8e642e2184227a7e405353"});
+				new Object[]{sword,"0","",key0,key1});
 		requestMessage.addBody(messageBody);
 		actionContext.setRequestMessage(requestMessage);
 
