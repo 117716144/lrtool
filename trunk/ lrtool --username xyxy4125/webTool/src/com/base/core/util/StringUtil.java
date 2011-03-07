@@ -4,6 +4,7 @@ import java.net.URLEncoder;
 import java.sql.Clob;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -135,6 +136,15 @@ public class StringUtil {
 			return obj.toString();
 		}
 	}
+    
+    public static String formatDate(Date date,String format){
+    	if(!StringUtil.isEmpty(format)){
+    	java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat(format);
+        String c=sdf.format(date);
+        return c;
+    	}
+    	return null;
+    }
 
     
     public static void main(String[] args){

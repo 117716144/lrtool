@@ -113,6 +113,10 @@
         <action name="relatedKey" class="com.base.core.action.keywords.SearchRelatedWordsAction">
             <result name="success">/keyword/relatedKey.jsp</result>
         </action>
+        
+        <action name="bdIndex" class="com.base.core.action.keywords.BaiduIndexAction">
+            <result name="success">/keyword/baiduIndexInfo.jsp</result>
+        </action>
     </package>
     
 </struts>

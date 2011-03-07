@@ -14,7 +14,7 @@
     <div class="lr-menu">
     	<ul>                                                            
             <li class="on"><a href="/">站长工具</a></li>
-            <li><a href="/alexa.html">网站ALEXA信息查询</a></li>
+            <li><a href="/alexa.html">ALEXA信息查询</a></li>
             <li><a href="/position.html">百度排名查询</a></li>
             <li><a href="/ipsearch.html">域名/IP类查询</a></li>
             <li><a href="/frequency.html">词频查询</a></li>
