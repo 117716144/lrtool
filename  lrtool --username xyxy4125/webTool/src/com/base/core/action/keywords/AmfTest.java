@@ -93,7 +93,7 @@ public class AmfTest {
             	System.out.println(t.group(2));
             }
             System.out.println(str);
-            new AmfTest().testOnlineTimeAward(skey,keys,"");
+            new AmfTest().testOnlineTimeAward("保险",keys,"");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
