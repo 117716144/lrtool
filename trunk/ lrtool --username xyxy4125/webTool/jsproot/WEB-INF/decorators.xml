@@ -8,6 +8,8 @@
         <pattern>/style/*</pattern>
         <pattern>/images/*</pattern>
         <pattern>/js/*</pattern>
+        <pattern>/editor/*</pattern>
+        <pattern>/areas*</pattern>
     </excludes>
 
     <decorator name="home" page="home.jsp">

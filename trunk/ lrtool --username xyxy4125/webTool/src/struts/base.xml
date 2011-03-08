@@ -117,6 +117,10 @@
         <action name="bdIndex" class="com.base.core.action.keywords.BaiduIndexAction">
             <result name="success">/keyword/baiduIndexInfo.jsp</result>
         </action>
+        
+        <action name="areas" class="com.base.core.action.tool.SearchAreasAction">
+            <result name="success">/common/areas/province.jsp</result>
+        </action>
     </package>
     
 </struts>
