@@ -14,4 +14,6 @@
     
     <bean name="newsManager" class="com.base.core.manager.NewsManager"/>
     
+    <bean name="areasManager" class="com.base.core.manager.AreasManager"/>
+    
 </beans>
