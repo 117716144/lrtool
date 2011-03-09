@@ -3547,7 +3547,8 @@ public class IdCardGenerator {
 	
 	public String generate(String areaCode,String birthday) throws ParseException{
 		StringBuilder generater = new StringBuilder();
-		generater.append(IdCardGenerator.areaCode.get(areaCode));
+		//generater.append(IdCardGenerator.areaCode.get(areaCode));
+		generater.append(areaCode);
 		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat f1 = new SimpleDateFormat("yyyyMMdd");
 		birthday = f1.format(f.parse(birthday));
