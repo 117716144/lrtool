@@ -25,5 +25,8 @@ public class AreasManager extends Manager {
 		return dao.findByCriteria(criteria);
 	}
 	
+	public Areas loadAreas(Long code){
+		return dao.load(Areas.class, code);
+	}
 
 }
