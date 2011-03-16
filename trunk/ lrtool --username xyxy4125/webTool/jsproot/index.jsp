@@ -5,6 +5,7 @@
 <title>首页 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单流程化！</title>
 <meta name ="keywords" content="便民工具,网站搜索,网址导航，搜一搜,个性化导航,全民搜索,起始页,上网主页,上网首页,收藏夹,网络收藏夹,网址收藏夹,书签,QQ书签,网络书签,上网导航,网址,网址导航,导航,快捷上网,网址之家,实用工具,搜索,社区" />
 <meta name="description" content="网站搜一搜，让全民上网更加方便更加快捷，最具个性化的导航搜索平台，让你工作生活无忧!" />
+<script language="javascript" type="text/javascript" src="/datepicker/WdatePicker.js"></script>
 </head>
 
 <body>
@@ -68,6 +69,8 @@
     	<dl>
         <dt><strong>身份证生成工具</strong><p><a href="generatecard.html"><img src="/images/right.gif"/></a></p></dt>
         <dd><form action="generatecard.html" method="get"  target="_blank">
+        	<s:include value="/common/areas/areas.jsp"/>
+        	<input class="Wdate" type="text" name="birthDay" value="1987-07-05" onClick="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d',startDate:'1985-07-05'})">
         	请点击生成按钮将身份证号直接生成！<br/>
         <input type="submit" value="生成" class="sec"></form>
       </dd>

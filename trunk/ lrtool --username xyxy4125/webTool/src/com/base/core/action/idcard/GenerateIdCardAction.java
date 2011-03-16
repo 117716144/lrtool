@@ -89,18 +89,28 @@ public class GenerateIdCardAction extends BaseAction{
 	public void setBirthDay(String birthDay) {
 		this.birthDay = birthDay;
 	}
+	
+	private String selCode ="";
+
+	public String getSelCode() {
+		return selCode;
+	}
+
+	public void setSelCode(String selCode) {
+		this.selCode = selCode;
+	}
 
 	public String execute(){
 		this.getIpInfo();
 		IdCardGenerator gen = new IdCardGenerator();
-		String selCode ="";
 		if(city!=null && city!=-1){
 			selCode =String.valueOf(city);
 		}else if (area!=null && area!=-1){
 			selCode =String.valueOf(area);
 		}else selCode = String.valueOf(province);
+		Areas areas = new Areas();
 		if(!StringUtil.isEmpty(selCode)){
-			Areas areas =areasManager.loadAreas(Long.valueOf(selCode));
+			areas=areasManager.loadAreas(Long.valueOf(selCode));
 			selCode =String.valueOf(areas.getAreaCode());
 		}
 		if(selCode.length()==2){
@@ -109,16 +119,20 @@ public class GenerateIdCardAction extends BaseAction{
 		if(selCode.length()==4){
 			selCode =selCode+"00";
 		}
-		this.setBirthDay("1978-10-21");
 		try {
-			gen.generate(selCode, birthDay);
+			for(int i=0;i<reqCount;i++){
+			 cardInfo +=gen.generate(selCode, birthDay)+"<br/>";
+			}
+			if(areas!=null){
+			 selCode =areas.getAreaName();
+			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for(int i=0;i<reqCount;i++){
-		  cardInfo +=gen.generate()+"<br/>";
-		}
+//		for(int i=0;i<reqCount;i++){
+//		  cardInfo +=gen.generate()+"<br/>";
+//		}
 		return SUCCESS;
 	}
 
