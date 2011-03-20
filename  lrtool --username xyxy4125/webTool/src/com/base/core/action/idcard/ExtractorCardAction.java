@@ -4,10 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Set;
 
 import com.base.core.BaseAction;
 import com.base.core.manager.AreasManager;
 import com.base.core.model.Areas;
+import com.base.core.util.StringUtil;
 
 @SuppressWarnings("serial")
 public class ExtractorCardAction extends BaseAction{
@@ -22,6 +24,16 @@ public class ExtractorCardAction extends BaseAction{
 		this.areasManager = areasManager;
 	}
 	
+	private String idCodeStr="";
+	
+	public String getIdCodeStr() {
+		return idCodeStr;
+	}
+
+	public void setIdCodeStr(String idCodeStr) {
+		this.idCodeStr = idCodeStr;
+	}
+
 	// 省份
 	private String province;
 	// 城市
@@ -95,8 +107,18 @@ public class ExtractorCardAction extends BaseAction{
 					idcard = validator.convertIdcarBy15bit(idcard);
 				}
 				String code = idcard.substring(0,6);
-				Areas area = areasManager.getUniqueAreas(code);
+				Areas area = areasManager.getUniqueAreas(Long.valueOf(code));
 				if(area!=null){ this.city = area.getAreaName(); }
+				else{
+					code =idcard.substring(0,2);
+					Set<String> key = IdcardInfoExtractor.cityCodeMap.keySet();
+					for (String id : key) {
+						if (id.equals(code)) {
+							this.city = IdcardInfoExtractor.cityCodeMap.get(id);
+							break;
+						}
+					}
+				}
 				// 获取性别
 				String id17 = idcard.substring(16, 17);
 				if (Integer.parseInt(id17) % 2 != 0) {
@@ -115,10 +137,19 @@ public class ExtractorCardAction extends BaseAction{
 				this.year = currentDay.get(Calendar.YEAR);
 				this.month = currentDay.get(Calendar.MONTH) + 1;
 				this.day = currentDay.get(Calendar.DAY_OF_MONTH);
+			}else{
+				addActionError("请先输入正确的身份证号码!");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String execute(){
+		if(!StringUtil.isEmpty(idCodeStr)){
+			this.IdcardInfoExtract(idCodeStr);
+		}
+		return SUCCESS;
 	}
 
 }

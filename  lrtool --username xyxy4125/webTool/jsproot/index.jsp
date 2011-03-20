@@ -95,6 +95,16 @@
       </dd>
      </dl>
     </div>
+    
+    <div class="col cmid">
+    	<dl>
+        <dt><strong>身份证查询工具</strong><p><a href="extractCard.action"><img src="/images/right.gif"/></a></p></dt>
+        <dd><form action="extractCard.action" method="get"  target="_blank">
+        	<input class="inp" type="text" size="65" name="idCodeStr">
+        <input type="submit" value="查询" class="sec"></form>
+      </dd>
+     </dl>
+    </div>
 </div>
 </body>
 </html>

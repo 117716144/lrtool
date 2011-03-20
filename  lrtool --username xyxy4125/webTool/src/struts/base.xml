@@ -121,6 +121,11 @@
         <action name="areas" class="com.base.core.action.tool.SearchAreasAction">
             <result name="success">/common/areas/province.jsp</result>
         </action>
+        
+        <action name="extractCard" class="com.base.core.action.idcard.ExtractorCardAction">
+            <result name="success">/card/extractIdCard.jsp</result>
+        </action>
+        
     </package>
     
 </struts>

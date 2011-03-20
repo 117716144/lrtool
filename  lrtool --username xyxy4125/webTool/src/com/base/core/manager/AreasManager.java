@@ -18,6 +18,17 @@ public class AreasManager extends Manager {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public Areas getUniqueAreas(Long areasCode){
+		DetachedCriteria criteria = DetachedCriteria.forClass(Areas.class);
+		criteria.add(Restrictions.eq("areaCode", areasCode));
+		List<Areas> areas =dao.findByCriteria(criteria);
+		if(areas!=null && areas.size()>0){
+			return areas.get(0);
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Areas> getAreasByParentAreaCode(Long parentCode){
 		DetachedCriteria criteria = DetachedCriteria.forClass(Areas.class);
 		criteria.add(Restrictions.eq("parentCode", parentCode));
