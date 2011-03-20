@@ -4,7 +4,9 @@ jQuery(document).ready(function(){
 	    url : "/areas.action",
 	    async : true,
 	    success : function(msg) {
-			jQuery("#province").html(msg);
+		    //jQuery("#province").html("<option value=\"-1\">--请选择--</option>");
+			//jQuery("#province").append(msg);
+			jQuery("#province").append(msg);
 	    },
 	    error : function(){
 	        alert('error');
