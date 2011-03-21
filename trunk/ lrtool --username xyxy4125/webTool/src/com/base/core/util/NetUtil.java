@@ -8,7 +8,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
@@ -17,6 +16,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -78,21 +78,28 @@ public class NetUtil {
 	}
 
 	@SuppressWarnings("deprecation")
-	public String getTargetStrByHttpClient() throws HttpException, IOException {
-		String QueryString = "%BB%D8%BC%D2%B5%C4%D3%D5%BB%F3";
-		String URLQueryString = URLEncoder.encode(QueryString);
+	public String getTargetStrByHttpClient(String host,String qryStr) throws HttpException, IOException {
+		//String QueryString = "%BB%D8%BC%D2%B5%C4%D3%D5%BB%F3";
 		HttpClient client = new HttpClient();
-		client.getHostConfiguration().setHost("index.baidu.com", 80, "http");
-		HttpMethod method = getGetMethod(QueryString); // 使用 POST 方式提交数据
-		client.executeMethod(method); // 打印服务器返回的状态
-		System.out.println(method.getStatusLine()); // 打印结果页面
+		client.getHostConfiguration().setHost(host, 80, "http");
+		HttpMethod method = getGetMethod(qryStr); // 使用 POST 方式提交数据
+		int statusCode =client.executeMethod(method); // 打印服务器返回的状态
+		if (statusCode != HttpStatus.SC_OK) {  
+			System.err.println("Method failed: " + method.getStatusLine());  
+			return null;  
+		} 
 		String response = new String(method.getResponseBodyAsString());
-
-		// 打印返回的信息
-		System.out.println(response);
+		extractPageUrl(response);
 		method.releaseConnection();
-
 		return response;
+	}
+	
+	public void extractPageUrl(String content){
+		Pattern urlPattern = Pattern.compile("<a.*href='(.*)'.*>(.+?)</a>");
+		Matcher matcher =urlPattern.matcher(content);
+		while(matcher.find()){
+			System.out.println(matcher.group(1));
+		}
 	}
 
 	private static HttpMethod getGetMethod(String qrs) {
@@ -156,14 +163,72 @@ public class NetUtil {
 		return md5StrBuff.toString();
 	}
 
-	public static void main(String[] args) throws HttpException, IOException {
-		// %BB%D8%BC%D2%B5%C4%D3%D5%BB%F3
-		System.out.println(java.net.URLEncoder.encode("回家的诱惑", "gb2312"));
-		// %E5%9B%9E%E5%AE%B6%E7%9A%84%E8%AF%B1%E6%83%91
-		System.out.println(java.net.URLEncoder.encode("回家的诱惑", "utf-8"));
-		System.out.println(NetUtil.getMD5Str("3c480793315292e002"+"%E5%9B%9E%E5%AE%B6%E7%9A%84%E8%AF%B1%E6%83%91"+"ZZg<XWe7SZcBJ^aH"));
-		// System.out.println(new NetUtil().getTargetStrByHttpClient());
-		// System.out.println(new
-		// NetUtil().getTargetStr("http://index.baidu.com/main/word.php?word=%BB%D8%BC%D2%B5%C4%D3%D5%BB%F3","gb2312"));
-	}
+//	public static void main(String[] args) throws HttpException, IOException {
+//		// %BB%D8%BC%D2%B5%C4%D3%D5%BB%F3
+//		String qryStr = java.net.URLEncoder.encode("回家的诱惑", "gb2312");
+//		// %E5%9B%9E%E5%AE%B6%E7%9A%84%E8%AF%B1%E6%83%91
+//		//System.out.println(java.net.URLEncoder.encode("回家的诱惑", "utf-8"));
+//		//System.out.println(NetUtil.getMD5Str("3c480793315292e002"+"%E5%9B%9E%E5%AE%B6%E7%9A%84%E8%AF%B1%E6%83%91"+"ZZg<XWe7SZcBJ^aH"));
+//		 System.out.println(new NetUtil().getTargetStrByHttpClient("index.baidu.com",qryStr));
+//		//System.out.println(new
+//		//NetUtil().getTargetStr("http://index.baidu.com/main/word.php?word=%BB%D8%BC%D2%B5%C4%D3%D5%BB%F3","gb2312"));
+//	}
+	
+	public static String getHTML(String url) throws Exception {  
+		       HttpClient httpClient = new HttpClient();  
+		       GetMethod getMethod = new GetMethod(url); 
+		       getMethod.getParams().setContentCharset("gb2312");
+		       int statusCode = httpClient.executeMethod(getMethod);  
+		       if (statusCode != HttpStatus.SC_OK) {  
+		           System.err.println("Method failed: " + getMethod.getStatusLine());  
+		           return null;  
+		       }  
+		       // 读取内容  
+		       byte[] responseBody = getMethod.getResponseBody();  
+		       getMethod.releaseConnection();  
+		       return new String(responseBody,"gb2312");  
+		 
+		   }  
+		   /** 
+		    *  
+		    * @throws Exception 
+		    */  
+		   public static void test(String url) throws Exception{  
+		         
+		       String html = getHTML(url);  
+		       Pattern p = null;  
+		       Matcher m = null;  
+		       StringBuffer sb0 = new StringBuffer();  
+		       // ul正则  
+		       String regex = "<ul class=\"d2_9\">([\\s\\S]*<li>)<a.*href='(.*)'.*>(.+?)</a> \\[(.*)\\]</li>([\\s].*)";  
+		       // 链接正则  
+		       String regexa = "<a.*href='(.*)'.*>(.+?)</a> \\[(.*)\\]";  
+		       p = Pattern.compile(regex);  
+		       // m = p.matcher(sb.toString());  
+		       m = p.matcher(html);  
+		       int count = 0;  
+		       // ul字符串  
+		       while (m.find()) {  
+		           sb0.append(m.group());  
+		       }  
+		       //System.out.println(sb0.toString());  
+		       p = Pattern.compile(regexa);  
+		       m = p.matcher(sb0.toString());  
+		       // 链接地址和标题  
+		       while (m.find()) {  
+		           System.out.println("地址:" + m.group(1));  
+		           System.out.println("标题:" + m.group(2));  
+		           System.out.println("时间:" + m.group(3));  
+		           count++;  
+		       }  
+		         
+		       System.out.println("抓取条数："+count);  
+		 
+		   }  
+		     
+		   public static void main(String[] args) throws Exception {  
+		       String url = "http://cpc.people.com.cn/GB/194302/194306/index.html";  
+		       test(url);  
+		         
+		   }  
 }
