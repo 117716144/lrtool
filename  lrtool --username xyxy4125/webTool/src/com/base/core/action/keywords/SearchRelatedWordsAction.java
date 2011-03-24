@@ -13,7 +13,7 @@ import com.google.api.adwords.v201008.cm.KeywordMatchType;
 @SuppressWarnings("serial")
 public class SearchRelatedWordsAction extends BaseAction{
 
-	private String keyword;
+	private String keyword="";
 	
 	public String getKeyword() {
 		return keyword;
@@ -34,7 +34,8 @@ public class SearchRelatedWordsAction extends BaseAction{
 	}
 
 	public String execute(){
-		if(StringUtil.isEmpty(keyword))  keyword ="保险";
+		getIpInfo();
+		if(StringUtil.isEmpty(keyword))  return SUCCESS;
 		GetRelatedKeywords grk = new GetRelatedKeywords();
 		try {
 			keyList =grk.getRelateKeys(keyword, KeywordMatchType.EXACT);

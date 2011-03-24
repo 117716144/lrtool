@@ -68,7 +68,7 @@
     <div class="col crig">
     	<dl>
         <dt><strong>身份证生成工具</strong><p><a href="generatecard.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="generatecard.html" method="get"  target="_blank">
+        <dd><form action="generatecard.html" method="post"  target="_blank">
         	<s:include value="/common/areas/areas.jsp"/>
         	<input class="Wdate" type="text" name="birthDay" value="1987-07-05" onClick="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d',startDate:'1985-07-05'})">
         	请点击生成按钮将身份证号直接生成！<br/>
@@ -78,16 +78,16 @@
     </div>
     <div class="col cmid">
     	<dl>
-		   <dt><strong>搜索引擎相关关键词查询</strong><p><a href="relatedKey.action" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-		      	<dd><form method="post" target="_blank" action="relatedKey.action"><input name="keyword" id="key" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"></form><br />
+		   <dt><strong>搜索引擎相关关键词查询</strong><p><a href="relatedKey.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
+		      	<dd><form method="post" target="_blank" action="relatedKey.html"><input name="keyword" id="key" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"></form><br />
                 </dd>
 		</dl>
     </div>
     
      <div class="col crig">
     	<dl>
-        <dt><strong>百度指数查询</strong><p><a href="bdIndex.action"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="bdIndex.action" method="get"  target="_blank">
+        <dt><strong>百度指数查询</strong><p><a href="bdIndex.html"><img src="/images/right.gif"/></a></p></dt>
+        <dd><form action="bdIndex.html" method="post"  target="_blank">
         	<input name="searchWord" id="sword" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
         	</form>
         </dd>
@@ -98,8 +98,8 @@
     
     <div class="col cmid">
     	<dl>
-        <dt><strong>身份证查询工具</strong><p><a href="extractCard.action"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="extractCard.action" method="get"  target="_blank">
+        <dt><strong>身份证查询工具</strong><p><a href="extractCard.html"><img src="/images/right.gif"/></a></p></dt>
+        <dd><form action="extractCard.html" method="post"  target="_blank">
         	<input class="inp" type="text" size="65" name="idCodeStr">
         <input type="submit" value="查询" class="sec"></form>
       </dd>

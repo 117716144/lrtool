@@ -9,7 +9,7 @@
 	<div class="col">
 	<dl class="clist">
 		   <dt><strong>关键词百度指数查询(","隔开可查询多个关键词)</strong></dt>
-		      	<dd><form method="post" target="_blank" action="bdIndex.action"><input name="searchWord" id="key" type="text" size="65" value="<s:property value='searchWord'/>" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
+		      	<dd><form method="post" target="_blank" action="bdIndex.html"><input name="searchWord" id="key" type="text" size="65" value="<s:property value='searchWord'/>" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
                 </dd>
 		</dl>
 <div>

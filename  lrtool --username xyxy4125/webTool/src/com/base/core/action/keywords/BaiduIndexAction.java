@@ -53,6 +53,7 @@ public class BaiduIndexAction extends BaseAction{
 			this.prepareData(searchWord);
 		}
 		}
+		getIpInfo();
 		return SUCCESS;
 	}
 	

@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
 	jQuery.ajax({
 		type: "post",
-	    url : "/areas.action",
+	    url : "/areas.html",
 	    async : true,
 	    success : function(msg) {
 		    //jQuery("#province").html("<option value=\"-1\">--请选择--</option>");

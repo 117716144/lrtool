@@ -133,6 +133,7 @@ public class GenerateIdCardAction extends BaseAction{
 //		for(int i=0;i<reqCount;i++){
 //		  cardInfo +=gen.generate()+"<br/>";
 //		}
+		getIpInfo();
 		return SUCCESS;
 	}
 
