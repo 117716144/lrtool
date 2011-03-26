@@ -10,7 +10,7 @@
 
 <body>
 <div class="main">
-	<div class="col">
+	<div class="col">   
 		<dl>
 		   <dt><strong>搜索引擎收录情况查询</strong><p><a href="collect.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
 		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="collect.html"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
