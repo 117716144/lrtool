@@ -22,7 +22,7 @@ public class NewsCategoryManager extends Manager{
 		return dao.findPageByCriteria(criteria,page);
 	}
 	
-	public NewsCategory loadNews(Long nid){
+	public NewsCategory loadNewsCategory(Long nid){
 		return dao.load(NewsCategory.class, nid);
 	}
 	
