@@ -80,7 +80,7 @@ public class GenerateIdCardAction extends BaseAction{
 		this.gender = gender;
 	}
 	
-	private String birthDay;
+	private String birthDay="1985-07-05";
 
 	public String getBirthDay() {
 		return birthDay;
@@ -109,10 +109,11 @@ public class GenerateIdCardAction extends BaseAction{
 			selCode =String.valueOf(area);
 		}else selCode = String.valueOf(province);
 		Areas areas = new Areas();
-		if(!StringUtil.isEmpty(selCode)){
-			areas=areasManager.loadAreas(Long.valueOf(selCode));
-			selCode =String.valueOf(areas.getAreaCode());
+		if(StringUtil.isEmpty(selCode)){
+			selCode="10000";
 		}
+		areas=areasManager.loadAreas(Long.valueOf(selCode));
+		selCode =String.valueOf(areas.getAreaCode());
 		if(selCode.length()==2){
 			selCode =selCode+"0000";
 		}
