@@ -11,7 +11,7 @@
         </action>
         
         <action name="addNews" class="com.base.core.action.bo.ManageNewsAction" method="addNews">
-            <result name="success">/bo/news.jsp</result>
+            <result name="success">/bo/newsSuccess.jsp</result>
         </action>
         
         <action name="editorUpload" class="com.base.core.action.bo.EditorUploadAction">
@@ -32,7 +32,9 @@
             <result name="success">/bo/newsDetail.jsp</result>
         </action>
         
-        
+        <action name="newCategory" class="com.base.core.action.bo.ManageNewsCategoryAction">
+            <result name="success">/bo/newsCategory.jsp</result>
+        </action>
         
         
     </package>

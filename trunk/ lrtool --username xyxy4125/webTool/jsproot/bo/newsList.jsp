@@ -8,9 +8,9 @@
 <div class="main">
 	<div class="col">
 <table>
-<tr><td>标题</td><td>创建时间</td><td>操作</td></tr>
+<tr><td>标题</td><td>所属分类</td><td>创建时间</td><td>操作</td></tr>
 <s:iterator value="newsList" id="news">
-<tr><td width="150px;"><s:property value="#news.title"/></td><td width="100px;"><s:date format="yyyy-MM-dd" name="createdDate"/></td><td width="100px;"><a href="showDetail.action?nid=<s:property value='id'/>" target="_blank">查看详细</a></td></li>
+<tr><td width="150px;"><s:property value="#news.title"/></td><td width="100px;"><s:property value="#news.itsCategory.categoryName"/></td><td width="100px;"><s:date format="yyyy-MM-dd" name="createdDate"/></td><td width="100px;"><a href="showDetail.action?nid=<s:property value='id'/>" target="_blank">查看详细</a></td></li>
 </s:iterator>
 </table>
 	</div>

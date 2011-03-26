@@ -56,6 +56,11 @@ KE.show({
 内容：
 <textarea id="content1" name="news.content" style="width:700px;height:300px;visibility:hidden;">
 </textarea>
+所属分类:<select name="itsCategory">
+<s:iterator value="categorys" id="category">
+<option value="<s:property value='#category.id'/>"><s:property value='#category.categoryName'/></option>
+</s:iterator>
+</select><br/><br/>
 关键词：<input type="text" name="news.keyword"/><br/><br/>
 <button type="submit">确定</button>
 </form>

@@ -11,7 +11,7 @@ public class News extends Entity {
 	private String keyword;
 	private Date createdDate;
 	private String isTop;
-	private String itsCategory;
+	private NewsCategory itsCategory;
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -24,10 +24,10 @@ public class News extends Entity {
 	public void setIsTop(String isTop) {
 		this.isTop = isTop;
 	}
-	public String getItsCategory() {
+	public NewsCategory getItsCategory() {
 		return itsCategory;
 	}
-	public void setItsCategory(String itsCategory) {
+	public void setItsCategory(NewsCategory itsCategory) {
 		this.itsCategory = itsCategory;
 	}
 	public int getSortNum() {
