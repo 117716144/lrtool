@@ -12,14 +12,9 @@
         </id>
         <property name="categoryName" column="category_name"/>
         <property name="parentCategory" column="parent_category_id"/>
-        
-        
-        
-        
-        
     </class>
     
-    <query name="getAllList" cacheable="true"><![CDATA[
-        from News
+    <query name="getAllNewsCategory" cacheable="true"><![CDATA[
+        from NewsCategory
      ]]></query>
 </hibernate-mapping>
