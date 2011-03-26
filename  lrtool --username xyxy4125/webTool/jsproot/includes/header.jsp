@@ -16,8 +16,8 @@
             <li class="on"><a href="/">首页</a></li>
             <li><a href="/tool.html">工具</a></li>
             <li><a href="/site/daohang.jsp">名站导航</a></li>
-            <li><a href="/listNews.action">懒人分享</a></li>
-            <li><a href="/">懒人空间</a></li>       	  
+            <li><a href="/lrShare.html">懒人分享</a></li>
+            <li><a href="/lrSpace.html">懒人空间</a></li>       	  
       	</ul>
       	<div class="lr-sub">
       	<a href="/bdIndex.html">百度指数查询</a>
