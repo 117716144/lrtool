@@ -7,7 +7,7 @@
 <hibernate-mapping>
     <class name="com.base.core.model.NewsCategory" table="news_category">
         <id name="id" type="java.lang.Long">
-            <column name="id" />
+            <column name="news_category_id" />
             <generator class="identity" />
         </id>
         <property name="categoryName" column="category_name"/>

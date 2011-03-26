@@ -1,11 +1,14 @@
 package com.base.core.action.bo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.base.core.BaseAction;
+import com.base.core.manager.NewsCategoryManager;
 import com.base.core.manager.NewsManager;
 import com.base.core.model.News;
+import com.base.core.model.NewsCategory;
 import com.base.core.util.Page;
 import com.base.core.util.StringUtil;
 
@@ -17,6 +20,16 @@ public class ManageNewsAction extends BaseAction{
 		this.newsManager = newsManager;
 	}
 	
+	private NewsCategoryManager newsCategoryManager;
+	
+	public NewsCategoryManager getNewsCategoryManager() {
+		return newsCategoryManager;
+	}
+
+	public void setNewsCategoryManager(NewsCategoryManager newsCategoryManager) {
+		this.newsCategoryManager = newsCategoryManager;
+	}
+
 	private News news = new News();
 
 	public News getNews() {
@@ -46,9 +59,29 @@ public class ManageNewsAction extends BaseAction{
 	public void setNid(Long nid) {
 		this.nid = nid;
 	}
+	
+	private List<NewsCategory> categorys = new ArrayList<NewsCategory>();
+
+	public List<NewsCategory> getCategorys() {
+		return categorys;
+	}
+
+	public void setCategorys(List<NewsCategory> categorys) {
+		this.categorys = categorys;
+	}
+	
+	private Long itsCategory;
+
+	public Long getItsCategory() {
+		return itsCategory;
+	}
+
+	public void setItsCategory(Long itsCategory) {
+		this.itsCategory = itsCategory;
+	}
 
 	public String input(){
-		
+		categorys = newsCategoryManager.getNewsCategoryList(new Page(10));
 		return SUCCESS;
 	}
 	
@@ -58,6 +91,10 @@ public class ManageNewsAction extends BaseAction{
 			news.setCreatedDate(new Date());
 			news.setIsTop("N");
 			news.setSortNum(0);
+			if(itsCategory!=null){
+				NewsCategory category =newsCategoryManager.loadNews(itsCategory);
+				news.setItsCategory(category);
+			}
 			newsManager.save(news);
 		}
 		return SUCCESS;
