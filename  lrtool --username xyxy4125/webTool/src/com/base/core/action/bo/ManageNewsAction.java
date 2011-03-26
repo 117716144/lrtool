@@ -70,7 +70,7 @@ public class ManageNewsAction extends BaseAction{
 		this.categorys = categorys;
 	}
 	
-	private Long itsCategory;
+	private Long itsCategory=10000L;
 
 	public Long getItsCategory() {
 		return itsCategory;
@@ -92,7 +92,7 @@ public class ManageNewsAction extends BaseAction{
 			news.setIsTop("N");
 			news.setSortNum(0);
 			if(itsCategory!=null){
-				NewsCategory category =newsCategoryManager.loadNews(itsCategory);
+				NewsCategory category =newsCategoryManager.loadNewsCategory(itsCategory);
 				news.setItsCategory(category);
 			}
 			newsManager.save(news);
@@ -102,9 +102,10 @@ public class ManageNewsAction extends BaseAction{
 	
 	//新闻列表
 	public String listNews(){
-		Page page = new Page(10);
+		NewsCategory category =newsCategoryManager.loadNewsCategory(itsCategory);
+		Page page = new Page(100);
 		page.setCurrentPageIndex(1);
-		newsList = newsManager.getNewsList(page);
+		newsList = newsManager.getNewsList(category,page);
 		return SUCCESS;
 	}
 	
