@@ -10,6 +10,8 @@
 
 <body>
 <div class="main">
+<s:include value="/includes/newsright.jsp"/>
+        <div class="panel">
                 <div class="sort slist">
                 	<div class="l-main b-1">
         <!--无内容-->  
@@ -242,6 +244,6 @@
                	  </div>
                 </div>
                 <div class="sort"></div>
-            </div>
+            </div></div>
 </body>
 </html>

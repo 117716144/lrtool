@@ -10,6 +10,8 @@
 
 <body>
 <div class="main">
+	<s:include value="/includes/newsright.jsp"/>
+        <div class="panel">
                 <div class="sort slist">
                   <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <!--无内容-->
@@ -191,6 +193,7 @@
 </tbody></table>
                 </div>
                 <div class="sort"></div>
+            </div>
             </div>
 </body>
 </html>

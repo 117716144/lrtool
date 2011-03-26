@@ -10,6 +10,8 @@
 
 <body>
 <div class="main">
+<s:include value="/includes/newsright.jsp"/>
+        <div class="panel">
                 <div class="sort slist">
                   <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody><tr bgcolor="#d9edda">
@@ -633,6 +635,6 @@
 </tbody></table>
                 </div>
                 <div class="sort"></div>
-            </div>
+            </div></div>
 </body>
 </html>
