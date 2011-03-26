@@ -2,7 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <div class="header">
     <div class="lr-top">
-    	<span class="ipadr">您的IP：<s:property value="ipAddr"/> 来自：<s:property value="ipLocation"/></span>
+    	<span class="ipadr">您的IP：<span id="ipAddr"><s:property value="ipAddr"/></span> 来自：<span id="ipLocation"><s:property value="ipLocation"/></span></span>
     	<span class="tip">偷懒也是一种进步，懒人工具带您进步！</span>
     </div>
     <div class="lr-logo clear">

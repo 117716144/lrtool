@@ -10,3 +10,4 @@
     </div>
     <div class="miibeian"><a href="http://www.miibeian.gov.cn/">网络警察</a></div>
  </div>
+<script>loadIpInfo();</script>
