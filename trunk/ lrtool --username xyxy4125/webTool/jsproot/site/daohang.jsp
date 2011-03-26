@@ -10,7 +10,9 @@
 
 <body>
 	<div class="main">
-        <div class="sort bigs">
+		<s:include value="/includes/newsright.jsp"/>
+        <div class="panel">
+        	<div class="sort bigs">
             <table>
                 <tbody>
             <tr><td><a href="http://www.baidu.com/">百　度</a></td><td><a href="http://www.sina.com.cn/">新　浪</a></td><td><a href="http://www.qq.com/">腾　讯</a></td><td><a href="http://www.sohu.com/">搜　狐</a></td><td><a href="http://www.163.com/">网　易</a></td><td><a href="http://www.google.com.hk/">谷　歌</a></td></tr>
@@ -61,6 +63,7 @@
         
                 <tr class="bg2"><th><a href="/site/zhaoz.jsp">酷 站</a></th><td class="s_widen"><a href="http://www.chinagwy.org/">国家公务员网</a><a href="http://www.baixing.com/">百姓网</a><a href="http://www.pcbaby.com.cn/">太平洋亲子</a><a href="http://www.douban.com/">豆瓣</a><a href="http://www.redcross.org.cn/">红十字会</a><a href="http://wenku.baidu.com/">百度文库</a><a href="http://www.jxedt.com/">驾校一点通</a></td><td><b><a href="/site/zhaoz.jsp">更多 &#187;</a></b></td></tr> 
             </tbody></table>
+        </div>
         </div>
     </div>
 </body>
