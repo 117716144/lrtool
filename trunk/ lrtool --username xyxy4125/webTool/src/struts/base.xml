@@ -10,6 +10,10 @@
             <result name="success">/index.jsp</result>
         </action>
         
+        <action name="ipInfo" class="com.base.core.action.IndexAction" method="ipInfo">
+            <result name="success">/index.jsp</result>
+        </action>
+        
         <action name="shouLuAction" class="com.base.core.action.shoulu.ShouLuResultAction">
             <result name="success">/seoTool/shouLu.jsp</result>
         </action>
