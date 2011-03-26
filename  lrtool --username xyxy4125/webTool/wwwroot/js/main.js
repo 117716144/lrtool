@@ -180,3 +180,25 @@ function checkUrl(input){
 	}
 	return false;
 }
+
+function loadIpInfo(){
+	var ipAddr = jQuery("#ipAddr").html();
+	if(ipAddr==""){
+		jQuery.ajax({
+		     type: "post",
+		     url: "/ipInfo.html",
+		     data: "1=1",
+		     async: true,
+		     success: function(msg){
+			    if(msg.indexOf("_split_")!=-1){
+		        var rs =msg.split("_split_");
+		        jQuery("#ipAddr").html(rs[0]);
+		        jQuery("#ipLocation").html(rs[1]);
+			    }
+		     },
+		     error: function(){
+		        alert("ipinfo error happens");
+		     }
+		});
+	}
+}
