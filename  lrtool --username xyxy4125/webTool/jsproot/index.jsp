@@ -2,9 +2,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-<title>首页 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单流程化！</title>
-<meta name ="keywords" content="便民工具,网站搜索,网址导航，搜一搜,个性化导航,全民搜索,起始页,上网主页,上网首页,收藏夹,网络收藏夹,网址收藏夹,书签,QQ书签,网络书签,上网导航,网址,网址导航,导航,快捷上网,网址之家,实用工具,搜索,社区" />
-<meta name="description" content="网站搜一搜，让全民上网更加方便更加快捷，最具个性化的导航搜索平台，让你工作生活无忧!" />
+<title>网站工具 –懒人工具</title>
+<meta name ="keywords" content="网站工具，站长工具,站长查询工具,懒人工具，alexa,seo,关键词" />
+<meta name="description" content="提供记录各大搜索引擎每天的收录和反向链接，记录google pagerank 和 alexa 排名，记录每天关键字排位，关键词的深度分析和挖掘数据服务。" />
 <script language="javascript" type="text/javascript" src="/datepicker/WdatePicker.js"></script>
 </head>
 
@@ -13,7 +13,7 @@
 	<div class="col">
 		<dl>
 		   <dt><strong>搜索引擎收录情况查询</strong><p><a href="collect.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="collect.html"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
+		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="collect.html"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="35" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
 				<input name="googlecheck" type="checkbox" class="checkbox" value="checked" > 谷歌
 				<input name="baiducheck" type="checkbox" class="checkbox" value="checked" > 百度
 				<input name="yahoocheck" type="checkbox" class="checkbox" value="checked" > 雅虎
@@ -30,6 +30,17 @@
         <dt><strong>关键词排名查询</strong><p><a href="position.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
         <dd><form action="position.html" method="post" target="_blank">网站域名：<input name="siteurl" type="text" size="30"  class="inp">&nbsp;关键词：<input name="keyword" type="text" value="" size="6"  class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定站点在baidu中搜索指定关键词时的排名位置。
       </dd>
+    </div>
+    <div class="col">
+    	<dl>
+        <dt><strong>身份证生成工具</strong><p><a href="generatecard.html"><img src="/images/right.gif"/></a></p></dt>
+        <dd><form action="generatecard.html" method="get"  target="_blank">
+        	<s:include value="/common/areas/areas.jsp"/>
+        	<input class="Wdate" type="text" name="birthDay" value="1987-07-05" onClick="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d',startDate:'1985-07-05'})">
+        	请点击生成按钮将身份证号直接生成！<br/>
+        <input type="submit" value="生成" class="sec"></form>
+      </dd>
+     </dl>
     </div>
    	<div class="col cmid">
    		<dl>
@@ -65,21 +76,11 @@
       </dd>
      </dl>
     </div>
+    
     <div class="col crig">
     	<dl>
-        <dt><strong>身份证生成工具</strong><p><a href="generatecard.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="generatecard.html" method="post"  target="_blank">
-        	<s:include value="/common/areas/areas.jsp"/>
-        	<input class="Wdate" type="text" name="birthDay" value="1987-07-05" onClick="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d',startDate:'1985-07-05'})">
-        	请点击生成按钮将身份证号直接生成！<br/>
-        <input type="submit" value="生成" class="sec"></form>
-      </dd>
-     </dl>
-    </div>
-    <div class="col cmid">
-    	<dl>
 		   <dt><strong>搜索引擎相关关键词查询</strong><p><a href="relatedKey.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-		      	<dd><form method="post" target="_blank" action="relatedKey.html"><input name="keyword" id="key" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"></form><br />
+		      	<dd><form method="post" target="_blank" action="relatedKey.html"><input name="keyword" id="key" type="text" size="45" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"></form><br />
                 </dd>
 		</dl>
     </div>
@@ -87,8 +88,8 @@
      <div class="col crig">
     	<dl>
         <dt><strong>百度指数查询</strong><p><a href="bdIndex.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="bdIndex.html" method="post"  target="_blank">
-        	<input name="searchWord" id="sword" type="text" size="65" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
+        <dd><form action="bdIndex.html" method="get"  target="_blank">
+        	<input name="searchWord" id="sword" type="text" size="45" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
         	</form>
         </dd>
         
@@ -99,8 +100,8 @@
     <div class="col cmid">
     	<dl>
         <dt><strong>身份证查询工具</strong><p><a href="extractCard.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="extractCard.html" method="post"  target="_blank">
-        	<input class="inp" type="text" size="65" name="idCodeStr">
+        <dd><form action="extractCard.html" method="get"  target="_blank">
+        	<input class="inp" type="text" size="45" name="idCodeStr">
         <input type="submit" value="查询" class="sec"></form>
       </dd>
      </dl>
