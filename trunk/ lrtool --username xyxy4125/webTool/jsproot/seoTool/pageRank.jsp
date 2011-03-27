@@ -13,11 +13,11 @@
 				<form method="post" action="pagerank.html">
 网站地址：<input name="prdomain" type="text" size="50" onMouseOver="this.focus()" onBlur="if (value ==''){value='http://www.'}" onFocus="this.select()" value="<s:property value='prdomain'/>" class="inp">&nbsp;<input type="submit" value="点击查询" class="sec"></form>	
 				<font color="#ff0000">注："www.abc.com" 和 "abc.com" 的 Page Rank 数值不同</font>
-		<div id="rank_index_colum_one_right_top">
-		<div id="tool_show_result">您查询的页面地址：<br /><s:property value="prdomain"/><br />页面评定结果：<br/>
+		<div id="rank_index_colum_one_right_top" class="ct">
+		<div id="tool_show_result" style="text-align:left;">您查询的页面地址：<br /><s:property value="prdomain"/><br />页面评定结果：<br/>
 		<span class="google"><img alt="Google Rank<s:property value='googlePR'/>" src="/images/pagerank_4_<s:property value='googlePR'/>.gif"></span>
 		<span class="sogou"><div class="percent"><span><em style="width: <s:property value='sogouPR'/>%;"><s:property value='sogouPR'/></em></span><s:property value='sogouPR'/></div></span>
-	
+		</div>
 			</dd>
 		</dl>
 		</div>

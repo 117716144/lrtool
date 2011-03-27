@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>搜索引擎反向链接 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单有效！</title>
-<meta name ="keywords" content="便民工具,网站搜索,网址导航，搜一搜,个性化导航,全民搜索,起始页,上网主页,上网首页,收藏夹,网络收藏夹,网址收藏夹,书签,QQ书签,网络书签,上网导航,网址,网址导航,导航,快捷上网,网址之家,实用工具,搜索,社区" />
-<meta name="description" content="网站搜一搜，让全民上网更加方便更加快捷，最具个性化的导航搜索平台，让你工作生活无忧!" />
+<title><s:if test="searchWord!=''"><s:property value='searchWord'/></s:if><s:else>搜索引擎反向链接</s:else>-懒人工具- 懒人网站助手</title>
+<meta name="keywords" content="<s:property value='searchWord'/>,百度关键字排名查询，关键字排名查询，搜索引擎关键字排名查询">
+<meta name="description" content="<s:property value='searchWord'/>查询网站某个关键字在百度、排名情况.以及用户关注度，媒体关注度。">
 <script language="javascript" type="text/javascript" src="/js/sitelink.js"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
 	<div class="col">
 		<dl class="clist">
 			<dt><strong>欢迎您使用本站的搜索引擎反向链接 工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
-      <dd><form method="post" target="_top" action="link.html">请输入要查询的网址: <font face="Arial">http://</font> <input type="text" name="shoulu_domain" size="60" id="shoulu_domain" value="<s:property value='shoulu_domain'/>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sb_c"><br />
+      <dd><form method="post" target="_top" action="link.html">请输入要查询的网址: <font class="htp">HTTP://</font> <input type="text" name="shoulu_domain" size="60" id="shoulu_domain" value="<s:property value='shoulu_domain'/>" class="inp_t">&nbsp;<input type="submit" value="开始查询" class="sec"><br />
 <input name="googlecheck" type="checkbox" class="checkbox" value="checked" <s:if test="googlecheck=='checked'">checked</s:if>/>谷歌
 <input name="baiducheck" type="checkbox" class="checkbox" value="checked" <s:if test="baiducheck=='checked'">checked</s:if>/>百度
 <input name="yahoocheck" type="checkbox" class="checkbox" value="checked" <s:if test="yahoocheck=='checked'">checked</s:if>> 雅虎

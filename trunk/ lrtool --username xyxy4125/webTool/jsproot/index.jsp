@@ -66,7 +66,7 @@
     <div class="col crig">
     	<dl>
         <dt><strong>GG PR & SOGOU RANK 查询</strong><p><a href="pagerank.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form method="post" target="_blank" name="get_rank" action="pagerank.html">网站地址：<input name="prdomain" type="text" size="20" value="http://www." class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询网页在GG和搜狗上的页面等级（影响搜索引擎排名）信息。</dd>
+        <dd><form method="post" target="_blank" name="get_rank" action="pagerank.html">网站地址：<input name="prdomain" type="text" size="30" value="http://www." class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询网页在GG和搜狗上的页面等级（影响搜索引擎排名）信息。</dd>
      </dl>
     </div>
     <div class="col cmid">

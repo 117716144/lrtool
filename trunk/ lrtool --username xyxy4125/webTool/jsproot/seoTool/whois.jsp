@@ -12,7 +12,9 @@
 		     <dd class="cline">
 		     <s:component template="errorNoFieldKey"/>
 		     <form method="post" target="_top" action="whois.html" name="ipform" onsubmit="return checkIP();">请输入要查询的域名 :  <input type="text" name="domain" size="60" value="<s:property value='domain'/>" class='inp'>&nbsp;<input type="submit" value="点击查询" class="sec"></form>
-		<s:property value="searchResult" escape="false"/>
+			<div class="ct">
+			<s:property value="searchResult" escape="false"/>
+			</div>
 		</dd>
 		</dl>
 	</div>
