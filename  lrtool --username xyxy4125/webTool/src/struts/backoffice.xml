@@ -4,39 +4,72 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="backoffice" extends="struts-default">
+	<package name="backoffice" extends="struts-default" namespace="/bo">
 
-        <action name="orderNews" class="com.base.core.action.bo.ManageNewsAction" method="input">
-            <result name="success">/bo/news.jsp</result>
-        </action>
+		<!--
+			<default-interceptor-ref name="appEngineStack"/>
+		-->
+		<interceptors>
+			<interceptor name="loginInterceptor"
+				class="com.base.core.interceptor.LoginInterceptor" />
+			<interceptor-stack name="loginDefaultStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="loginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+
+        <global-results>
+            <result name="toLogin" type="redirect">/bo/login.jsp</result>
+        </global-results>
         
-        <action name="addNews" class="com.base.core.action.bo.ManageNewsAction" method="addNews">
-            <result name="success">/bo/newsSuccess.jsp</result>
-        </action>
-        
-        <action name="editorUpload" class="com.base.core.action.bo.EditorUploadAction">
-             <interceptor-ref name="fileUpload">
-                <!--ie image/pjpeg  ff image/jpeg-->
-                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
-                <param name="maximumSize">1048576</param> <!-- 1M-->
-            </interceptor-ref>
-            <interceptor-ref name="defaultStack"/>
-            <result name="input">/bo/news.jsp</result>
-        </action>
-        
-        <action name="listNews" class="com.base.core.action.bo.ManageNewsAction" method="listNews">
-            <result name="success">/bo/newsList.jsp</result>
-        </action>
-        
-        <action name="showDetail" class="com.base.core.action.bo.ManageNewsAction" method="showDetail">
-            <result name="success">/bo/newsDetail.jsp</result>
-        </action>
-        
-        <action name="newCategory" class="com.base.core.action.bo.ManageNewsCategoryAction">
-            <result name="success">/bo/newsCategory.jsp</result>
-        </action>
-        
-        
-    </package>
-    
+        <action name="toLogin" class="com.base.core.action.bo.LoginAction" method="input">
+			<result name="success">/bo/login.jsp</result>
+		</action>
+		
+		<action name="login" class="com.base.core.action.bo.LoginAction">
+		    <result name="input">/bo/login.jsp</result>
+			<result name="success">/bo/index.jsp</result>
+		</action>
+
+		<action name="orderNews" class="com.base.core.action.bo.ManageNewsAction"
+			method="input">
+			<interceptor-ref name="loginDefaultStack"/>
+			<result name="success">/bo/news.jsp</result>
+		</action>
+
+		<action name="addNews" class="com.base.core.action.bo.ManageNewsAction"
+			method="addNews">
+			<interceptor-ref name="loginDefaultStack"/>
+			<result name="success">/bo/newsSuccess.jsp</result>
+		</action>
+
+		<action name="editorUpload" class="com.base.core.action.bo.EditorUploadAction">
+		    <interceptor-ref name="loginDefaultStack"/>
+			<interceptor-ref name="fileUpload">
+				<!--ie image/pjpeg  ff image/jpeg-->
+				<param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
+				<param name="maximumSize">1048576</param> <!-- 1M-->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="input">/bo/news.jsp</result>
+		</action>
+
+		<action name="listNews" class="com.base.core.action.bo.ManageNewsAction"
+			method="listNews">
+			<result name="success">/bo/newsList.jsp</result>
+		</action>
+
+		<action name="showDetail" class="com.base.core.action.bo.ManageNewsAction"
+			method="showDetail">
+			<result name="success">/bo/newsDetail.jsp</result>
+		</action>
+
+		<action name="newCategory" class="com.base.core.action.bo.ManageNewsCategoryAction">
+		    <interceptor-ref name="loginDefaultStack"/>
+			<result name="success">/bo/newsCategory.jsp</result>
+		</action>
+
+
+	</package>
+
 </struts>
