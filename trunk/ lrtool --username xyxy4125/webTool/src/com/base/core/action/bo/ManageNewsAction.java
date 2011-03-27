@@ -11,6 +11,7 @@ import com.base.core.model.News;
 import com.base.core.model.NewsCategory;
 import com.base.core.util.Page;
 import com.base.core.util.StringUtil;
+import com.base.core.util.TaoBaoKeyUtil;
 
 @SuppressWarnings("serial")
 public class ManageNewsAction extends BaseAction{
@@ -60,6 +61,16 @@ public class ManageNewsAction extends BaseAction{
 		this.nid = nid;
 	}
 	
+	private String idStr;
+	
+	public String getIdStr() {
+		return idStr;
+	}
+
+	public void setIdStr(String idStr) {
+		this.idStr = idStr;
+	}
+
 	private List<NewsCategory> categorys = new ArrayList<NewsCategory>();
 
 	public List<NewsCategory> getCategorys() {
@@ -70,7 +81,7 @@ public class ManageNewsAction extends BaseAction{
 		this.categorys = categorys;
 	}
 	
-	private Long itsCategory=10000L;
+	private Long itsCategory;
 
 	public Long getItsCategory() {
 		return itsCategory;
@@ -102,17 +113,30 @@ public class ManageNewsAction extends BaseAction{
 	
 	//新闻列表
 	public String listNews(){
-		NewsCategory category =newsCategoryManager.loadNewsCategory(itsCategory);
 		Page page = new Page(100);
+		if(itsCategory==null ){
+			newsList = newsManager.getNewsList(null,page);
+		}else{
+		NewsCategory category =newsCategoryManager.loadNewsCategory(itsCategory);
 		page.setCurrentPageIndex(1);
 		newsList = newsManager.getNewsList(category,page);
+		}
+		if(newsList!=null && newsList.size()>0){
+			for(News ns:newsList){
+				ns.setEncodeIdStr(TaoBaoKeyUtil.encode(ns.getId().toString(), "UTF-8"));
+			}
+		}
 		return SUCCESS;
 	}
 	
 	//详细新闻
 	public String showDetail(){
 		try{
-		news =newsManager.loadNews(nid);
+		if(!StringUtil.isEmpty(idStr)){
+		  idStr =TaoBaoKeyUtil.decode(idStr, "UTF-8");
+		  nid =Long.valueOf(idStr);
+		  news =newsManager.loadNews(nid);
+		}
 		return SUCCESS;
 		}catch(Exception e){
 			e.printStackTrace();
