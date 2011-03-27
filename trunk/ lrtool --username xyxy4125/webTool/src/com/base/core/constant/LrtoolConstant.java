@@ -7,6 +7,8 @@ public class LrtoolConstant {
 	
 	public final static String urlPattern ="http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?";
 
+	public final static String admin_user_id ="AMDIN_USER";
+	
 	public static void main(String[] args){
 		String url ="https://www.ubao.com.cn";
 		Pattern p = Pattern.compile(LrtoolConstant.urlPattern);
