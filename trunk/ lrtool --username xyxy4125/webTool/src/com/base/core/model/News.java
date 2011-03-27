@@ -12,6 +12,13 @@ public class News extends Entity {
 	private Date createdDate;
 	private String isTop;
 	private NewsCategory itsCategory;
+	private String encodeIdStr;
+	public String getEncodeIdStr() {
+		return encodeIdStr;
+	}
+	public void setEncodeIdStr(String encodeIdStr) {
+		this.encodeIdStr = encodeIdStr;
+	}
 	public Date getCreatedDate() {
 		return createdDate;
 	}
