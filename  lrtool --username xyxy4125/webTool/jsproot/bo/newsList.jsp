@@ -11,10 +11,10 @@
 	<div class="news">
 	<s:iterator value="newsList" id="news">
 		<div class="column">
-			<h1><a href="showDetail.action?nid=<s:property value='id'/>" target="_blank"><s:property value="#news.title"/></a></h1>
-			<em class="postInfo"><a title="View all posts by 懒人工具" href="http://www.lrtool.net/">懒人工具</a> 发表于: <s:date format="yyyy-MM-dd" name="createdDate"/> | 发表在: <a rel="category tag" title="查看 懒人分享的全部文章" href="/listNews.action">懒人分享</a>  | Tags: <a rel="tag" href="/listNews.action">前端开发</a></em>
+			<h1><a href="/view/<s:property value='encodeIdStr'/>.html" target="_blank"><s:property value="#news.title"/></a></h1>
+			<em class="postInfo"><a title="View all posts by 懒人工具" href="http://www.lrtool.net/">懒人工具</a> 发表于: <s:date format="yyyy-MM-dd" name="createdDate"/> | 发表在: <a rel="category tag" title="查看 懒人分享的全部文章" href="#">懒人分享</a>  | Tags: <a rel="tag" href="#">前端开发</a></em>
 			<p><s:property value="#news.content" escape="false"/></p>
-			<p><a href="showDetail.action?nid=<s:property value='id'/>" target="_blank">查看详细</a></p>
+			<p><a href="/view/<s:property value='encodeIdStr'/>.html" target="_blank">查看详细</a></p>
 		</div>
 	</s:iterator>
 	</div>
