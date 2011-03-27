@@ -2,7 +2,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title> 身份证生成工具 - 站长工具 - 懒人工具 - lrtool.net - 实用的网站！</title>
+<title><s:property value='selCode'/>身份证生成工具-懒人工具- 懒人网站助手</title>
+<meta name="keywords" content="<s:property value='selCode'/>身份证生成工具">
+<meta name="description" content="<s:property value='selCode'/>身份证生成工具。">
 </head>
 <body>
 <div class="main">

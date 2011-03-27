@@ -3,6 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>IP类信息查询 - 站长工具 - 懒人工具 - lrtool.net - 致力SEO简单有效！</title>
+<title><s:if test="searchWord!=''"><s:property value="myPosition"/></s:if><s:else>IP类信息查询 </s:else>-懒人工具- 懒人网站助手</title>
+<meta name="keywords" content="<s:property value="myPosition"/>,百度关键字排名查询，关键字排名查询，搜索引擎关键字排名查询">
+<meta name="description" content="<s:property value="myPosition"/>查询网站某个关键字在百度、排名情况.以及用户关注度，媒体关注度。">
 </head>
 <body>
 <div class="main">

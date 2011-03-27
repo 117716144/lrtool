@@ -2,7 +2,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title> 身份证查询工具 - 站长工具 - 懒人工具 - lrtool.net - 实用的网站！</title>
+<title><s:property value='selCode'/>身份证查询工具-懒人工具- 懒人网站助手</title>
+<meta name="keywords" content="<s:property value='selCode'/>身份证查询工具">
+<meta name="description" content="<s:property value='selCode'/>身份证查询工具。">
 </head>
 <body>
 <div class="main">
@@ -14,7 +16,7 @@
 <s:if test="idCodeStr!=''">
 你输入的身份证号：<s:property value='idCodeStr'/></b>的信息如下：<br/>
 地区：<b><s:property value="city"/></b>--性别：<b><s:property value="gender"/></b>--出生日期：<b><s:date format="yyyy年MM月dd日" name="birthday"/></b>
-</s:if><s:else>请先输入正确的身份证号码！</s:else></s:else>
+</s:if><s:else><font color="#f00">请先输入正确的身份证号码！</font></s:else></s:else>
 </dd></dl>
 	</div>
 </div>
