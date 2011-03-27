@@ -25,6 +25,7 @@
     <include file="struts-default.xml"></include> 
     <include file="struts/base.xml"/>
     <include file="struts/backoffice.xml"/>
+    <include file="struts/cms.xml"/>
     
 
     
