@@ -6,14 +6,12 @@
 <struts>
 	<package name="cms" extends="struts-default">
         
-       <action name="listNews" class="com.base.core.action.bo.ManageNewsAction"
-			method="listNews">
-			<result name="success">/bo/newsList.jsp</result>
+       <action name="showNewsList" class="com.base.core.action.fo.showNewsAction" method="listNews">
+			<result name="success">/fo/newsList.jsp</result>
 		</action>
 
-		<action name="showDetail" class="com.base.core.action.bo.ManageNewsAction"
-			method="showDetail">
-			<result name="success">/bo/newsDetail.jsp</result>
+		<action name="showDetail" class="com.base.core.action.fo.showNewsAction" method="showDetail">
+			<result name="success">/fo/newsDetail.jsp</result>
 		</action>
 
 	</package>

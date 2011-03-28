@@ -2,6 +2,7 @@
 <decorators defaultdir="/decorators">
     <decorator name="main" page="home.jsp">
         <pattern>/*</pattern>
+        <exclude>/bo/*</exclude>
     </decorator>
         
     <excludes>
@@ -17,5 +18,16 @@
         <pattern>/index.html</pattern>
     </decorator>
 
+    <decorator name="bo" page="bo.jsp">
+        <pattern>/bo/*</pattern>
+        <exclude>/bo/login.jsp</exclude>
+        <exclude>/bo/toLogin.action</exclude>
+        <exclude>/bo/login.action</exclude>
+    </decorator>
     
+    <decorator name="blank" page="main.jsp">
+        <pattern>/bo/login.jsp</pattern>
+        <pattern>/bo/toLogin.action</pattern>
+        <pattern>/bo/login.action</pattern>
+    </decorator>
 </decorators>

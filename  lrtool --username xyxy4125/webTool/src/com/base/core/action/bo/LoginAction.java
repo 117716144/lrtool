@@ -31,7 +31,7 @@ public class LoginAction extends BaseAction{
 	
 	public String execute(){
 		if("administrator".equalsIgnoreCase(userName) && "admin_alison".equalsIgnoreCase(userPwd)){
-			session.put(LrtoolConstant.admin_user_id, "admini");
+			session.put(LrtoolConstant.admin_user_id, "admin");
 		}else{
 			addActionError("帐号或密码不正确!");
 			return this.INPUT;

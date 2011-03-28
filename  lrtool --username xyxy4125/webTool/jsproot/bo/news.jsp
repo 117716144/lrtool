@@ -52,16 +52,20 @@ KE.show({
 <div class="main">
 	<div class="col">
 <form name="news" action ="addNews.action" method="post">
-标题：<input type="text" name="news.title"/><br/><br/>
+<s:if test="news.title!=''">
+<input type="hidden" value="<s:property value='news.id'/>" name="nid"/>
+</s:if>
+标题：<input type="text" name="news.title" value="<s:property value='news.title'/>"/><br/><br/>
 内容：
 <textarea id="content1" name="news.content" style="width:700px;height:300px;visibility:hidden;">
+<s:property value='news.content' escape="false"/>
 </textarea>
 所属分类:<select name="itsCategory">
 <s:iterator value="categorys" id="category">
-<option value="<s:property value='#category.id'/>"><s:property value='#category.categoryName'/></option>
+<option value="<s:property value='#category.id'/>" <s:if test="#category.id == news.itsCategory.id">selected="selected" </s:if>><s:property value='#category.categoryName'/></option>
 </s:iterator>
 </select><br/><br/>
-关键词：<input type="text" name="news.keyword"/><br/><br/>
+关键词：<input type="text" name="news.keyword" value="<s:property value='news.keyword'/>"/><br/><br/>
 <button type="submit">确定</button>
 </form>
 	</div>

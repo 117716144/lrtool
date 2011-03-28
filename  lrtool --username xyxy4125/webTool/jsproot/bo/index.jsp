@@ -8,7 +8,7 @@
 <body>
 <div>
 <a href="orderNews.action">发布新闻</a><br/>
-<a href="listNews.action">查看所有新闻</a>
+<a href="listAllNews.action">查看所有新闻</a>
 </div>
 </body>
 </html>

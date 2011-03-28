@@ -30,6 +30,10 @@
 		    <result name="input">/bo/login.jsp</result>
 			<result name="success">/bo/index.jsp</result>
 		</action>
+		
+		<action name="logout" class="com.base.core.action.bo.LoginOutAction">
+			<result name="success" type="redirect">/bo/login.jsp</result>
+		</action>
 
 		<action name="orderNews" class="com.base.core.action.bo.ManageNewsAction"
 			method="input">
@@ -54,20 +58,17 @@
 			<result name="input">/bo/news.jsp</result>
 		</action>
 
-		<action name="listNews" class="com.base.core.action.bo.ManageNewsAction"
+		<action name="listAllNews" class="com.base.core.action.bo.ManageNewsAction"
 			method="listNews">
 			<result name="success">/bo/newsList.jsp</result>
-		</action>
-
-		<action name="showDetail" class="com.base.core.action.bo.ManageNewsAction"
-			method="showDetail">
-			<result name="success">/bo/newsDetail.jsp</result>
 		</action>
 
 		<action name="newCategory" class="com.base.core.action.bo.ManageNewsCategoryAction">
 		    <interceptor-ref name="loginDefaultStack"/>
 			<result name="success">/bo/newsCategory.jsp</result>
 		</action>
+		
+		
 
 
 	</package>
