@@ -7,8 +7,8 @@
 <body>
 <div class="main">
 	<div class="col">
- 新闻添加成功！继续<a href="orderNews.action">添加新闻</a>;<br/>
- <a href="listNews.action">查看</a>已添加的新闻;
+ 操作成功！继续<a href="orderNews.action">添加新闻</a>;<br/>
+ <a href="listAllNews.action">查看</a>已添加的新闻;
 	</div>
 </div>
 </body>

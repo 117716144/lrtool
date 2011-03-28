@@ -1,10 +1,7 @@
-package com.base.core.action.bo;
+package com.base.core.action.fo;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import org.springframework.beans.BeanUtils;
 
 import com.base.core.BaseAction;
 import com.base.core.manager.NewsCategoryManager;
@@ -16,7 +13,7 @@ import com.base.core.util.StringUtil;
 import com.base.core.util.TaoBaoKeyUtil;
 
 @SuppressWarnings("serial")
-public class ManageNewsAction extends BaseAction{
+public class showNewsAction extends BaseAction{
 	
 	private NewsManager newsManager;
 	public void setNewsManager(NewsManager newsManager) {
@@ -93,33 +90,6 @@ public class ManageNewsAction extends BaseAction{
 		this.itsCategory = itsCategory;
 	}
 
-	public String input(){
-		categorys = newsCategoryManager.getNewsCategoryList(new Page(10));
-		if(nid!=null){
-		news = newsManager.loadNews(nid);
-		}
-		return SUCCESS;
-	}
-	
-	//添加新闻
-	public String addNews(){
-		if(!StringUtil.isEmpty(news.getTitle()) && !StringUtil.isEmpty(news.getContent())){
-			news.setCreatedDate(new Date());
-			news.setIsTop("N");
-			news.setSortNum(0);
-			if(itsCategory!=null){
-				NewsCategory category =newsCategoryManager.loadNewsCategory(itsCategory);
-				news.setItsCategory(category);
-			}
-			if(nid!=null){ 
-				News curNews =newsManager.loadNews(nid);
-				news.setId(curNews.getId());
-			}
-			newsManager.save(news);
-		}
-		return SUCCESS;
-	}
-	
 	//新闻列表
 	public String listNews(){
 		Page page = new Page(100);
