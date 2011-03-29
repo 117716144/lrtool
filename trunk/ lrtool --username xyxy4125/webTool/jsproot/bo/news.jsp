@@ -37,6 +37,22 @@ KE.show({
 	}
 });
 
+KE.show({
+	id : 'summary',
+	cssPath : '/editor/index.css',
+	newlineTag : 'br',
+	afterCreate : function(id) {
+		KE.event.ctrl(document, 13, function() {
+			KE.util.setData(id);
+			document.forms['news'].submit();
+		});
+		KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+			KE.util.setData(id);
+			document.forms['news'].submit();
+		});
+	}
+});
+
 </script>
 <style>
 			form {
@@ -59,6 +75,10 @@ KE.show({
 内容：
 <textarea id="content1" name="news.content" style="width:700px;height:300px;visibility:hidden;">
 <s:property value='news.content' escape="false"/>
+</textarea><br/>
+摘要：
+<textarea id="summary" name="news.summary" style="width:580px;height:300px;visibility:hidden;">
+<s:property value='news.summary' escape="false"/>
 </textarea>
 所属分类:<select name="itsCategory">
 <s:iterator value="categorys" id="category">
