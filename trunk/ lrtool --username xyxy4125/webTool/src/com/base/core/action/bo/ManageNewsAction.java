@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
-
 import com.base.core.BaseAction;
 import com.base.core.manager.NewsCategoryManager;
 import com.base.core.manager.NewsManager;
