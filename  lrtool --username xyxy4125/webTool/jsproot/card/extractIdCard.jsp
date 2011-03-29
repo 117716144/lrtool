@@ -11,7 +11,10 @@
 	<div class="col">
 		<dl class="clist">
 			<dt><strong>欢迎您使用本站的身份证查询工具，如果您觉得本站对您有帮助，请收藏或者推荐给您的朋友。</strong></dt>
-<dd><div id="tool_show_intro">
+<dd>输入你需要查询的15或18位身份证号码：<form action="extractCard.html" method="get"  target="_blank">
+        	<input class="inp" type="text" size="45" name="idCodeStr" value="<s:property value='idCodeStr'/>">
+        <input type="submit" value="查询" class="sec"></form>
+<div id="tool_show_intro">
 <s:if test="hasErrors()"><font color=red></font><s:component template="errorNoFieldKey"/></font></s:if><s:else>
 <s:if test="idCodeStr!=''">
 你输入的身份证号：<s:property value='idCodeStr'/></b>的信息如下：<br/>
