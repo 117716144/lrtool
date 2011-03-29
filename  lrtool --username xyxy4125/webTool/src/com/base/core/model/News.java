@@ -12,7 +12,24 @@ public class News extends Entity {
 	private Date createdDate;
 	private String isTop;
 	private NewsCategory itsCategory;
+	private int sortNum;
 	private String encodeIdStr;
+	private String summary;
+	private String isShow;
+	
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	public String getIsShow() {
+		return isShow;
+	}
+	public void setIsShow(String isShow) {
+		this.isShow = isShow;
+	}
+	
 	public String getEncodeIdStr() {
 		return encodeIdStr;
 	}
@@ -43,8 +60,6 @@ public class News extends Entity {
 	public void setSortNum(int sortNum) {
 		this.sortNum = sortNum;
 	}
-	private int sortNum;
-	
 	
 	public Long getId() {
 		return id;

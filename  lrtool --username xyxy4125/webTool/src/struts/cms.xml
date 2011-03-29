@@ -8,10 +8,12 @@
         
        <action name="showNewsList" class="com.base.core.action.fo.showNewsAction" method="listNews">
 			<result name="success">/fo/newsList.jsp</result>
+			<result name="lr_space">/fo/spaceNewsList.jsp</result>
 		</action>
 
 		<action name="showDetail" class="com.base.core.action.fo.showNewsAction" method="showDetail">
 			<result name="success">/fo/newsDetail.jsp</result>
+			<result name="lr_space">/fo/spaceNewsDetail.jsp</result>
 		</action>
 
 	</package>

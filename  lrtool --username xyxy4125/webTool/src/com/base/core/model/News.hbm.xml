@@ -17,6 +17,8 @@
         <property name="isTop" column="is_top"/>
         <many-to-one name="itsCategory" column="its_category"/>
         <property name="sortNum" column="sort_num"/>
+        <property name="summary" column="content_summary"/>
+        <property name="isShow" column="is_show"/>
         
     </class>
     

@@ -105,6 +105,9 @@ public class showNewsAction extends BaseAction{
 				ns.setEncodeIdStr(TaoBaoKeyUtil.encode(ns.getId().toString(), "UTF-8"));
 			}
 		}
+		if(itsCategory==10001L){   //懒人空间
+			return "lr_space";
+		}
 		return SUCCESS;
 	}
 	
@@ -115,6 +118,9 @@ public class showNewsAction extends BaseAction{
 		  idStr =TaoBaoKeyUtil.decode(idStr, "UTF-8");
 		  nid =Long.valueOf(idStr);
 		  news =newsManager.loadNews(nid);
+		  if(news!=null && news.getItsCategory().getId()==10001L){   //懒人空间
+				return "lr_space";
+		  }
 		}
 		return SUCCESS;
 		}catch(Exception e){

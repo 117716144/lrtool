@@ -12,8 +12,6 @@ import javax.servlet.ServletContext;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.util.ServletContextAware;
@@ -82,7 +80,11 @@ public class EditorUploadAction extends BaseAction implements ServletContextAwar
 		try{
 		DateFormat format = new SimpleDateFormat("yyMM");
 		String formatDate = format.format(new Date());
-		String savePath = context.getRealPath("/")+ "upload/"+formatDate+"/";
+		String rootpath =context.getRealPath("/");
+		if(!StringUtil.isEmpty(rootpath) && rootpath.indexOf("jsproot")==-1){
+			rootpath +="wwwroot/";
+		}
+		String savePath =rootpath + "upload/"+formatDate+"/";
 		if(!StringUtil.isEmpty(savePath) && savePath.indexOf("jsproot")!=-1){
 			savePath = savePath.replace("jsproot", "wwwroot");
 		}
