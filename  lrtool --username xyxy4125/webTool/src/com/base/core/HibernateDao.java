@@ -257,6 +257,37 @@ public class HibernateDao extends HibernateDaoSupport {
             countStat.close();
         return intRowCount;
     }
+    
+    public List getListByStanderdSQL(final String sql) {
+        List list = getHibernateTemplate().executeFind(new HibernateCallback() {
+            public Object doInHibernate(Session session)
+                    throws HibernateException, SQLException {
+                List ls = new ArrayList();
+                Connection conn = session.connection();
+                Statement stat = conn.createStatement();
+                ResultSet rs = stat.executeQuery(sql);
+                int j = 0;
+                while (rs.next()) {
+                    int columnsLength = rs.getMetaData().getColumnCount();
+                    if (columnsLength == 1)
+                        ls.add(rs.getString(1));
+                    else {
+                        Object[] s = new Object[columnsLength];
+                        for (int i = 0; i < columnsLength; i++) {
+                            s[i] = rs.getString(i + 1);
+                        }
+                        ls.add(s);
+                    }
+                }
+                if (rs != null)
+                    rs.close();
+                if (stat != null)
+                    stat.close();
+                return ls;
+            }
+        });
+        return list;
+    }
 
     /**
      * 执行查询记录
