@@ -28,6 +28,16 @@ public class NewsManager extends Manager{
 		return dao.findPageByCriteria(criteria,page,Order.desc("createdDate"));
 	}
 	
+	@SuppressWarnings("unchecked")
+	public int getNewsCountByCategory(Long category){
+		String sql ="select count(*) from news where its_category="+category;
+		List rs =dao.getListByStanderdSQL(sql);
+		if(rs.size()>0){
+			return Integer.parseInt(rs.get(0).toString());
+		}else
+			return 0;
+	}
+	
 	public News loadNews(Long nid){
 		return dao.load(News.class, nid);
 	}
