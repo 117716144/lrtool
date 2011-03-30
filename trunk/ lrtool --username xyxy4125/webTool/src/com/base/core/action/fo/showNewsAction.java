@@ -29,6 +29,36 @@ public class showNewsAction extends BaseAction{
 	public void setNewsCategoryManager(NewsCategoryManager newsCategoryManager) {
 		this.newsCategoryManager = newsCategoryManager;
 	}
+	
+	private int curpage=1;
+
+	public int getCurpage() {
+		return curpage;
+	}
+
+	public void setCurpage(int curpage) {
+		this.curpage = curpage;
+	}
+	
+	private int pagesize =1;
+	
+	public int getPagesize() {
+		return pagesize;
+	}
+
+	public void setPagesize(int pagesize) {
+		this.pagesize = pagesize;
+	}
+
+	private int pageCount;
+
+	public int getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(int pageCount) {
+		this.pageCount = pageCount;
+	}
 
 	private News news = new News();
 
@@ -89,15 +119,25 @@ public class showNewsAction extends BaseAction{
 	public void setItsCategory(Long itsCategory) {
 		this.itsCategory = itsCategory;
 	}
+	
+	private void pageSplit(int totalNum){
+		if(totalNum % pagesize==0){
+			pageCount = totalNum/pagesize;
+		}else{
+			pageCount = totalNum/pagesize+1;
+		}
+	}
 
 	//新闻列表
 	public String listNews(){
-		Page page = new Page(100);
-		if(itsCategory==null ){
+		Page page = new Page(pagesize);
+		if(itsCategory==null ){  //后台列表
 			newsList = newsManager.getNewsList(null,page);
 		}else{
 		NewsCategory category =newsCategoryManager.loadNewsCategory(itsCategory);
-		page.setCurrentPageIndex(1);
+		int totalNum =newsManager.getNewsCountByCategory(category.getId());;
+		this.pageSplit(totalNum);
+		page.setCurrentPageIndex(curpage);
 		newsList = newsManager.getNewsList(category,page);
 		}
 		if(newsList!=null && newsList.size()>0){
