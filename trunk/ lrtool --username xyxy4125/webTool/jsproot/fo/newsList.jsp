@@ -19,9 +19,9 @@
 			<p><a href="/view/<s:property value='#news.encodeIdStr'/>.html" target="_blank">查看详细</a></p>
 		</div>
 	</s:iterator>
+	<jsp:include page="/common/page/page_href_share.jsp" flush="true"/>
 	</div>
 	<s:include value="/includes/newsright.jsp"/>
-	<jsp:include page="/common/page/page_href.jsp" flush="true"/>
 </div>
 </body>
 </html>
