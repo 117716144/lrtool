@@ -40,7 +40,7 @@ public class showNewsAction extends BaseAction{
 		this.curpage = curpage;
 	}
 	
-	private int pagesize =1;
+	private int pagesize =10;
 	
 	public int getPagesize() {
 		return pagesize;
@@ -58,6 +58,16 @@ public class showNewsAction extends BaseAction{
 
 	public void setPageCount(int pageCount) {
 		this.pageCount = pageCount;
+	}
+	
+	private int totalCount;
+
+	public int getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
 	}
 
 	private News news = new News();
@@ -121,6 +131,7 @@ public class showNewsAction extends BaseAction{
 	}
 	
 	private void pageSplit(int totalNum){
+		totalCount = totalNum;
 		if(totalNum % pagesize==0){
 			pageCount = totalNum/pagesize;
 		}else{

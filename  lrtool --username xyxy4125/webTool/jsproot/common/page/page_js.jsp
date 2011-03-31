@@ -7,8 +7,6 @@ jQuery(document).ready(function() {
     jQuery("#pager").pager({ pagenumber: <s:property value='curpage'/>, pagecount: <s:property value='pageCount'/>, buttonClickCallback: PageClick });
 });
 
-var PageClick = function(pageclickednumber) {
-    $("#pager").pager({ pagenumber: pageclickednumber, pagecount: 15, buttonClickCallback: PageClick });
-    $("#result").html("Clicked Page " + pageclickednumber);
-}
 </script>
+<s:if test="totalCount>pagesize"><script>jQuery("#pager").show();</script></s:if>
+<s:else><script>jQuery("#pager").hide();</script></s:else>
