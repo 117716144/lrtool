@@ -11,6 +11,8 @@
         <pattern>/js/*</pattern>
         <pattern>/editor/*</pattern>
         <pattern>/areas*</pattern>
+        <pattern>/server-error.jsp</pattern>
+        <pattern>/missing.jsp</pattern>
     </excludes>
 
     <decorator name="home" page="home.jsp">
