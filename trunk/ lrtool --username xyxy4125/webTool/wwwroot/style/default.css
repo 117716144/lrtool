@@ -38,13 +38,14 @@ button,input,select,textarea{font-size:100%;vertical-align:middle;}
 .lr-tel{background:url(/images/lanren.jpg) 0 0 no-repeat;height:240px;margin-bottom:10px;}
 .lr-tel h1{text-indent:-9999px;}
 .lr-tel dl{padding:30px 15px 0 15px;}
-.lr-tel dt{color:#1E7DC2;font-weight:600;padding:5px 0 10px 10px;}
+.lr-tel dt{color:#1E7DC2;font-weight:600;padding:7px 0 10px 5px;}
+.lr-tel dd{line-height:22px;}
 .lr-new{border:1px solid #A6C8E4;margin:0 0 10px;}
 .lr-new h2{background:#E7F3FF;color: #015AAA;font-size: 14px;font-weight: 700;height: 24px;line-height: 24px;padding-left: 8px;border:1px solid #ffffff;border-bottom:1px solid #A6C8E4;}
 .lr-new ul{padding: 5px 0;}
 .lr-new li {background: url(../images/point.png) no-repeat scroll 0 13px transparent;border-bottom: 1px dotted #CCCCCC;margin: 0 10px;padding: 5px 0 5px 10px;}
 .bd{border:1px solid #DDDDDD;float:left;width:340px;background:url(../images/obg.jpg) 0 0 repeat-x;margin-top:15px;height:280px;}
-.bd h2{padding:10px 0 10px 20px;color:#015AAA;font-size:14px;}.bd p{text-align:center;}.bd p.wr{text-align:left;padding:10px;}
+.bd h2{padding:10px 0 10px 20px;color:#015AAA;font-size:14px;}.bd p{text-align:center;}.bd p.wr{text-align:left;padding:10px;}.bd p.wr a{white-space:nowrap;}
 .bl{margin-left:6px;}
 
 .lr-top{line-height:25px;}.ipadr{float:right;color:#0066CC;}.tip{background:url(../images/qes.gif) 0 center no-repeat;padding:0 0 0 20px;}
