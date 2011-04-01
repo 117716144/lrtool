@@ -32,4 +32,7 @@
         <pattern>/bo/toLogin.action</pattern>
         <pattern>/bo/login.action</pattern>
     </decorator>
+    <decorator name="blank" page="site-news.jsp">
+        <pattern>/news/*</pattern>
+    </decorator>
 </decorators>
