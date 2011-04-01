@@ -34,7 +34,6 @@ public class SearchRelatedWordsAction extends BaseAction{
 	}
 
 	public String execute(){
-		getIpInfo();
 		if(StringUtil.isEmpty(keyword))  return SUCCESS;
 		GetRelatedKeywords grk = new GetRelatedKeywords();
 		try {

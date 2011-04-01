@@ -108,7 +108,6 @@ public class KeywordSearchAction extends BaseAction{
 
 
 	public String execute(){
-		this.getIpInfo();
 		if(StringUtil.isEmpty(this.getSiteurl()) || StringUtil.isEmpty(this.getKeyword())){
 			return SUCCESS;
 		}
@@ -134,7 +133,6 @@ public class KeywordSearchAction extends BaseAction{
 	 * @return
 	 */
 	public String getCount(){
-		this.getIpInfo();
 		if(StringUtil.isEmpty(this.getSkey()) || StringUtil.isEmpty(this.getSurl())){
 			return SUCCESS;
 		}

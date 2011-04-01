@@ -47,7 +47,6 @@ public class PageRankAction extends BaseAction{
 	}
 
 	public String execute(){
-		this.getIpInfo();
 		GooglePageRank gr = new GooglePageRank();
 		googlePR =gr.getPageRank(this.getPrdomain());
 //		String url ="http://www.sogou.com/web?query=link%3A"+this.getPrdomain();
