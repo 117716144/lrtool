@@ -74,13 +74,11 @@ public class ShouLuResultAction extends ShouLuBaseAction{
 	}
 
 	public String execute(){
-		this.getIpInfo();
 		return SUCCESS;
 	}
 	
 	//搜索引擎反向链接
     public String link(){
-    	this.getIpInfo();
 		return SUCCESS;
 	}
 }

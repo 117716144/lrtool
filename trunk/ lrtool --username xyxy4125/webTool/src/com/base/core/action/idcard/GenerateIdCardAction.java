@@ -101,7 +101,6 @@ public class GenerateIdCardAction extends BaseAction{
 	}
 
 	public String execute(){
-		this.getIpInfo();
 		IdCardGenerator gen = new IdCardGenerator();
 		if(city!=null && city!=-1){
 			selCode =String.valueOf(city);
@@ -134,7 +133,6 @@ public class GenerateIdCardAction extends BaseAction{
 //		for(int i=0;i<reqCount;i++){
 //		  cardInfo +=gen.generate()+"<br/>";
 //		}
-		getIpInfo();
 		return SUCCESS;
 	}
 

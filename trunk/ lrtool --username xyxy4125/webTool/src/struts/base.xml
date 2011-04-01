@@ -8,6 +8,7 @@
             
         <action name="indexAction" class="com.base.core.action.IndexAction">
             <result name="success">/index.jsp</result>
+            <result name="tools">/tools.jsp</result>
         </action>
         
         <action name="ipInfo" class="com.base.core.action.IndexAction" method="ipInfo">

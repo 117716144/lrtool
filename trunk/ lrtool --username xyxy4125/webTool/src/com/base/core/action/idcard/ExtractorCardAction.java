@@ -149,7 +149,6 @@ public class ExtractorCardAction extends BaseAction{
 		if(!StringUtil.isEmpty(idCodeStr)){
 			this.IdcardInfoExtract(idCodeStr);
 		}
-		getIpInfo();
 		return SUCCESS;
 	}
 

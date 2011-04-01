@@ -1,111 +1,75 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-<title>网站工具 –懒人工具</title>
-<meta name ="keywords" content="网站工具，站长工具,站长查询工具,懒人工具，alexa,seo,关键词" />
-<meta name="description" content="提供记录各大搜索引擎每天的收录和反向链接，记录google pagerank 和 alexa 排名，记录每天关键字排位，关键词的深度分析和挖掘数据服务。" />
-<script language="javascript" type="text/javascript" src="/datepicker/WdatePicker.js"></script>
+<title>懒人工具- 懒人网站助手中文关键字分析与挖掘</title>
+<meta name ="keywords" content="网站优化 SEM工具  关键字分析 网站助手" />
+<meta name="description" content="懒人工具专注于SEO相关工具，提供最简单便捷的网上导航搜索服务，关键词的深度分析和挖掘数据服务。让全民上网更加方便更加快捷，让你工作生活无忧!" />
 </head>
 
 <body>
-<div class="main">
-	<div class="col">
-		<dl>
-		   <dt><strong>搜索引擎收录情况查询</strong><p><a href="collect.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-		      	<dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('sholuinpt').value);" action="collect.html"><font class="htp">HTTP://</font> <input name="shoulu_domain" id="sholuinpt" type="text" size="35" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
-				<input name="googlecheck" type="checkbox" class="checkbox" value="checked" > 谷歌
-				<input name="baiducheck" type="checkbox" class="checkbox" value="checked" > 百度
-				<input name="yahoocheck" type="checkbox" class="checkbox" value="checked" > 雅虎
-				<input name="sosocheck" type="checkbox" class="checkbox" value="checked" > SOSO
-				<input name="sogoucheck" type="checkbox" class="checkbox" value="checked" > 搜狗
-				<input name="youdaocheck" type="checkbox" class="checkbox" value="checked" > 有道
-				<input name="bingcheck" type="checkbox" class="checkbox" value="checked" > 必应
-				<input name="chkall" type="checkbox" class="checkbox" value=on onclick=checkall(this.form)> 全选</form>可查询各大搜索引擎对指定网站的收录数量和对比情况。
-				 </dd>
-		</dl>
-	</div>
-	<div class="col">
-    	<dl>
-        <dt><strong>关键词排名查询</strong><p><a href="position.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form action="position.html" method="post" target="_blank">网站域名：<input name="siteurl" type="text" size="30"  class="inp">&nbsp;关键词：<input name="keyword" type="text" value="" size="6"  class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定站点在baidu中搜索指定关键词时的排名位置。
-      </dd>
+    <div class="main">
+    	<div class="side">
+	    	<div class="lr-tel">
+	    		<h1>开始懒人之旅</h1>
+	    		<dl>
+			   		<dt>关键词查询</dt>
+			      	<dd><form action="position.html" method="post" target="_blank">网站域名：<input name="siteurl" type="text" size="30"  class="inp"><br />关键词：<br /><input name="keyword" type="text" value="" size="6"  class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定站点在baidu中搜索指定关键词时的排名位置。
+					 </dd>
+				</dl>
+	    	</div>
+	    	<div class="lr-new">
+	    		<h2>工具推荐</h2>
+	    		<ul>
+	    			<li><a href="#">Whois信息查询——新工具</a></li>
+	    			<li><a href="#">页面全面分析</a></li>
+	    			<li><a href="#">百度指数查询 </a></li>
+	    			<li><a href="#">身份证生成工具</a></li>
+	    			<li><a href="#">IP/服务器物理定位查询</a></li>
+	    			<li><a href="#">页面关键词密度查询</a></li>
+	    		</ul>
+	    	</div>
+	    	<div class="lr-new">
+	    		<h2>关键词优化深度挖掘</h2>
+	    		<ul>
+	    			<li><a href="#">网站关键词优化出众却没有盈利的问题</a></li>
+	    			<li><a href="#">影响网站关键词优化的主要因素是什么</a></li>
+	    			<li><a href="#">核心关键词该如何定位？ </a></li>
+	    			<li><a href="#">关键字词频与密度的关系</a></li>
+	    			<li><a href="#">关键字密度与页面相关性</a></li>
+	    			<li><a href="#">中文关键字密度</a></li>
+	    		</ul>
+	    	</div>
+    	</div>
+    	<div class="panel">
+	    	<div class="banner">
+	    		<img src="images/banner.jpg" />
+	    	</div>
+	    	<div class="bd">
+	    		<h2><img src="images/two.jpg" alt="懒人工具"/>站长工具</h2>
+	    		<p><img src="images/toola.jpg"/ alt="懒人工具说明"></p>
+	    		<p class="wr">懒人站长工具提供各类站长常用查询工具, 包括 Alexa排名查询, META信息检测, 网站收录查询, 反向链接查询, IP定位查询, whois查询, 中文关键字百度分析。</p>
+	    		<p class="wr"><a href="/bdIndex.html">百度指数查询</a>
+      	<a href="/relatedKey.html">关键词查询</a>
+            <a href="/position.html">百度排名查询</a>
+           <a href="/ipsearch.html">域名/IP类查询</a>
+            <a href="/frequency.html">词频查询</a>
+            <a href="/generatecard.html">其他工具</a>
+            <a href="/link.html">反向链接查询</a>
+            <a href="/extractCard.html">身份证查询工具</a>
+            <a href="/generatecard.html">身份证生成工具</a>  </p>
+	    	</div>
+	    	<div class="bd bl">
+	    		<h2><img src="images/two.jpg" alt="流量统计"/>我们的服务介绍</h2>
+	    		<p><img src="images/toolb.jpg"/ alt="流量统计介绍"></p>
+	    		<p class="wr">全面分析您所关注的站点。提供详细的站点域名信息：网站年龄，域名注册时间，网站响应速度等；提供网站整体评分，并会对您的网站给出分析评价和建议；提供 Google PR值，Alexa排名，最近的Google，Baidu，Yahoo收录、链接数目，绘制网站发展图，关键字排位；进行首页页面信息分析：页面评分和首页的seo信息。</p>
+	    	</div>
+    	</div>
+    	<!--<div class="friend">
+    		<h3>友情链接</h3>
+    		<a href="#">优保网</a>
+    	</div>-->
     </div>
-    <div class="col">
-    	<dl>
-        <dt><strong>身份证生成工具</strong><p><a href="generatecard.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="generatecard.html" method="get"  target="_blank">
-        	<s:include value="/common/areas/areas.jsp"/>
-        	<input class="Wdate" type="text" name="birthDay" value="1987-07-05" onClick="WdatePicker({skin:'whyGreen',maxDate:'%y-%M-%d',startDate:'1985-07-05'})">
-        	请点击生成按钮将身份证号直接生成！<br/>
-        <input type="submit" value="生成" class="sec"></form>
-      </dd>
-     </dl>
-    </div>
-   	<div class="col cmid">
-   		<dl>
-        <dt><strong>IP/服务器物理定位查询</strong><p><a href="ipsearch.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form method="post" target="_blank" onsubmit="return checkUrl(document.getElementById('ipinpt').value);" action="ipsearch.html">IP / 域名：<input name="myIp" id="ipinpt" type="text" size="30" value="<%=request.getRemoteAddr()%>" class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>直接输入IP则可查询该IP的物理位置；
-      </dd>
-   	</div>
-    <div class="col crig">
-    	<dl>
-        <dt><strong>域名 WHOIS 信息查询</strong><p><a href="whois.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form method="post" target="_blank" name="ipform" action="whois.html" onsubmit="return checkIP();">网站域名：www.<input name="domain" type="text" size="30" value="" class="inp">&nbsp;<input type="submit"value="开始查询" class="sec"></form>输入域名则可检测服务器的IP及其 WHOIS 信息。
-      </dd>
-    </div>
-    <div class="col cmid">
-    	<dl>
-        <dt><strong>ALEXA 详细排名查询</strong><p><a href="alexa.html"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form action="alexa.html" method="post" target="_blank">
-网站地址：<input name="domain"  type="text" size="30" value="http://www." class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询网站的世界排名、流量、访问量、联系方式等综合信息。
-      </dd>
-     </dl>
-    </div>
-    
-    <div class="col crig">
-    	<dl>
-        <dt><strong>GG PR & SOGOU RANK 查询</strong><p><a href="pagerank.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form method="post" target="_blank" name="get_rank" action="pagerank.html">网站地址：<input name="prdomain" type="text" size="30" value="http://www." class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询网页在GG和搜狗上的页面等级（影响搜索引擎排名）信息。</dd>
-     </dl>
-    </div>
-    <div class="col cmid">
-    	<dl>
-        <dt><strong>页面关键词密度查询</strong><p><a href="frequency.html"><img src="/images/right.gif" /></a></p></dt>
-        <dd><form method="post" target="_blank" action="frequency.html">网站页面：<input name="surl" type="text" size="14" value="http://www." class="inp">&nbsp;关键词：<input name="skey" type="text" size="7" value="" class="inp">&nbsp;<input type="submit" value="开始查询" class="sec"></form>可查询指定页面中某一关键词的出现频率和密度。
-      </dd>
-     </dl>
-    </div>
-    
-    <div class="col crig">
-    	<dl>
-		   <dt><strong>搜索引擎相关关键词查询</strong><p><a href="relatedKey.html" target="_blank"><img src="/images/right.gif" /></a></p></dt>
-		      	<dd><form method="post" target="_blank" action="relatedKey.html"><input name="keyword" id="key" type="text" size="45" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"></form><br />
-                </dd>
-		</dl>
-    </div>
-    
-     <div class="col crig">
-    	<dl>
-        <dt><strong>百度指数查询</strong><p><a href="bdIndex.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="bdIndex.html" method="get"  target="_blank">
-        	<input name="searchWord" id="sword" type="text" size="45" value="" class="inp">&nbsp;<input type="submit" value="开始查询"  class="sec"><br />
-        	</form>
-        </dd>
-        
-      </dd>
-     </dl>
-    </div>
-    
-    <div class="col cmid">
-    	<dl>
-        <dt><strong>身份证查询工具</strong><p><a href="extractCard.html"><img src="/images/right.gif"/></a></p></dt>
-        <dd><form action="extractCard.html" method="get"  target="_blank">
-        	<input class="inp" type="text" size="45" name="idCodeStr">
-        <input type="submit" value="查询" class="sec"></form>
-      </dd>
-     </dl>
-    </div>
-</div>
 </body>
 </html>
