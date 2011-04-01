@@ -25,7 +25,7 @@
             <a href="/position.html">百度排名查询</a>
            <a href="/ipsearch.html">域名/IP类查询</a>
             <a href="/frequency.html">词频查询</a>
-            <a href="/generatecard.html">其他工具</a>
+            <a href="/collect.html">收录查询</a>
             <a href="/link.html">反向链接查询</a>
             <a href="/extractCard.html">身份证查询工具</a>
             <a href="/generatecard.html">身份证生成工具</a>        	  
