@@ -50,7 +50,7 @@ public class BaiduShouLuAction extends ShouLuBaseAction{
 	//取相关数字
 	protected void getResult(String sbf){
 		//(.*)找到相关网页约(.*)篇，用时(.*)秒(.*)
-		Pattern pattern = Pattern.compile("(.*)找到相关网页(.*)篇，用时(.*)");
+		Pattern pattern = Pattern.compile("(.*)找到相关结果(.*)个</span></p>(.*)");
         Matcher matcher =pattern.matcher(sbf.toString());
         if(matcher.find()){
         	shoulu_result =matcher.group(2).toString().replaceAll("\\,", "").replaceAll("\\，", "").trim();
