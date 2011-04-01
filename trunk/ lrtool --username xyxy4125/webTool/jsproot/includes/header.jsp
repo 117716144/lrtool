@@ -15,7 +15,7 @@
     	<ul>                                                            
             <li class="on"><a href="/">首页</a></li>
             <li><a href="/tool.html">工具</a></li>
-            <li><a href="/site/daohang.jsp">名站导航</a></li>
+            <li><a href="/navigator.html">名站导航</a></li>
             <li><a href="/lrshare.html">懒人分享</a></li>
             <li><a href="/lrspace.html">懒人空间</a></li>       	  
       	</ul>
