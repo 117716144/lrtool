@@ -49,13 +49,11 @@ public class SearchIpAction extends BaseAction {
 	}
 
 	public String execute(){
-		this.getIpInfo();
 		result =IPSeeker.getInstance().getAddress(target);
 		return SUCCESS;
 	}
 	
 	public String input(){
-		this.getIpInfo();
 		myIp =getIpAddr(this.getRequest());
 		myPosition =IPSeeker.getInstance().getAddress(myIp);
 		return SUCCESS;
