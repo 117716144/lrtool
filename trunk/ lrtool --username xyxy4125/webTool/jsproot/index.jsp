@@ -22,23 +22,23 @@
 	    	<div class="lr-new">
 	    		<h2>工具推荐</h2>
 	    		<ul>
-	    			<li><a href="/tool_1.html">Whois信息查询——新工具</a></li>
-	    			<li><a href="/tool_2.html">页面全面分析</a></li>
-	    			<li><a href="/tool_3.html">百度指数查询 </a></li>
-	    			<li><a href="/tool_4.html">身份证生成工具</a></li>
-	    			<li><a href="/tool_5.html">关键词排名查询</a></li>
-	    			<li><a href="/tool_6.html">页面关键词密度查询</a></li>
+	    			<li><a href="/n_tool_1.html">Whois信息查询——新工具</a></li>
+	    			<li><a href="/n_tool_2.html">页面全面分析</a></li>
+	    			<li><a href="/n_tool_3.html">百度指数查询 </a></li>
+	    			<li><a href="/n_tool_4.html">身份证生成工具</a></li>
+	    			<li><a href="/n_tool_5.html">关键词排名查询</a></li>
+	    			<li><a href="/n_tool_6.html">页面关键词密度查询</a></li>
 	    		</ul>
 	    	</div>
 	    	<div class="lr-new">
 	    		<h2>关键词优化深度挖掘</h2>
 	    		<ul>
-	    			<li><a href="/key_1.html">网站关键词优化出众却没有盈利的问题</a></li>
-	    			<li><a href="/key_2.html">影响网站关键词优化的主要因素是什么</a></li>
-	    			<li><a href="/key_3.html">核心关键词该如何定位？ </a></li>
-	    			<li><a href="/key_4.html">关键字词频与密度的关系</a></li>
-	    			<li><a href="/key_5.html">关键字密度与页面相关性</a></li>
-	    			<li><a href="/key_6.html">中文关键字密度</a></li>
+	    			<li><a href="/n_key_1.html">网站关键词优化出众却没有盈利的问题</a></li>
+	    			<li><a href="/n_key_2.html">影响网站关键词优化的主要因素是什么</a></li>
+	    			<li><a href="/n_key_3.html">核心关键词该如何定位？ </a></li>
+	    			<li><a href="/n_key_4.html">关键字词频与密度的关系</a></li>
+	    			<li><a href="/n_key_5.html">关键字密度与页面相关性</a></li>
+	    			<li><a href="/n_key_6.html">中文关键字密度</a></li>
 	    		</ul>
 	    	</div>
     	</div>
