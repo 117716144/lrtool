@@ -57,6 +57,12 @@
      <filter-name>hibernateFilter</filter-name> 
      <filter-class> org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class> 
 	</filter>
+	
+	<filter-mapping>
+        <filter-name>spiderurl</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> 
+    
 	<filter-mapping> 
 	     <filter-name>hibernateFilter</filter-name> 
 	     <url-pattern>*.do</url-pattern> 
@@ -101,11 +107,6 @@
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
     
-    <filter-mapping>
-        <filter-name>spiderurl</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
